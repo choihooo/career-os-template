@@ -45,11 +45,12 @@ Use this default interpretation unless the user overrides it:
 2. Read the positioning and reusable evidence pages first.
 3. Select only the strongest and most defensible stories.
 4. Rewrite the target output files so they read as coherent final documents, not as notes.
-5. If you discover missing reusable phrasing, backfill:
+5. Before finalizing the target output files, invoke `career-output-polish` on each final-form resume or portfolio file.
+6. If you discover missing reusable phrasing, backfill:
    - `wiki/sentence-bank/resume-bullets.md`
    - `wiki/themes/positioning.md`
    - `wiki/stories/story-bank.md`
-6. Append one `output` entry to `log.md`.
+7. Append one `output` entry to `log.md`.
 
 ## Writing Rules
 

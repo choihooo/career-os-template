@@ -68,8 +68,9 @@ Optional supporting files:
    - the positioning angle for this application
 4. Build `resume.md` from the strongest matching facts and bullets.
 5. Build `portfolio.md` from the strongest matching case studies and proof.
-6. If the package produces a better reusable framing, backfill the relevant wiki pages.
-7. Append one `output` entry to `log.md`.
+6. Before finalizing `resume.md` and `portfolio.md`, invoke `career-output-polish` on both files.
+7. If the package produces a better reusable framing, backfill the relevant wiki pages.
+8. Append one `output` entry to `log.md`.
 
 ## Writing Rules
 

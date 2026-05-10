@@ -66,7 +66,8 @@ Optional research files:
 1. `wiki/themes/`, `wiki/stories/`, `wiki/sentence-bank/`를 우선 읽는다.
 2. 전달하려는 포지셔닝에 맞게 문장을 선택한다.
 3. 해당 범용 산출물 파일을 갱신한다.
-4. `log.md`에 변경 이유를 기록한다.
+4. 최종 저장 전에 `career-output-polish` 기준으로 AI식 문장 패턴을 교정한다.
+5. `log.md`에 변경 이유를 기록한다.
 
 ### Build Company-Specific Outputs
 
@@ -75,8 +76,9 @@ Optional research files:
 3. `analysis.md`에 요구사항과 키워드를 정리한다.
 4. `strategy.md`에 강조 포인트와 제외 포인트를 정리한다.
 5. `resume.md`와 `portfolio.md`를 생성한다.
-6. 새롭게 정리된 강점이나 문장은 `wiki/`에 역반영한다.
-7. `log.md`에 output 항목을 append 한다.
+6. 최종 저장 전에 `career-output-polish` 기준으로 AI식 문장 패턴을 교정한다.
+7. 새롭게 정리된 강점이나 문장은 `wiki/`에 역반영한다.
+8. `log.md`에 output 항목을 append 한다.
 
 ### Query
 
