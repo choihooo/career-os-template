@@ -21,6 +21,11 @@ Read these files before writing:
 6. `wiki/sentence-bank/resume-bullets.md`
 7. The most relevant project, experience, award, and skill pages
 8. The incoming JD or company context
+9. If present:
+   - `company-research.md`
+   - `culture-signals.md`
+   - `interview-signals.md`
+   - `fit-hypotheses.md`
 
 ## Required Output Folder
 
@@ -39,6 +44,13 @@ Every package must contain:
 - `strategy.md`
 - `resume.md`
 - `portfolio.md`
+
+Optional supporting files:
+
+- `company-research.md`
+- `culture-signals.md`
+- `interview-signals.md`
+- `fit-hypotheses.md`
 
 ## Required Workflow
 

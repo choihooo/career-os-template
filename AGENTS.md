@@ -43,6 +43,13 @@ Each company folder must contain:
 - `resume.md`
 - `portfolio.md`
 
+Optional research files:
+
+- `company-research.md`
+- `culture-signals.md`
+- `interview-signals.md`
+- `fit-hypotheses.md`
+
 ## Workflows
 
 ### Ingest
