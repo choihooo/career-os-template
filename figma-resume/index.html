@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Figma Resume Template</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <article class="resume-page">
+        <header class="resume-header">
+          <div class="header-top">
+            <div class="identity-block">
+              <h1 class="name">최호</h1>
+              <p class="role">Frontend Engineer</p>
+            </div>
+            <div class="profile-frame">
+              <img
+                src="./assets/profile-crop.png"
+                alt="최호 프로필 사진"
+              />
+            </div>
+          </div>
+
+          <section class="about-section">
+            <h2>About Me</h2>
+            <p>
+              기술적 화려함보다 사용자의 맥락과 팀의 효율을 최우선으로 두는
+              실용주의 엔지니어입니다.
+            </p>
+          </section>
+
+          <section class="contact-row" aria-label="연락처 및 링크">
+            <a href="https://velog.io/@hochoi8621/posts" target="_blank" rel="noreferrer">
+              <img
+                src="https://www.figma.com/api/mcp/asset/236676fb-9185-4d2a-9b63-8e8876a74a1f"
+                alt=""
+              />
+              <span>https://velog.io/@hochoi8621/posts</span>
+            </a>
+            <a href="https://github.com/choihooo" target="_blank" rel="noreferrer">
+              <img
+                src="https://www.figma.com/api/mcp/asset/dba97334-9024-4ff6-b129-901bdb562567"
+                alt=""
+              />
+              <span>https://github.com/choihooo</span>
+            </a>
+            <a href="mailto:hochoi8621@gmail.com">
+              <img
+                src="https://www.figma.com/api/mcp/asset/8c5a8b6b-e480-4b17-9b6e-41dcbc3ab2c4"
+                alt=""
+              />
+              <span>hochoi8621@gmail.com</span>
+            </a>
+            <div class="contact-static">
+              <img
+                src="https://www.figma.com/api/mcp/asset/9d67169f-1588-49f0-8ef5-1fa601d74303"
+                alt=""
+              />
+              <span>(+82)10-2010-8621</span>
+            </div>
+          </section>
+        </header>
+
+        <section class="experience-section">
+          <div class="section-heading">
+            <h2>Work Experience</h2>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="experience-intro">
+            <div class="experience-meta">
+              <div class="date-block">
+                <p>25.03.04 - 25.06.30</p>
+                <p>(4개월)</p>
+              </div>
+              <a href="https://eigene.ai/" target="_blank" rel="noreferrer" class="tiny-link">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/933a57ea-229f-4c4b-b8fc-94266655b74d"
+                  alt=""
+                />
+                <span>Homepage</span>
+              </a>
+            </div>
+
+            <div class="experience-summary">
+              <h3>Frontend Engineer 인턴 @아이겐코리아</h3>
+              <p>
+                국내 최대 빅데이터 분석 기업 출신들이 설립한 회사로 빅데이터 기반
+                개인화 추천 및 마케팅 솔루션을 제공하고 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-list">
+            <section class="project-item">
+              <div class="project-head">
+                <h4>어드민 TypeScript 마이그레이션</h4>
+                <div class="tags">
+                  <span>AWS codecommit</span>
+                  <span>AWS CodePipeline</span>
+                  <span>TypeScript</span>
+                  <a href="https://hochoi.tistory.com/23" target="_blank" rel="noreferrer">블로그 1</a>
+                  <a href="https://hochoi.tistory.com/25" target="_blank" rel="noreferrer">블로그 2</a>
+                </div>
+              </div>
+              <ul>
+                <li>어드민 서비스의 TS 버전 노후화로 최신 라이브러리 적용 시 버전 충돌 오류가 빈번하게 발생</li>
+                <li>tsconfig를 strict 모드로 전환하기 위해 단계별로 마이그레이션 진행</li>
+                <li>전체 코드베이스에서 any 타입을 모두 특정한 타입으로 전환</li>
+                <li>빌드 속도 약 19% 단축. (평균 246.22초 → 199.51초)</li>
+              </ul>
+            </section>
+
+            <section class="project-item">
+              <div class="project-head">
+                <h4>어드민 서비스 다국어화 작업</h4>
+                <div class="tags">
+                  <span>Nodejs</span>
+                  <span>AWS CodePipeline</span>
+                  <span>React-i18n</span>
+                </div>
+              </div>
+              <ul>
+                <li>어드민 서비스의 일부분에만 다국어화 적용, 일부는 키 그대로 노출.</li>
+                <li>
+                  한국어 JSON을 기준으로 영/중/일 파일과 비교 후 누락된 키를 자동
+                  추출하고, 이를 CI에 연결해 PR 단계에서 누락을 차단
+                </li>
+                <li>
+                  flat key 구조에서 `koKeys - targetKeys` Set 비교로 누락 키를 계산하고,
+                  언어별 누락 목록을 정렬·요약 출력하며 누락 시 `exit code 1`로 실패 처리
+                </li>
+                <li>
+                  i18n 키 누락 감지 스크립트 + CI 파이프라인 구축으로 신규 개발 시
+                  번역 누락을 즉시 발견해 운영 단계의 “키 노출” 이슈를 선제적으로 제거
+                </li>
+              </ul>
+            </section>
+
+            <section class="project-item">
+              <div class="project-head">
+                <h4>바운스사 어드민 센터관리 시스템 아키텍쳐 개선</h4>
+                <div class="tags">
+                  <span>Recoil</span>
+                  <span>axios</span>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  30개 이상의 센터 정보가 하드코딩되어 있어 새 센터 추가 시마다 코드
+                  수정 및 배포가 필요했고, 백엔드·프론트엔드간 데이터 불일치 위험 존재
+                </li>
+                <li>
+                  하드코딩된 센터 목록을 API 기반 동적 로딩으로 전환하고, 38개 파일에
+                  걸친 전역 리팩토링 수행
+                </li>
+                <li>
+                  Recoil atom/selector 패턴 도입으로 상태 관리 아키텍처 설계,
+                  LocalStorage effect로 캐싱 구현. 로그인 시점 API 호출 후 전역 상태
+                  업데이트, TypeScript 타입 안정성 확보 및 Git 병합 충돌 해결
+                </li>
+                <li>
+                  코드 수정 없이 새 센터 자동 반영, 백엔드·프론트엔드 데이터 동기화
+                  자동화, 유지보수성 및 확장성 향상
+                </li>
+              </ul>
+            </section>
+
+            <section class="project-item">
+              <div class="project-head">
+                <h4>의사결정 지원을 위한 핵심 지표 시각화 및 통계 기능 개선</h4>
+                <div class="tags">
+                  <span>Recharts</span>
+                  <span>Excel Export</span>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  기존 실적 현황판 내 목표 달성률 및 전년 대비 증감률(YoY) 지표 부재로
+                  인한 성과 분석의 한계를 개선하여 데이터 기반 의사결정 지원
+                </li>
+                <li>
+                  목표 달성률 및 전년 대비 증감률 지표를 센터별/전체 통계에 추가하고,
+                  Recharts를 활용한 복합 차트 구현
+                </li>
+                <li>
+                  API 원본 데이터를 프론트엔드에서 집계 로직에 맞춰 가공하는 유틸리티
+                  함수 구현 및 엑셀 다운로드 기능 연동
+                </li>
+                <li>
+                  기존 차트 컴포넌트의 중복 코드를 분리 및 공통화하여 코드 재사용성
+                  향상 및 유지보수 비용 절감
+                </li>
+              </ul>
+            </section>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
