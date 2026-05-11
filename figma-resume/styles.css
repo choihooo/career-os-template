@@ -308,6 +308,74 @@ a {
   margin: 0;
 }
 
+.side-page {
+  min-height: 842px;
+}
+
+.side-project-page {
+  padding-top: 30px;
+}
+
+.side-project-group {
+  margin-top: 16px;
+}
+
+.side-gap {
+  margin-top: 24px;
+}
+
+.side-gap-sm {
+  margin-top: 16px;
+}
+
+.side-project-intro .experience-summary {
+  padding-bottom: 10px;
+}
+
+.side-project-list {
+  margin-top: 0;
+}
+
+.side-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.compact-gap .experience-summary p {
+  white-space: normal;
+}
+
+.nested-bullets h4 {
+  position: relative;
+  margin: 0;
+  padding-left: 12px;
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+.nested-bullets h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--text);
+}
+
+.sub-bullets {
+  margin-top: 0;
+  padding-left: 24px;
+}
+
+.sub-bullets li {
+  margin: 0;
+}
+
 @media (max-width: 700px) {
   body {
     padding: 16px 8px;
@@ -353,6 +421,10 @@ a {
   .project-item ul {
     width: auto;
     padding-right: 6px;
+  }
+
+  .side-links {
+    gap: 4px;
   }
 }
 
