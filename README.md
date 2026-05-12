@@ -78,6 +78,12 @@ career-os-template/
 - `outputs/custom/2026-01-01-example-frontend/`: 샘플 JD 패키지
 - `resume/assets/`, `portfolio/assets/`: 이력서/포트폴리오 렌더링에 직접 쓰는 에셋 위치
 - `resume/index.html`, `portfolio/index.html`: 개인정보 없는 렌더링 스타터
+- `docs/`: GitHub Pages로 공개할 카드뉴스와 문서 진입점
+
+## Web Preview
+
+- Docs landing: `https://choihooo.github.io/career-os-template/`
+- Card news: `https://choihooo.github.io/career-os-template/card-news/career-os-template/`
 
 ## Profile and Assets
 
