@@ -9,12 +9,14 @@
 처음 쓰는 순서는 아래가 가장 안전하다.
 
 1. `index.md`에서 현재 구조와 샘플 파일을 확인한다.
-2. `examples/` 중 하나에 맞춰 프로젝트, 경력, 수상 자료를 준비한다.
-3. `career-ingest`로 `raw/`와 `wiki/`를 먼저 채운다.
-4. `career-build-general`로 `outputs/general/`의 범용 이력서/포트폴리오를 만든다.
-5. 실제 JD가 생기면 `career-apply-pipeline`으로 회사별 패키지를 만든다.
-6. 제출용 HTML/PDF가 필요할 때만 `career-build-rendered-resume` 또는 `career-build-rendered-portfolio`를 쓴다.
-7. 제출 전 `docs/checklists/custom-output-quality-checklist.md`와 `career-lint`로 누락, 과장, 중복을 확인한다.
+2. `raw/bios/profile.md`에 기본정보와 링크를 먼저 채운다.
+3. 프로필 사진 원본은 `raw/assets/`에 보관하고, 렌더링용 이미지는 `resume/assets/`, `portfolio/assets/`에 둔다.
+4. `examples/` 중 하나에 맞춰 프로젝트, 경력, 수상 자료를 준비한다.
+5. `career-ingest`로 `raw/`와 `wiki/`를 먼저 채운다.
+6. `career-build-general`로 `outputs/general/`의 범용 이력서/포트폴리오를 만든다.
+7. 실제 JD가 생기면 `career-apply-pipeline`으로 회사별 패키지를 만든다.
+8. 제출용 HTML/PDF가 필요할 때만 `career-build-rendered-resume` 또는 `career-build-rendered-portfolio`를 쓴다.
+9. 제출 전 `docs/checklists/custom-output-quality-checklist.md`와 `career-lint`로 누락, 과장, 중복을 확인한다.
 
 ## 가장 많이 쓰는 요청
 
@@ -69,10 +71,31 @@ career-os-template/
 ## Template Files
 
 - `examples/`: 사용자가 붙여 넣을 입력 형식
+- `raw/bios/profile.md`: 이름, 연락처, 링크, 학력, 선호 직무 같은 기본정보 원천
+- `raw/assets/`: 프로필 사진과 프로젝트 이미지의 원본 보관 위치
 - `wiki/templates/`: 새 위키 페이지 작성 구조
 - `wiki/output-briefs/`: 범용 이력서/포트폴리오 조립 기준
 - `outputs/custom/2026-01-01-example-frontend/`: 샘플 JD 패키지
+- `resume/assets/`, `portfolio/assets/`: 이력서/포트폴리오 렌더링에 직접 쓰는 에셋 위치
 - `resume/index.html`, `portfolio/index.html`: 개인정보 없는 렌더링 스타터
+
+## Profile and Assets
+
+기본정보와 이미지는 아래 원칙으로 관리한다.
+
+```text
+raw/bios/profile.md              # 기본정보 원천
+raw/assets/profile-photo.jpg     # 원본 프로필 사진
+raw/assets/profile-photo-square.png
+
+resume/assets/profile.png        # 이력서 렌더링용
+portfolio/assets/profile.png     # 포트폴리오 렌더링용
+portfolio/assets/project-*.png   # 프로젝트 이미지
+```
+
+- `raw/`에는 원본을 둔다.
+- `resume/assets/`, `portfolio/assets/`에는 렌더링에 맞게 가공한 사본을 둔다.
+- 공개 템플릿에는 실제 프로필 사진, 내부 자료, 비공개 증빙 이미지를 커밋하지 않는다.
 
 ## Rules
 

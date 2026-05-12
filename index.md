@@ -38,6 +38,8 @@
 
 ## Raw Sources
 
+- [profile](raw/bios/profile.md) - 이름, 연락처, 링크, 학력, 선호 직무 등 기본정보 원천
+- [raw-assets-guide](raw/assets/README.md) - 프로필 사진과 프로젝트 이미지 원본 보관 규칙
 - [sample-experience](raw/experiences/sample-company-intern.md) - 샘플 경력 원천
 - [sample-project](raw/projects/sample-dashboard.md) - 샘플 프로젝트 원천
 - [sample-award](raw/awards/sample-award.md) - 샘플 수상 원천
@@ -70,4 +72,6 @@
 - [portfolio-general-v2](outputs/general/portfolio-general-v2.md) - 범용 포트폴리오 내러티브형 샘플
 - [example-frontend](outputs/custom/2026-01-01-example-frontend/jd.md) - 샘플 회사별 패키지
 - [resume-html](resume/index.html) - 이력서 HTML 스타터
+- [resume-assets-guide](resume/assets/README.md) - 이력서 렌더링 에셋 규칙
 - [portfolio-html](portfolio/index.html) - 포트폴리오 HTML 스타터
+- [portfolio-assets-guide](portfolio/assets/README.md) - 포트폴리오 렌더링 에셋 규칙

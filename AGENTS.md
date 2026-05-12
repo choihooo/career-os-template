@@ -53,11 +53,14 @@ Optional research files:
 ## Recommended User Flow
 
 1. Read `index.md`.
-2. Add source material with `career-ingest`.
-3. Build general outputs with `career-build-general`.
-4. Build JD-specific outputs with `career-apply-pipeline`.
-5. Render HTML/PDF only when needed.
-6. Run checklist and `career-lint` before submission.
+2. Fill `raw/bios/profile.md` with basic profile information.
+3. Store original profile and project images in `raw/assets/`.
+4. Store rendered resume/portfolio image copies in `resume/assets/` and `portfolio/assets/`.
+5. Add source material with `career-ingest`.
+6. Build general outputs with `career-build-general`.
+7. Build JD-specific outputs with `career-apply-pipeline`.
+8. Render HTML/PDF only when needed.
+9. Run checklist and `career-lint` before submission.
 
 ## Workflows
 
@@ -69,6 +72,14 @@ Optional research files:
 4. 관련 `wiki/` 페이지와 `wiki/sentence-bank/`, `wiki/stories/`를 업데이트한다.
 5. `index.md`를 갱신한다.
 6. `log.md`에 ingest 항목을 append 한다.
+
+### Profile and Assets
+
+- 기본정보 원천은 `raw/bios/profile.md`에 저장한다.
+- 원본 프로필 사진과 증빙 이미지는 `raw/assets/`에 저장한다.
+- 이력서 렌더링용 이미지는 `resume/assets/`에 저장한다.
+- 포트폴리오 렌더링용 이미지는 `portfolio/assets/`에 저장한다.
+- 공개 저장소에는 실제 프로필 사진, 민감한 연락처 이미지, 내부 자료, 비공개 증빙 이미지를 커밋하지 않는다.
 
 ### Build General Outputs
 
