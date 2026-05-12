@@ -7,7 +7,9 @@ description: Use when preparing an application package for a specific company or
 
 ## Purpose
 
-이 스킬은 특정 회사와 JD에 맞춰 지원 패키지를 만드는 작업을 고정된 절차로 수행한다.
+이 스킬은 특정 회사와 JD에 맞춰 지원 패키지의 markdown 원본을 만드는 작업을 고정된 절차로 수행한다.
+
+JD 입력부터 렌더링, 품질 체크까지 끝까지 닫는 요청이면 이 스킬을 직접 시작하지 말고 `career-apply-pipeline`을 상위 런북으로 사용한다.
 
 ## Read Order
 
@@ -70,7 +72,10 @@ Optional supporting files:
 5. Build `portfolio.md` from the strongest matching case studies and proof.
 6. Before finalizing `resume.md` and `portfolio.md`, invoke `career-output-polish` on both files.
 7. If the package produces a better reusable framing, backfill the relevant wiki pages.
-8. Append one `output` entry to `log.md`.
+8. If the user asked for submission-ready HTML/PDF, hand off to:
+   - `career-build-rendered-resume`
+   - `career-build-rendered-portfolio`
+9. If this skill is running inside `career-apply-pipeline`, let the pipeline own the final quality check and final log entry. Otherwise, append one `output` entry to `log.md`.
 
 ## Writing Rules
 
@@ -79,6 +84,20 @@ Optional supporting files:
 - Remove strong but irrelevant material if it weakens the application.
 - Keep `analysis.md` analytical, `strategy.md` prescriptive, and `resume.md` or `portfolio.md` final-form.
 - Do not leave placeholders in the final package.
+
+## Resume Formatting Rules
+
+Apply these rules specifically to `resume.md`:
+
+- Default to 개조식. The resume should scan as structured bullets, not essay-style paragraphs.
+- Keep any summary to a short title line plus 2-4 bullets. Avoid long prose summaries.
+- For experience and project sections, write bullets in a fact/action/result shape:
+  - problem or context
+  - concrete action or technical decision
+  - measurable or observable outcome
+- Prefer one evidence-bearing bullet over several descriptive sentences.
+- Keep portfolio-style narrative, motivation, and interpretation in `portfolio.md`; the resume should prioritize facts, scope, tools, and impact.
+- Do not turn every line into a complete sentence if a compact noun phrase is clearer for skills, roles, periods, links, and awards.
 
 ## Folder Naming
 

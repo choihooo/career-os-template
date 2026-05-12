@@ -44,6 +44,8 @@ Use it after the main content is already written. Do not use it as a substitute 
 - Avoid rhetorical flourishes that sound bloggy in a resume or portfolio.
 - Prefer direct Korean phrasing over translated-English cadence.
 - If a phrase is acceptable once but repeated many times, vary or cut it.
+- For resume files, preserve or convert to 개조식 where appropriate. Do not polish resumes into essay-style paragraphs.
+- For portfolio files, narrative paragraphs are allowed, but keep resume-like evidence bullets concise.
 
 ## Output Standard
 

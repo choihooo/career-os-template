@@ -22,6 +22,6 @@
 
 ## Reproducibility
 
-- [ ] `outputs/custom/2026-05-12-example-frontend/` 샘플 패키지가 있다.
+- [ ] `outputs/custom/2026-01-01-example-frontend/` 샘플 패키지가 있다.
 - [ ] 샘플 JD에서 analysis, strategy, resume, portfolio가 어떻게 생성되는지 확인할 수 있다.
 - [ ] `index.md`가 새 페이지와 샘플을 찾을 수 있게 연결한다.

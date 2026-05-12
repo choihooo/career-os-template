@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+
+# Local exports and generated checks
+*.pdf
+*-render-check.png
+screenshots/
+
+# Local/private source material
+raw/private/
+outputs/private/
+
+# Node or browser tooling if users add export scripts
+node_modules/
+.playwright/
+playwright-report/

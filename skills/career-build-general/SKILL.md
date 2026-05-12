@@ -62,6 +62,17 @@ Use this default interpretation unless the user overrides it:
 - Keep each version meaningfully distinct. Do not clone v1 into v2 with superficial wording changes.
 - Do not add filler sections just because a template has space.
 
+## Resume Formatting Rules
+
+Apply these rules to `resume-general-v1.md` and `resume-general-v2.md`:
+
+- Default to 개조식. General resumes should be easy to scan as bullets and compact rows.
+- Keep summary sections short: one positioning line plus 2-4 bullets is enough.
+- Experience and project bullets should follow a fact/action/result shape whenever possible.
+- Skills, awards, education, links, roles, and periods should use compact phrases rather than prose.
+- Do not write portfolio-style paragraphs in a resume. Move longer explanation, motivation, and case-study narrative to portfolio outputs.
+- Cut weaker detail before expanding bullets into long paragraphs.
+
 ## Log Format
 
 ```md

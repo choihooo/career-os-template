@@ -1,6 +1,6 @@
 # Product Readiness Criteria
 
-이 문서는 커리어 위키가 개인 사용, 내부 베타, 외부 배포 단계에서 어느 정도 준비됐는지 판단하는 기준이다. 점수는 느낌이 아니라 아래 조건을 통과한 정도로만 말한다.
+이 문서는 Career OS Template을 복사한 사용자가 개인 사용, 내부 베타, 외부 배포 단계에서 어느 정도 준비됐는지 판단하는 기준이다. 점수는 느낌이 아니라 아래 조건을 통과한 정도로만 말한다.
 
 ## Readiness Levels
 
@@ -15,21 +15,21 @@
 - `wiki/overview/career-overview.md`와 `wiki/themes/positioning.md`에 목표 역할, 강점, 피해야 할 주장이 정리되어 있다.
 - `wiki/sentence-bank/resume-bullets.md`에 실전 bullet이 20개 이상 있다.
 - `wiki/stories/story-bank.md`에 STAR 스토리가 5개 이상 있다.
-- `outputs/general/resume-general-v1.md`, `resume-general-v2.md`, `portfolio-general-v1.md`, `portfolio-general-v2.md`가 placeholder 없이 완성되어 있다.
+- `outputs/general/resume-general-v1.md`, `resume-general-v2.md`, `portfolio-general-v1.md`, `portfolio-general-v2.md`가 샘플이 아니라 자기 자료 기반으로 완성되어 있다.
 - 실제 회사 JD 2개 이상으로 custom package를 생성해봤고, 결과가 서로 다르게 맞춤화된다.
 - 생성된 custom package가 `jd.md`, `analysis.md`, `strategy.md`, `resume.md`, `portfolio.md`를 모두 포함한다.
 - 근거가 부족한 수치나 역할은 생성하지 않고 `Gaps` 또는 `analysis.md`에 남긴다.
 
 100%가 아닌 경우:
 
+- 샘플 후보/샘플 회사 내용이 남아 있다.
 - 범용 산출물이 비어 있거나 placeholder가 남아 있다.
-- HTML 산출물을 봐야만 이력서/포트폴리오를 만들 수 있다.
 - JD를 넣어도 모든 회사에 비슷한 문서가 나온다.
 - 강한 주장이 source page로 역추적되지 않는다.
 
 ### 내부 베타 100%
 
-다른 사람이 README와 examples만 보고 직접 써볼 수 있는 상태다. 운영자가 옆에서 설명하지 않아도 입력, 생성, 검수 흐름이 닫혀 있어야 한다.
+다른 사람이 README와 examples만 보고 직접 써볼 수 있는 상태다.
 
 필수 조건:
 
@@ -46,16 +46,9 @@
 - 최소 1명의 베타 사용자가 README만 보고 새 경험 입력과 custom package 생성을 시도했다.
 - 베타 사용자가 막힌 지점이 README, examples, checklist 중 하나에 반영됐다.
 
-100%가 아닌 경우:
-
-- 사용자가 어떤 형식으로 경험을 입력해야 하는지 모른다.
-- 결과물이 어디에 생기는지 헷갈린다.
-- 실패했을 때 무엇이 부족한지 알 수 없다.
-- 샘플 결과물이 없어 기대 품질을 알 수 없다.
-
 ### 외부 배포 100%
 
-저장소를 모르는 사용자도 안정적으로 사용할 수 있는 제품 상태다. 내부 베타보다 훨씬 높은 재현성과 안내가 필요하다.
+저장소를 모르는 사용자도 안정적으로 사용할 수 있는 제품 상태다.
 
 필수 조건:
 
@@ -67,11 +60,7 @@
 - 산출물 export 방식이 명확하다.
 - 버전 관리와 변경 로그가 사용자가 이해할 수 있는 수준으로 정리되어 있다.
 
-현재 저장소는 외부 배포 100%를 목표로 하지 않는다. 우선순위는 개인 사용 100%와 내부 베타 100%다.
-
 ## Scoring Guide
-
-점수는 아래 방식으로 말한다.
 
 | Level | Meaning |
 |---|---|
@@ -81,45 +70,6 @@
 | 81-95% | 대부분의 흐름이 닫혀 있고 실제 검증만 남았다. |
 | 96-100% | 실제 JD 또는 사용자 테스트를 통과했고, 실패 조건까지 문서화되어 있다. |
 
-## Current Gate Status
+## Template Gate
 
-### 개인 사용
-
-현재 상태: 90-95%
-
-통과한 항목:
-
-- HTML 산출물의 주요 경험을 `raw/`와 `wiki/`로 역반영했다.
-- 포지셔닝, bullet bank, story bank가 있다.
-- 범용 산출물 4개가 placeholder 없이 작성되어 있다.
-- 샘플 custom package가 있다.
-
-남은 gate:
-
-- 실제 회사 JD 2개 이상으로 custom package를 생성하고 결과를 비교해야 한다.
-- 생성 결과가 JD별로 다르게 강조/제외되는지 확인해야 한다.
-
-### 내부 베타
-
-현재 상태: 80-85%
-
-통과한 항목:
-
-- README 온보딩이 있다.
-- examples와 request prompts가 있다.
-- readiness checklist와 output quality checklist가 있다.
-- 샘플 custom package가 있다.
-
-남은 gate:
-
-- 실제 다른 사용자가 README만 보고 사용해봐야 한다.
-- 막힌 지점을 문서에 반영해야 한다.
-
-## Decision Rule
-
-100%라고 말하려면 아래 중 하나를 통과해야 한다.
-
-- 개인 사용 100%: 실제 회사 JD 2개 이상으로 custom package를 만들고, 각 결과물이 JD별로 다르게 맞춤화됐음을 확인했다.
-- 내부 베타 100%: 최소 1명의 다른 사용자가 README와 examples만 보고 새 경험 입력부터 custom package 생성까지 완료했다.
-
-이 두 조건을 통과하기 전에는 100%가 아니라 90-95%, 80-85%처럼 검증 전 점수로 말한다.
+이 템플릿을 복사한 직후에는 100% 상태가 아니다. 샘플 자료를 자기 자료로 교체하고, 최소 1개의 실제 JD로 `career-apply-pipeline`을 실행한 뒤부터 개인 사용 준비도를 평가한다.

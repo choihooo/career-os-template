@@ -1,393 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>최호 프론트엔드 이력서</title>
-    <link rel="icon" href="data:," />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCoreDream.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260512-figma-2643-986" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Career OS Resume Template</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="resume-shell">
-      <article class="resume-page" aria-label="최호 프론트엔드 이력서">
-        <header class="resume-header">
-          <div class="identity">
-            <h1>최호</h1>
-            <p>Frontend Engineer</p>
-          </div>
+    <main class="page">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Frontend Engineer</p>
+          <h1>Your Name</h1>
+          <p class="summary">React와 TypeScript 기반으로 사용자 흐름과 유지보수성을 개선하는 엔지니어.</p>
+        </div>
+        <ul class="contact">
+          <li>email@example.com</li>
+          <li>github.com/your-id</li>
+          <li>your-portfolio.example</li>
+        </ul>
+      </header>
 
-          <section class="about-block">
-            <h2>About Me</h2>
-            <p>기술적 화려함보다 사용자의 맥락과 팀의 효율을 최우선으로 두는 실용주의 엔지니어입니다.</p>
-          </section>
+      <section>
+        <h2>Experience</h2>
+        <article>
+          <h3>Frontend Engineer Intern, Sample Company</h3>
+          <p class="meta">2025.03 - 2025.06</p>
+          <ul>
+            <li>Zod 스키마와 명시 타입을 적용해 QA 재현 이슈를 입력 단계에서 차단했다.</li>
+            <li>API 응답 타입과 화면 상태 흐름을 정리해 유지보수 비용을 줄였다.</li>
+          </ul>
+        </article>
+      </section>
 
-          <nav class="contact-row" aria-label="연락처 및 링크">
-            <a class="contact-item contact-blog" href="https://velog.io/@hochoi8621/posts" target="_blank" rel="noreferrer">
-              <img src="./assets/web-icon.png" alt="" />
-              <span>https://velog.io/@hochoi8621/posts</span>
-            </a>
-            <a class="contact-item" href="https://github.com/choihooo" target="_blank" rel="noreferrer">
-              <img src="./assets/github-mark.png" alt="" />
-              <span>https://github.com/choihooo</span>
-            </a>
-            <a class="contact-item" href="mailto:hochoi8621@gmail.com" target="_blank" rel="noreferrer">
-              <img src="./assets/email-icon.png" alt="" />
-              <span>hochoi8621@gmail.com</span>
-            </a>
-            <p class="contact-item">
-              <img src="./assets/phone-icon.png" alt="" />
-              <span>(+82)10-2010-8621</span>
-            </p>
-          </nav>
+      <section>
+        <h2>Projects</h2>
+        <article>
+          <h3>Sample Dashboard</h3>
+          <p class="meta">React, TypeScript, TanStack Query, Recharts</p>
+          <ul>
+            <li>서버 상태와 URL 필터 상태를 분리해 조건 공유와 재현을 쉽게 만들었다.</li>
+            <li>운영자가 반복하던 리포트 확인 흐름을 대시보드로 정리했다.</li>
+          </ul>
+        </article>
+      </section>
 
-          <figure class="profile-frame">
-            <img src="./assets/resume-profile.png" alt="최호 프로필 사진" />
-          </figure>
-        </header>
-
-        <section class="work-section">
-          <div class="section-heading">
-            <h2>Work Experience</h2>
-          </div>
-
-          <section class="company-row">
-            <aside class="period-block">
-              <p>25.03.04 - 25.06.30<br />(4개월)</p>
-              <a href="https://eigene.ai/" target="_blank" rel="noreferrer">
-                <img src="./assets/link-small.png" alt="" />
-                <span>Homepage</span>
-              </a>
-            </aside>
-
-            <div class="company-summary">
-              <h3>Frontend Engineer 인턴 @아이겐코리아</h3>
-              <p>국내 최대 빅데이터 분석 기업 출신들이 설립한 회사로 빅데이터 기반 개인화 추천 및 마케팅 솔루션을 제공하고 있습니다.</p>
-            </div>
-          </section>
-
-          <section class="work-list" aria-label="상세 업무">
-            <article class="work-item">
-              <header>
-                <h3>어드민 TypeScript 마이그레이션</h3>
-                <div class="tag-list">
-                  <span>AWS codecommit</span>
-                  <span>AWS CodePipeline</span>
-                  <span>TypeScript</span>
-                  <a href="https://hochoi.tistory.com/23" target="_blank" rel="noreferrer">블로그 1</a>
-                  <a href="https://hochoi.tistory.com/25" target="_blank" rel="noreferrer">블로그 2</a>
-                </div>
-              </header>
-              <ul>
-                <li>어드민 서비스의 TS 버전 노후화로 최신 라이브러리 적용 시 버전 충돌 오류가 빈번하게 발생</li>
-                <li>tsconfig를 strict 모드로 전환하기 위해 단계별로 마이그레이션 진행</li>
-                <li>전체 코드베이스에서 any 타입을 모두 특정한 타입으로 전환</li>
-                <li>빌드 속도 약 19% 단축. (평균 246.22초 → 199.51초)</li>
-              </ul>
-            </article>
-
-            <article class="work-item">
-              <header>
-                <h3>어드민 서비스 다국어화 작업</h3>
-                <div class="tag-list">
-                  <span>Nodejs</span>
-                  <span>AWS CodePipeline</span>
-                  <span>React-i18n</span>
-                </div>
-              </header>
-              <ul>
-                <li>어드민 서비스의 일부분에만 다국어화 적용 일부분은 키 그대로 노출.</li>
-                <li>한국어 JSON을 기준으로 영/중/일 파일과 비교 후 누락된 키를 자동 추출하고, 이를 CI에 연결해 PR 단계에서 누락을 차단</li>
-                <li>flat key 구조에서 `koKeys - targetKeys` Set 비교로 누락 키를 계산하고, 언어별 누락 목록을 정렬·요약 출력하며 누락 시 `exit code 1`로 실패 처리</li>
-                <li>i18n 키 누락 감지 스크립트 + CI 파이프라인 구축으로 신규 개발 시 번역 누락을 즉시 발견해 운영 단계의 “키 노출” 이슈를 선제적으로 제거</li>
-              </ul>
-            </article>
-
-            <article class="work-item">
-              <header>
-                <h3>바운스사 어드민 센터관리 시스템 아키텍쳐 개선</h3>
-                <div class="tag-list">
-                  <span>Recoil</span>
-                  <span>axios</span>
-                </div>
-              </header>
-              <ul>
-                <li>30개 이상의 센터 정보가 하드코딩되어 있어 새 센터 추가 시마다 코드 수정 및 배포가 필요했고, 백엔드·프론트엔드간 데이터 불일치 위험 존재</li>
-                <li>하드코딩된 센터 목록을 API 기반 동적 로딩으로 전환하고, 38개 파일에 걸친 전역 리팩토링 수행</li>
-                <li>Recoil atom/selector 패턴 도입으로 상태 관리 아키텍처 설계, LocalStorage effect로 캐싱 구현 로그인 시점 API 호출 후 전역 상태 업데이트, TypeScript 타입 안정성 확보 및 Git 병합 충돌 해결</li>
-                <li>코드 수정 없이 새 센터 자동 반영, 백엔드·프론트엔드 데이터 동기화 자동화, 유지보수성 및 확장성 향상</li>
-              </ul>
-            </article>
-
-            <article class="work-item">
-              <header>
-                <h3>의사결정 지원을 위한 핵심 지표 시각화 및 통계 기능 개선</h3>
-                <div class="tag-list">
-                  <span>Recharts</span>
-                  <span>Excel Export</span>
-                </div>
-              </header>
-              <ul>
-                <li>기존 실적 현황판 내 목표 달성률 및 전년 대비 증감률(YoY) 지표 부재로 인한 성과 분석의 한계를 개선하여 데이터 기반 의사결정 지원</li>
-                <li>목표 달성률 및 전년 대비 증감률 지표를 센터별/전체 통계에 추가하고, Recharts를 활용한 복합 차트 구현</li>
-                <li>API 원본 데이터를 프론트엔드에서 집계 로직에 맞춰 가공하는 유틸리티 함수 구현 및 엑셀 다운로드 기능 연동</li>
-                <li>기존 차트 컴포넌트의 중복 코드를 분리 및 공통화하여 코드 재사용성 향상 및 유지보수 비용 절감</li>
-              </ul>
-            </article>
-          </section>
-        </section>
-        <p class="page-number">- 1 -</p>
-      </article>
-
-      <article class="resume-page resume-page-plain" aria-label="최호 사이드 프로젝트 이력서">
-        <section class="resume-content">
-          <section class="resume-section-block">
-            <div class="section-heading">
-              <h2>Side Project</h2>
-            </div>
-
-            <article class="project-entry">
-              <aside class="entry-side">
-                <p>2025.10.04 - 2025.12.07<br />(2개월)</p>
-                <div class="entry-links">
-                  <a href="https://github.com/kusitms-bugi/FE" target="_blank" rel="noreferrer"><img src="./assets/link-side.png" alt="" />Github</a>
-                  <a href="https://choihooo.github.io/bugi-download/" target="_blank" rel="noreferrer"><img src="./assets/link-side.png" alt="" />Download</a>
-                  <a href="https://howu.vercel.app/blog/bugi-electron" target="_blank" rel="noreferrer"><img src="./assets/link-side.png" alt="" />Blog</a>
-                </div>
-              </aside>
-              <div class="entry-main">
-                <header class="entry-header">
-                  <h3>거부기린</h3>
-                  <div class="tag-list">
-                    <span>Electron</span>
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Zustand</span>
-                    <span>React-Router-Dom</span>
-                  </div>
-                </header>
-                <p class="entry-summary">AI가 자세를 실시간으로 모니터링하여 거북목을 방지하고 바른 자세 습관을 돕는 디지털 헬스케어 서비스입니다.</p>
-                <ul class="entry-bullets">
-                  <li>웹캠 기반 자세 추론을 always-on-top 위젯과 지속 조건 기반 시스템 알림으로 연결해, 멀티태스킹 중에도 이탈 없이 즉시 교정되는 데스크톱 UX를 구현</li>
-                  <li>초기 번들 1.79MB로 인한 로딩 지연을 React.lazy + Vite manualChunks 코드 스플리팅으로 개선해, 초기 로딩 용량을 65% 감소(1.79MB → 0.63MB)</li>
-                  <li>카메라/자세/알림 상태를 Zustand 도메인 스토어로 분리하고 persist로 localStorage 동기화 및 선택적 구독을 적용해, 상태 변경 시 불필요한 리렌더링을 최소</li>
-                  <li>로그인 여부를 로그인 페이지에서 확인한 뒤 이동하던 구조 때문에 발생한 화면 깜빡임을 React Router Loader 기반 진입 전 인증 검사·리다이렉트로 전환해 UX를 개선</li>
-                  <li>TanStack Query 커스텀 훅으로 API 접근을 모듈화하고 캐시 무효화/재검증 전략을 적용해, 화면 전환·상태 변화에도 데이터가 끊기지 않도록 실시간 동기화 흐름을 구축</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="project-entry">
-              <aside class="entry-side">
-                <p>2025.08.12 - ing<br />(진행중)</p>
-                <div class="entry-links">
-                  <a href="https://github.com/Team-NumberOne/daepiro-design-system" target="_blank" rel="noreferrer"><img src="./assets/link-side.png" alt="" />Github</a>
-                  <a href="https://github.com/Team-NumberOne/daepiro-design-system" target="_blank" rel="noreferrer"><img src="./assets/link-side.png" alt="" />Github Package</a>
-                  <a href="https://howu.vercel.app/blog/daepiro-design-system-ux-ui-components" target="_blank" rel="noreferrer"><img src="./assets/link-side.png" alt="" />Blog</a>
-                </div>
-              </aside>
-              <div class="entry-main">
-                <header class="entry-header">
-                  <h3>대피로</h3>
-                  <div class="tag-list">
-                    <span>tsup</span>
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Vanilla-Extract</span>
-                    <span>Storybook</span>
-                    <span>Vitest</span>
-                  </div>
-                </header>
-                <p class="entry-summary">사용자 맞춤형 안전 재난 알림을 수신하고, 공동체의 안녕을 챙겨주는 안전 재난 알림 서비스입니다.</p>
-                <ul class="entry-bullets nested">
-                  <li>
-                    <strong>대피로 디자인 시스템 라이브러리 개발</strong>
-                    <ul>
-                      <li>레이아웃 변형 요구가 잦아 매번 구현 비용이 발생하던 문제를 Compound Component + Context 기반 API로 표준화해, 요구사항 대응 시간 90% 단축(1-2시간 → 5-10분)</li>
-                      <li>컴포넌트 구현이 스타일/로직/구조에 얽혀 변경 영향이 커지던 문제를 Connect/Recipe 아키텍처로 분리해, 관심사를 분리하고 유지보수성 상승</li>
-                      <li>Vitest 단위 테스트와 Storybook Test Runner 기반 자동 검증, 컴포넌트별 20+ 케이스 / 커버리지 80%+를 유지</li>
-                      <li>번들러/런타임별 호환 이슈를 ESM/CJS 듀얼 빌드와 TypeScript 타입 정의 자동 생성으로 해결해, Next.js·Vite·Webpack 환경에서 즉시 사용 가능</li>
-                      <li>Vanilla Extract·tsup·Biome 기반 빌드 파이프라인을 구성하고 GitHub Actions로 린트/테스트/빌드/배포를 자동화해, 배포 안정성과 개발 흐름을 표준화</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="project-entry">
-              <aside class="entry-side">
-                <p>2025.07 - 2025.09</p>
-                <div class="entry-links">
-                  <a href="https://github.com/choihooo/susanghan-fe" target="_blank" rel="noreferrer"><img src="./assets/link-side.png" alt="" />Github</a>
-                </div>
-              </aside>
-              <div class="entry-main">
-                <header class="entry-header">
-                  <h3>수상한 녀석들</h3>
-                  <div class="tag-list">
-                    <span>Next</span>
-                    <span>TypeScript</span>
-                    <span>Zod</span>
-                    <span>MSW</span>
-                    <span>Tailwind</span>
-                  </div>
-                </header>
-                <p class="entry-summary">광고 공모전 출품작 분석 AI 서비스입니다.</p>
-                <ul class="entry-bullets">
-                  <li>라우트 진입 후에 인증을 확인해 화면이 튀는 문제를 AuthGuard + useAuth로 진입 전 선검증하도록 바꾸고, 미인증 시 로그인 모달·리다이렉트로 이탈을 줄이며 UX를 개선</li>
-                  <li>멀티스텝 폼에서 뒤로가기/새로고침 시 상태가 유실되던 문제를 @use-funnel/browser로 URL 동기화하고 Zod 단계별 검증을 적용해, 상태가 유지되는 단계형 폼 흐름을 구현</li>
-                  <li>섹션별 브랜딩 전환이 수동/불안정하던 문제를 홈 섹션 진입 트리거로 헤더 테마 자동 전환으로 표준화하고, 디바운스된 useIsMobile로 리사이즈 처리 비용을 최적화</li>
-                  <li>지원서 폼 상태가 커질수록 리렌더가 증가하던 문제를 useSubmitStore로 중앙 관리하되 DCA/YCC 단위로 상태를 분리해, 불필요한 리렌더링을 최소화</li>
-                  <li>약 100여 명 대상 운영에서 62명으로부터 “사용 흐름이 직관적이다/작성하기 편하다” 등의 정성 피드백을 확보해, UX 개선의 효과를 사용자 반응으로 검증</li>
-                </ul>
-              </div>
-            </article>
-          </section>
-        </section>
-        <p class="page-number">- 2 -</p>
-      </article>
-
-      <article class="resume-page resume-page-plain" aria-label="최호 교육 수상 외부활동 이력서">
-        <section class="resume-content resume-extra-content">
-          <section class="resume-section-block compact">
-            <div class="section-heading">
-              <h2>Education</h2>
-            </div>
-            <div class="simple-row">
-              <p>2024.03-2026.02</p>
-              <strong>컴퓨터공학전공 @한국공학대학교</strong>
-            </div>
-            <div class="simple-row">
-              <p>2020.03-2024.02</p>
-              <strong>소프트웨어전공 @공주대학교 (편입)</strong>
-            </div>
-          </section>
-
-          <section class="resume-section-block compact">
-            <div class="section-heading">
-              <h2>Certification</h2>
-            </div>
-            <div class="simple-row">
-              <p>2025.07.18</p>
-              <strong>한국데이터산업진흥원 SQL 개발자 (SQLD)</strong>
-            </div>
-          </section>
-
-          <section class="resume-section-block awards-block">
-            <div class="section-heading">
-              <h2>Awards</h2>
-            </div>
-            <article class="simple-row rich-row">
-              <aside>
-                <p>2025.12</p>
-                <a href="https://www.trendw.kr/news/articleView.html?idxno=11139" target="_blank" rel="noreferrer"><img src="./assets/link-extra.png" alt="" />News Story</a>
-              </aside>
-              <div>
-                <strong>한국대학생IT경영학회 32기 밋업 프로젝트 - 대상</strong>
-                <ul><li>프론트엔드 리드 | 자세 판단 로직 구현</li></ul>
-              </div>
-            </article>
-            <article class="simple-row rich-row">
-              <p>2025.10</p>
-              <div>
-                <strong>SW중심대학 2025 해커톤 SUMTEHC - 장려상</strong>
-                <ul>
-                  <li>저소득층 아이들을 위한 학습 길잡이 플랫폼 nextLeap 개발</li>
-                  <li>개발 3 기획 1 디자인 1</li>
-                </ul>
-              </div>
-            </article>
-            <article class="simple-row rich-row">
-              <aside>
-                <p>2025.09</p>
-                <a href="https://www.linkedin.com/in/howuchoi/" target="_blank" rel="noreferrer"><img src="./assets/link-extra.png" alt="" />Linkedin</a>
-              </aside>
-              <div>
-                <strong>직행 기업 연계 프로젝트 - 우수상</strong>
-                <ul><li>프론트엔드 리드</li></ul>
-              </div>
-            </article>
-            <article class="simple-row rich-row">
-              <p>2024.12</p>
-              <div>
-                <strong>KT&amp;G 상상 유니브 왓에버 아이디어톤 - 대상</strong>
-                <ul>
-                  <li>긴급차량 주행을 위한 알림 서비스</li>
-                  <li>백엔드 팀과 협업하여 PoC를 수행하고 기획의 구체적 실현 가능성 검증</li>
-                </ul>
-              </div>
-            </article>
-            <article class="simple-row rich-row">
-              <p>2024.10</p>
-              <div>
-                <strong>부산 해양 데이터 해커톤 - 장려상</strong>
-                <ul>
-                  <li>정책과 사용자를 잇는 쓰레기 수거 장려 플랫폼 줍기장인 구현</li>
-                  <li>기획 1, 데이터 엔지니어 1, 프론트 1, 백엔드 1 중 프론트 1인 구현</li>
-                </ul>
-              </div>
-            </article>
-            <article class="simple-row rich-row">
-              <aside>
-                <p>2021.11</p>
-                <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10664559" target="_blank" rel="noreferrer"><img src="./assets/link-extra.png" alt="" />DBpia</a>
-              </aside>
-              <div>
-                <strong>2021 대학생 하계 논문 학술대회 - 금상</strong>
-                <ul>
-                  <li>제1저자 | 거리 계산 알고리즘 설계 및 구현</li>
-                  <li>발표 및 발표 자료 제작 전담</li>
-                </ul>
-              </div>
-            </article>
-          </section>
-
-          <section class="resume-section-block external-block">
-            <div class="section-heading">
-              <h2>External Experience</h2>
-            </div>
-            <article class="simple-row rich-row">
-              <p>2021.08 - 2025.12</p>
-              <div>
-                <strong>한국대학생IT경영학회 큐시즘 프론트엔드 개발파트</strong>
-                <ul>
-                  <li>24기 헬스케어 플랫폼 The Healthiest 개발</li>
-                  <li>30기 SKT Devocean 마이페이지 개선 과제 실 사이트 적용(활동 캘린더)</li>
-                  <li>31기 서울우유 세금계산서 검증 시스템 구축</li>
-                  <li>31기 경영총괄팀 기획팀원으로 네트워킹 행사 기획</li>
-                  <li>31기 약시 사용자들을 위한 크롬 익스텐션 VOIM 개발</li>
-                  <li>32기 실시간 자세 교정 거북목 방지 디지털 헬스케어 서비스 거부기린 개발</li>
-                </ul>
-              </div>
-            </article>
-            <article class="simple-row rich-row">
-              <p>2025.03 - 2025.12</p>
-              <div>
-                <strong>GDSC on TUK 25</strong>
-                <ul>
-                  <li>리액트 딥다이브 책 스터디</li>
-                  <li>GDG 컨퍼런스 참여</li>
-                </ul>
-              </div>
-            </article>
-            <article class="simple-row rich-row">
-              <p>2025.02 - 2025.04</p>
-              <div>
-                <strong>유데미 러닝크루 리더 2기</strong>
-                <ul><li>Next .js 15 &amp; React - 완벽가이드 강의 스터디장</li></ul>
-              </div>
-            </article>
-          </section>
-        </section>
-        <p class="page-number">- 3 -</p>
-      </article>
+      <section>
+        <h2>Skills</h2>
+        <p>React, TypeScript, TanStack Query, Zod, Recharts, GitHub Actions</p>
+      </section>
     </main>
   </body>
 </html>

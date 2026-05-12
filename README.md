@@ -1,72 +1,49 @@
-# Career Wiki
+# Career OS Template
 
-채용 지원용 커리어 위키다. 원천 자료를 `raw/`에 쌓고, 재사용 가능한 경력 지식으로 `wiki/`에 정리한 뒤, 범용 이력서/포트폴리오와 회사별 맞춤 패키지를 `outputs/`에 만든다.
+채용 지원 자료를 `raw/`, `wiki/`, `outputs/`로 나눠 관리하고, JD별 맞춤 이력서/포트폴리오 패키지를 만드는 템플릿이다.
 
-## 3분 사용법
+이 브랜치는 개인 정보가 제거된 시작점이다. 먼저 샘플을 읽고, 자기 자료를 `raw/`에 넣은 뒤, 스킬 워크플로로 위키와 산출물을 갱신한다.
 
-### 1. 새 경험 추가
+## 빠른 시작
 
-프로젝트, 경력, 수상 자료를 아래 예시 중 하나에 맞춰 붙여 넣고 요청한다.
+처음 쓰는 순서는 아래가 가장 안전하다.
 
-- `examples/raw-project.md`
-- `examples/raw-experience.md`
-- `examples/raw-award.md`
+1. `index.md`에서 현재 구조와 샘플 파일을 확인한다.
+2. `examples/` 중 하나에 맞춰 프로젝트, 경력, 수상 자료를 준비한다.
+3. `career-ingest`로 `raw/`와 `wiki/`를 먼저 채운다.
+4. `career-build-general`로 `outputs/general/`의 범용 이력서/포트폴리오를 만든다.
+5. 실제 JD가 생기면 `career-apply-pipeline`으로 회사별 패키지를 만든다.
+6. 제출용 HTML/PDF가 필요할 때만 `career-build-rendered-resume` 또는 `career-build-rendered-portfolio`를 쓴다.
+7. 제출 전 `docs/checklists/custom-output-quality-checklist.md`와 `career-lint`로 누락, 과장, 중복을 확인한다.
 
-요청 예시:
+## 가장 많이 쓰는 요청
+
+### 새 경험 추가
 
 ```md
 아래 자료를 career-ingest 기준으로 반영해줘. raw에 원천을 저장하고, 관련 wiki 페이지와 sentence bank/story bank/index/log까지 갱신해줘.
+
+[자료 붙여넣기]
 ```
 
-### 2. 범용 이력서/포트폴리오 만들기
-
-요청 예시:
+### 범용 이력서/포트폴리오 생성
 
 ```md
-현재 위키 기준으로 outputs/general의 resume-general-v1, resume-general-v2, portfolio-general-v1, portfolio-general-v2를 갱신해줘.
+현재 위키 기준으로 outputs/general의 resume-general-v1, resume-general-v2, portfolio-general-v1, portfolio-general-v2를 갱신해줘. 최종 저장 전에 career-output-polish 기준으로 다듬어줘.
 ```
 
-결과 위치:
-
-- `outputs/general/resume-general-v1.md`
-- `outputs/general/resume-general-v2.md`
-- `outputs/general/portfolio-general-v1.md`
-- `outputs/general/portfolio-general-v2.md`
-
-### 3. JD 기반 맞춤 패키지 만들기
-
-JD 링크나 원문을 주고 요청한다.
+### JD 기반 맞춤 패키지 생성
 
 ```md
-이 JD 기준으로 회사별 맞춤 패키지를 만들어줘. outputs/custom/YYYY-MM-DD-company/ 아래에 jd.md, analysis.md, strategy.md, resume.md, portfolio.md를 생성해줘.
+이 JD 기준으로 career-apply-pipeline을 실행해줘. 회사별 맞춤 패키지를 만들고, 필요하면 HTML/PDF 렌더링까지 이어서 처리해줘.
+
+[JD 링크 또는 원문]
 ```
-
-결과 위치:
-
-- `outputs/custom/YYYY-MM-DD-company/jd.md`
-- `outputs/custom/YYYY-MM-DD-company/analysis.md`
-- `outputs/custom/YYYY-MM-DD-company/strategy.md`
-- `outputs/custom/YYYY-MM-DD-company/resume.md`
-- `outputs/custom/YYYY-MM-DD-company/portfolio.md`
-
-샘플 패키지:
-
-- `outputs/custom/2026-05-12-example-frontend/`
-
-## Output Types
-
-- `outputs/general/*.md`: 제출 문서의 원본 텍스트
-- `outputs/custom/*/*.md`: 회사별 맞춤 문서의 원본 텍스트
-- `resume/`: A4 세로 이력서 HTML 렌더링 템플릿
-- `portfolio/`: A4 세로 포트폴리오 HTML 렌더링 템플릿
-- PDF: HTML 또는 markdown 산출물을 기반으로 내보낸 최종 파일
-
-markdown은 내용의 source of truth이고, HTML/PDF는 렌더링 결과물이다.
 
 ## Repository Structure
 
 ```text
-carrer-wiki/
+career-os-template/
 ├── AGENTS.md
 ├── README.md
 ├── index.md
@@ -74,61 +51,39 @@ carrer-wiki/
 ├── examples/
 ├── docs/checklists/
 ├── raw/
-│   ├── awards/
-│   ├── bios/
-│   ├── experiences/
-│   ├── links/
-│   └── projects/
 ├── wiki/
-│   ├── awards/
-│   ├── experiences/
-│   ├── overview/
-│   ├── output-briefs/
-│   ├── projects/
-│   ├── sentence-bank/
-│   ├── skills/
-│   ├── stories/
-│   ├── templates/
-│   └── themes/
 ├── outputs/
-│   ├── custom/
-│   └── general/
 ├── resume/
 ├── portfolio/
 └── skills/
 ```
 
-## Core Files
+## Layers
 
-- `index.md`: 전체 카탈로그
-- `log.md`: append-only 작업 로그
-- `wiki/overview/career-overview.md`: 현재 포지셔닝과 산출 우선순위
-- `wiki/themes/positioning.md`: 목표 역할, 강점, 피해야 할 주장
-- `wiki/stories/story-bank.md`: STAR 스토리
-- `wiki/sentence-bank/resume-bullets.md`: 재사용 가능한 이력서 bullet
-- `wiki/output-briefs/general-resume-brief.md`: 범용 이력서 조립 기준
-- `wiki/output-briefs/general-portfolio-brief.md`: 범용 포트폴리오 조립 기준
+- `raw/`: 원천 자료. 사실 원형, 링크, 메모를 보존한다.
+- `wiki/`: 정규화된 경력 지식. 경험, 프로젝트, 수상, 기술, 스토리, 문장 뱅크를 관리한다.
+- `outputs/`: 제출 가능한 산출물. 범용본은 `outputs/general/`, 회사별 맞춤본은 `outputs/custom/YYYY-MM-DD-company/`에 둔다.
+- `resume/`, `portfolio/`: markdown 산출물을 HTML/PDF로 렌더링하기 위한 정적 템플릿이다.
+- `skills/`: Codex가 반복 워크플로를 실행할 때 읽는 스킬 지시서다.
 
-## Current Knowledge Base
+## Template Files
 
-- `wiki/experiences/eigene-korea.md`
-- `wiki/projects/geobugirin.md`
-- `wiki/projects/daepiro-design-system.md`
-- `wiki/projects/susanghan.md`
-- `wiki/awards/awards-2021-2025.md`
-- `wiki/skills/frontend-engineering.md`
+- `examples/`: 사용자가 붙여 넣을 입력 형식
+- `wiki/templates/`: 새 위키 페이지 작성 구조
+- `wiki/output-briefs/`: 범용 이력서/포트폴리오 조립 기준
+- `outputs/custom/2026-01-01-example-frontend/`: 샘플 JD 패키지
+- `resume/index.html`, `portfolio/index.html`: 개인정보 없는 렌더링 스타터
 
-## Quality Rules
+## Rules
 
-- 근거 없는 수치나 역할은 만들지 않는다.
+- 기본 언어는 한국어다.
+- 근거 없는 수치, 역할, 매출/트래픽 임팩트는 만들지 않는다.
 - 부족한 정보는 `Gaps` 또는 `analysis.md`에 남긴다.
-- 최종 산출물에는 placeholder를 남기지 않는다.
 - 같은 내용을 여러 산출물에 직접 복붙하지 않는다. 먼저 `wiki/`를 갱신하고 산출물을 다시 만든다.
-- 제출 전에는 `career-output-polish` 기준으로 과장된 표현과 AI식 문장 패턴을 줄인다.
+- 제출 전에는 `career-output-polish`로 과장된 표현과 AI식 문장을 줄인다.
 
-## Checklists
+## Before Publishing Your Copy
 
-- 개인 사용 준비도: `docs/checklists/personal-ready-checklist.md`
-- 내부 베타 준비도: `docs/checklists/beta-ready-checklist.md`
-- 회사별 맞춤 산출물 품질: `docs/checklists/custom-output-quality-checklist.md`
-- 제품 준비도 판단 기준: `docs/checklists/product-readiness-criteria.md`
+- 샘플 후보명, 샘플 회사명, 샘플 링크를 실제 정보로 바꿨는지 확인한다.
+- 공개 레포로 만들기 전 `rg -n "email|phone|linkedin|github|@|실명|주민|주소"` 등으로 민감 정보를 확인한다.
+- PDF, 프로필 사진, 회사 내부 자료, 비공개 링크는 커밋하지 않는다.

@@ -9,6 +9,8 @@ description: Use when the user provides a JD link, company careers page, or targ
 
 이 스킬은 특정 회사 지원 전에 조사 패키지를 만드는 스킬이다. JD만 읽는 것이 아니라 회사의 공식 메시지, 인재상, 채용 신호, 인터뷰 신호를 모아 지원 전략의 입력 자료를 만든다.
 
+JD부터 최종 resume/portfolio까지 한 번에 만드는 요청에서는 `career-apply-pipeline`의 research 단계로 실행한다.
+
 ## Source Priority
 
 Use sources in this order:
@@ -88,7 +90,7 @@ It may also update:
 7. If useful, backfill:
    - `analysis.md`
    - `strategy.md`
-8. Append one `research` or `output` entry to `log.md`.
+8. If this skill is running inside `career-apply-pipeline`, let the pipeline own the final log entry. Otherwise, append one `research` or `output` entry to `log.md`.
 
 ## File Expectations
 

@@ -17,7 +17,7 @@
 ## JD 기반 맞춤 패키지 생성
 
 ```md
-이 JD 기준으로 회사별 맞춤 패키지를 만들어줘. outputs/custom/YYYY-MM-DD-company/ 아래에 jd.md, analysis.md, strategy.md, resume.md, portfolio.md를 생성하고, 근거가 부족한 부분은 analysis에 gap으로 남겨줘.
+이 JD 기준으로 career-apply-pipeline을 실행해줘. 회사별 맞춤 패키지를 만들고, 필요하면 HTML/PDF 렌더링까지 이어서 처리해줘. 근거가 부족한 부분은 analysis에 gap으로 남겨줘.
 
 [JD 링크 또는 원문]
 ```
