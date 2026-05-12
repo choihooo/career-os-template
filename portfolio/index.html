@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최호 프론트엔드 포트폴리오</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/S-CoreDream/SCoreDream.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260512-template" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="page-stack">
+        <article class="portfolio-page cover-page">
+          <div class="cover-bg"></div>
+          <section class="cover-content">
+            <h1>안녕하세요,<br />프론트엔드 개발자 최호의 포트폴리오 입니다</h1>
+
+            <section class="profile-block">
+              <img class="profile-photo" src="./assets/profile-figma-shot.png" alt="최호 프로필 사진" />
+              <div class="profile-copy">
+                <h2>최호</h2>
+                <div class="profile-meta">
+                  <p>2001. 06. 07</p>
+                  <p>hochoi8621@gmail.com</p>
+                  <a href="https://github.com/choihooo" target="_blank" rel="noreferrer">
+                    <img src="./assets/github-icon.png" alt="" />
+                    <span>choihooo</span>
+                  </a>
+                  <a href="https://hochoi.tistory.com/" target="_blank" rel="noreferrer">
+                    <img src="./assets/link-icon.png" alt="" />
+                    <span>blog</span>
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            <section class="contents-block">
+              <h2>프로젝트 목록</h2>
+
+              <div class="contents-item">
+                <img src="./assets/eigene-mockup.png" alt="아이겐 코리아 프로젝트 화면" />
+                <div>
+                  <h3>아이겐 코리아 인턴쉽</h3>
+                  <ol>
+                    <li><span>2p</span>프로젝트 소개, 담당 역할, 핵심 기술 이슈 ① - API 전환 및 Recoil 설계</li>
+                    <li><span>3p</span>핵심 기술 이슈 ② - 어드민 i18n 검증 자동화</li>
+                    <li><span>4p</span>핵심 기술 이슈 ③ - TypeScript 3v → 5v 마이그레이션</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div class="contents-item">
+                <img src="./assets/geobugirin-cover.png" alt="거부기린 프로젝트 화면" />
+                <div>
+                  <h3>거부기린</h3>
+                  <ol>
+                    <li><span>5p</span>프로젝트 소개, 기술스택, 프로젝트 화면</li>
+                    <li><span>6p</span>핵심 기술 이슈 ① - Zustand 상태관리 라이브러리를 사용한 이유</li>
+                    <li><span>7p</span>핵심 기술 이슈 ② - UX 설계 (always-on-top + 알림)</li>
+                    <li><span>8p</span>핵심 기술 이슈 ③ - 성능 최적화 (번들 감소)</li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 1 -</p>
+        </article>
+
+        <article class="portfolio-page page-two">
+          <div class="page-two-bg"></div>
+          <section class="page-two-content">
+            <header class="page-two-header">
+              <div class="eigene-logo-card">
+                <img src="./assets/eigene-logo.png" alt="Eigene.AI" />
+              </div>
+              <div class="page-two-title">
+                <h2>아이겐 코리아 인턴쉽</h2>
+                <div class="project-meta-line">
+                  <p>2025.03-2025.06</p>
+                  <div class="small-tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <section class="figma-section company-section">
+              <h3>회사 소개</h3>
+              <p>국내 최대 빅데이터 분석 기업 출신들이 설립한 회사로 빅데이터 기반 개인화 추천 및 마케팅 솔루션을&nbsp; 제공하고 있습니다.</p>
+            </section>
+
+            <section class="figma-section role-section">
+              <h3>담당 역할</h3>
+              <p>프론트엔드 인턴으로 개발실(풀스택 1·백엔드 2·프론트 1) 팀에 합류하여, 유일한 프론트엔드 담당자로서 아래 업무를 주도하였습니다.</p>
+              <ul>
+                <li>회사 서비스 기능 데모 페이지 개발</li>
+                <li>클라이언트사 요청에 따른 QA 수행 및 이슈 대응</li>
+                <li>어드민 페이지 안정성 향상 (리팩토링 / 타입 안정성 확보 등)</li>
+              </ul>
+            </section>
+
+            <h3 class="main-issue-title">바운스사 센터 데이터 API 전환 &amp; Recoil 설계</h3>
+
+            <section class="gray-report-box">
+              <div class="report-block">
+                <h4>1. 문제 상황</h4>
+                <ul>
+                  <li>어드민 서비스 내 30개 이상의 센터 정보가 프론트엔드 코드에 하드코딩</li>
+                  <li>새로운 센터 추가 시마다 프론트엔드 코드 수정 및 재배포 필요</li>
+                  <li>백엔드 데이터와 프론트엔드 코드 간 불일치가 언제든 발생할 수 있는 구조적 위험 존재</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 과제</h4>
+                <ul>
+                  <li>하드코딩된 센터 데이터를 API 기반 동적 로딩으로 전환</li>
+                  <li>38개 파일에 걸친 하드코딩 참조를 제거하고 전역 상태 관리 아키텍처 설계</li>
+                  <li>목표 → 향후 센터가 추가되어도 코드 수정 없이 자동 반영되는 구조 확보</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 행동</h4>
+                <ul>
+                  <li>Recoil atom을 서버 응답 raw 데이터를 저장하는 단일 진실 공급원(SOT) 으로 설계</li>
+                  <li>selector는 컴포넌트별로 필요한 형태로 가공하는 순수 계산 레이어로 역할 분리</li>
+                  <li>로그인 시점에 센터 목록 API 1회 호출 후 atom 업데이트</li>
+                  <li>LocalStorage effect를 적용하여 페이지 이동·새로고침 이후 불필요한 재호출 방지</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>4. 결과</h4>
+                <ul>
+                  <li>새로운 센터 추가 시 프론트엔드 코드 수정·재배포 없이 자동 반영되는 구조 확보</li>
+                  <li>백엔드·프론트엔드 데이터 단일 출처화로 불일치 가능성 구조적 제거</li>
+                  <li>LocalStorage 캐싱으로 중복 API 호출 제거, 네트워크 요청 최소화</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 2 -</p>
+        </article>
+
+        <article class="portfolio-page page-three">
+          <section class="page-three-content">
+            <h2 class="page-three-title">어드민 i18n 검증 자동화</h2>
+
+            <section class="gray-report-box page-three-box">
+              <div class="report-block">
+                <h4>1. 문제 상황</h4>
+                <ul>
+                  <li>다국어를 지원하는 서비스 특성상 번역 키 관리가 중요했으나, 개발 과정에서 특정 언어의 번역 키가 누락되는 문제가 반복적으로 발생</li>
+                  <li>누락된 번역 키는 코드 리뷰 단계에서 육안으로 발견하기 어려움</li>
+                  <li>발견되지 못한 채 운영 환경에 배포되면 해당 언어 사용자에게 번역되지 않은 키 문자열이 그대로 노출되는 UX 문제로 이어짐</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 과제</h4>
+                <ul>
+                  <li>번역 누락을 사후에 발견하는 방식에서 벗어나, 개발 프로세스 안에서 사전에 차단할 수 있는 자동화 검증 시스템 구축</li>
+                  <li>개발자가 별도로 확인하지 않아도 누락이 자동 감지되고 배포를 막을 수 있는 구조 설계</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 행동</h4>
+                <ul>
+                  <li>한국어 번역 파일을 기준 키로 삼아 다른 언어 파일과 비교하는 자동 검증 스크립트 설계·구현</li>
+                  <li>누락된 번역 키를 탐지하여 언어별로 정렬·요약 출력, 어느 파일의 어떤 키가 빠졌는지 즉시 파악 가능하도록 구성</li>
+                  <li>CI 파이프라인과 연동하여 누락 키가 존재하는 PR을 머지 단계에서 자동 차단</li>
+                </ul>
+              </div>
+
+              <img class="i18n-pipeline-img" src="./assets/i18n-pipeline.png" alt="i18n 검증 자동화 CI 파이프라인" />
+
+              <div class="report-block result-block">
+                <h4>4. 결과</h4>
+                <ul>
+                  <li>번역 누락 문제를 QA·운영 단계가 아닌 PR 단계에서 차단하는 구조 완성</li>
+                  <li>개발자가 번역 파일을 육안으로 검토하는 수작업 제거</li>
+                  <li>누락 키가 프로덕션에 도달하는 경로 자체를 차단하여 운영 단계 다국어 오류 사전 제거</li>
+                  <li>단순 버그 수정을 넘어 품질 검증을 개발 프로세스에 내재화</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 3 -</p>
+        </article>
+
+        <article class="portfolio-page page-four">
+          <section class="page-four-content">
+            <header class="page-four-header">
+              <h2>TypeScript 3v → 5v 마이그레이션</h2>
+              <p>
+                <a href="https://hochoi.tistory.com/23" target="_blank" rel="noreferrer">블로그 1</a>,
+                <a href="https://hochoi.tistory.com/25" target="_blank" rel="noreferrer">블로그 2</a>
+              </p>
+            </header>
+
+            <section class="gray-report-box page-four-box">
+              <div class="report-block">
+                <h4>1. 문제 상황</h4>
+                <ul>
+                  <li>어드민 서비스의 TypeScript 버전이 v3로 노후화되어, 최신 라이브러리 적용 시 버전 충돌 오류가 빈번하게 발생</li>
+                  <li>strict 모드가 비활성화된 상태로 운영되어 타입 안정성이 보장되지 않았고, 50개 이상의 any 타입이 코드베이스 전반에 산재</li>
+                  <li>런타임 오류를 컴파일 단계에서 사전에 잡지 못하는 구조적 한계 존재</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 과제</h4>
+                <ul>
+                  <li>TypeScript v3 → v5 마이그레이션을 통해 최신 라이브러리와의 호환성 확보</li>
+                  <li>tsconfig를 strict 모드로 단계적으로 전환하여 타입 안정성 강화</li>
+                  <li>전체 코드베이스의 any 타입을 명시적 타입으로 전환</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 행동</h4>
+                <ul>
+                  <li>한 번에 strict로 전환 시 오류가 대거 발생할 수 있어 옵션을 하나씩 활성화하는 단계별 전략으로 진행</li>
+                  <li>noImplicitAny → strictNullChecks → 외부 라이브러리 호환성 → strict: true 순으로 진행</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>4. 결과</h4>
+                <ul>
+                  <li>TypeScript v5 전환으로 최신 라이브러리 버전 충돌 오류 해소 및 호환성 확보</li>
+                  <li>any 타입 50개 이상을 명시적 타입으로 전환, 타입 커버리지 대폭 향상</li>
+                  <li>strict 모드 활성화로 런타임 오류를 컴파일 단계에서 사전 감지 가능한 구조 확보</li>
+                  <li>빌드 속도 약 19% 단축 (평균 246.22초 → 199.51초)</li>
+                </ul>
+              </div>
+
+              <img class="typescript-migration-img" src="./assets/typescript-migration.png" alt="TypeScript v3 to v5 단계별 마이그레이션" />
+            </section>
+          </section>
+          <p class="page-number">- 4 -</p>
+        </article>
+
+        <article class="portfolio-page page-five">
+          <div class="page-five-bg"></div>
+          <section class="page-five-content">
+            <header class="page-five-header">
+              <img class="bugi-icon" src="./assets/geobugirin-icon.svg" alt="" />
+              <div class="page-five-heading">
+                <h2>거부기린</h2>
+                <div class="project-meta-line">
+                  <p>2025.10-2025.12</p>
+                  <div class="small-tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Electron</span>
+                    <span>Zustand</span>
+                    <span>@mediapipe/tasks-vision</span>
+                  </div>
+                </div>
+                <div class="tag-row">
+                  <p>인원</p>
+                  <div class="small-tags">
+                    <span>기획 2명</span>
+                    <span>디자이너 2명</span>
+                    <span>프론트엔드 2명</span>
+                    <span>백엔드 1명</span>
+                  </div>
+                </div>
+                <div class="tag-row">
+                  <p>링크</p>
+                  <div class="small-tags">
+                    <a href="https://www.bugi.co.kr/" target="_blank" rel="noreferrer">거부기린</a>
+                    <a href="https://blog.bugi.co.kr/" target="_blank" rel="noreferrer">거부기린 블로그</a>
+                    <a href="https://design.bugi.co.kr/" target="_blank" rel="noreferrer">거부기린 디자인 시스템</a>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <section class="figma-section-copy page-five-intro">
+              <h3>프로젝트 소개</h3>
+              <p>
+                거부기린은 Electron 기반의 멀티 윈도우 데스크톱 자세 교정 앱입니다.<br />
+                웹캠으로 사용자의 자세를 실시간 분석해 위젯과 알림으로 즉시 피드백을 제공하고, 세션 데이터를 대시보드로 시각화해 장기적인 자세 습관 개선을 지원합니다. 특히 영상 데이터가 외부로 넘어가지 않고 디바이스 안에서 자세 판정이 되는것이 핵심입니다.
+              </p>
+            </section>
+
+            <section class="figma-section-copy page-five-stack">
+              <h3>기술 스택 및 라이브러리</h3>
+              <p>
+                사용자가 위젯으로 실시간 자세 피드백을 받아야 했고, 서버로 영상을 전송하지 않고 클라이언트 단에서 자체적으로 자세 분석이 필요했기 때문에 클라이언트 중심의 기술스택을 주로 선택했습니다.
+              </p>
+            </section>
+
+            <section class="figma-gray-box page-five-tech-box">
+              <ol>
+                <li>
+                  <strong>Electron + React</strong>
+                  <ul>
+                    <li>데스크톱 애플리케이션과 웹 기술의 장점을 결합하여 위젯과 메인 윈도우를 동시에 관리하고, 실시간 자세 피드백을 제공합니다.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>MediaPipe Vision</strong>
+                  <ul>
+                    <li>브라우저 환경에서 고성능 자세 인식을 가능하게 하여 별도의 서버 없이 실시간으로 신체 키포인트를 추출합니다.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>TailwindCSS</strong>
+                  <ul>
+                    <li>유틸리티 퍼스트 방식으로 빠른 스타일 적용 가능</li>
+                    <li>불필요한 CSS 중복 제거 가능</li>
+                  </ul>
+                </li>
+              </ol>
+            </section>
+
+            <img class="geobugirin-dashboard-img" src="./assets/geobugirin-dashboard.png" alt="거부기린 대시보드 화면" />
+          </section>
+          <p class="page-number">- 5 -</p>
+        </article>
+
+        <article class="portfolio-page page-six">
+          <section class="figma-detail-content">
+            <h2 class="figma-detail-title">Zustand 상태관리 라이브러리를 사용한 이유</h2>
+            <section class="figma-gray-box page-six-box">
+              <ul class="figma-nested-list">
+                <li>
+                  <strong>기술적 요구 사항</strong>
+                  <ul>
+                    <li><strong>실시간 상태 업데이트:</strong> MediaPipe가 초당 30회 이상 자세를 분석하며, 이에 따른 빈번한 상태 업데이트 처리 필요</li>
+                    <li><strong>다중 윈도우 환경:</strong> 메인 윈도우와 위젯 윈도우가 동시에 실행되며 상태 동기화 필요</li>
+                    <li><strong>도메인 분리:</strong> 카메라, 자세, 알림 설정 등 세 가지 영역을 독립적으로 관리 필요</li>
+                  </ul>
+                </li>
+              </ul>
+              <img class="zustand-comparison-img" src="./assets/zustand-comparison.png" alt="상태관리 라이브러리 비교표" />
+              <ul class="figma-nested-list">
+                <li>
+                  <strong>4가지 기준</strong>
+                  <ol type="a">
+                    <li><strong>도메인 분리:</strong> 각 기능을 독립적으로 관리할 수 있는가?</li>
+                    <li><strong>실시간 성능:</strong> 초당 30회 이상의 업데이트를 부드럽게 처리할 수 있는가?</li>
+                    <li><strong>다중 윈도우:</strong> 메인/위젯 윈도우 간 상태 동기화가 간단한가?</li>
+                    <li><strong>개발 생산성:</strong> 새로운 상태 추가가 쉬운가?</li>
+                  </ol>
+                </li>
+                <li>비교 분석 결과, Zustand를 최종 선정했습니다. 특히 "도메인별로 store를 나누어, 서로 의존 없이 빠르게 전역 상태를 사용할 수 있다"는 점이 가장 결정적인 장점이었습니다.</li>
+              </ul>
+              <img class="zustand-architecture-img" src="./assets/zustand-store-architecture.png" alt="Zustand store 구조도" />
+            </section>
+          </section>
+          <p class="page-number">- 6 -</p>
+        </article>
+
+        <article class="portfolio-page page-seven">
+          <section class="figma-detail-content page-seven-content">
+            <section class="figma-gray-box page-seven-top-box">
+              <ul class="figma-nested-list">
+                <li>
+                  <strong>기술적 성과</strong>
+                  <ul>
+                    <li><strong>개발 생산성:</strong> 새로운 상태 추가 시 store 파일 1개만 생성하면 완료</li>
+                    <li><strong>성능:</strong> 초당 30회 상태 업데이트도 부드러운 ux 달성</li>
+                    <li><strong>유지보수성:</strong> 각 도메인을 독립적으로 수정 가능, 결합도 0</li>
+                    <li><strong>다중 윈도우:</strong> localStorage 이벤트 기반 메인/위젯 간 상태 동기화 구현</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>주요 인사이트</strong>
+                  <ol type="a">
+                    <li><strong>도메인별 Store 분리의 효과:</strong> 각 도메인이 완전히 독립적인 store를 가지면서, 한 도메인의 수정이 다른 도메인에 영향을 주지 않아 유지보수성을 향상</li>
+                    <li><strong>선택적 구독으로 성능 최적화:</strong> Zustand의 선택적 구독 메커니즘을 통해 실시간 상태 업데이트의 성능 문제 해결</li>
+                  </ol>
+                </li>
+              </ul>
+            </section>
+
+            <h2 class="figma-detail-title page-seven-title">UX 설계 (always-on-top + 알림)</h2>
+            <section class="figma-gray-box page-seven-ux-box">
+              <ul class="figma-nested-list">
+                <li>
+                  <strong>문제상황</strong>
+                  <ul>
+                    <li>장시간 작업 환경에서 자세가 무너져도 사용자가 이를 즉각적으로 인지하지 못함</li>
+                    <li>기존 알림 방식은 팝업/인터럽트 형태로 동작하여 작업 흐름을 강제로 중단시킴</li>
+                    <li>잦은 알림 개입으로 사용자 피로도가 증가하고, 오히려 사용성이 저하되는 문제 발생</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>과제</strong>
+                  <ul>
+                    <li>작업 흐름을 방해하지 않으면서도 자세 이상 상태를 인지할 수 있는 UX 설계 필요</li>
+                    <li>단순 알림이 아닌 지속적 인지 + 필요 시 개입 구조를 만드는 것이 목표</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>행동</strong>
+                  <ul>
+                    <li>인터럽트 기반 알림 대신 always-on-top 위젯 구조로 UX 방향 전환</li>
+                    <li>작업을 가리지 않도록 최소 영역의 상시 노출 UI 설계</li>
+                    <li>일정 시간 이상 자세가 무너진 경우에만 알림이 발생하도록 조건 기반 트리거 로직 구현</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>결과</strong>
+                  <ul>
+                    <li>작업 흐름을 유지하면서도 자세 교정이 가능한 UX 구현</li>
+                    <li>불필요한 알림 개입을 줄여 사용자 피로도 감소</li>
+                    <li>사용자가 자연스럽게 자세를 인지하고 교정할 수 있는 환경 구축</li>
+                  </ul>
+                </li>
+              </ul>
+              <img class="always-on-top-img" src="./assets/always-on-top-widget.png" alt="always-on-top 위젯 화면" />
+            </section>
+          </section>
+          <p class="page-number">- 7 -</p>
+        </article>
+
+        <article class="portfolio-page page-eight">
+          <section class="figma-detail-content page-eight-content">
+            <h2 class="figma-detail-title">성능 최적화 (번들 감소)</h2>
+            <section class="figma-gray-box page-eight-box">
+              <ul class="figma-nested-list">
+                <li>
+                  <strong>문제상황</strong>
+                  <ul>
+                    <li>초기 번들 크기가 1.79MB로 커서 애플리케이션 첫 진입 시 모든 리소스가 한 번에 로드됨</li>
+                    <li>초기 렌더링 지연으로 첫 화면 표시까지 시간이 길어지는 문제 발생</li>
+                    <li>사용자 입장에서 "사용하기 전에 기다려야 하는 상태"가 발생하여 진입 경험 저하</li>
+                    <li>특히 데스크톱 환경에서도 체감 성능 저하가 명확하게 드러남</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>과제</strong>
+                  <ul>
+                    <li>초기 진입 시 필요한 최소 리소스만 우선 로드하도록 구조 개선 필요</li>
+                    <li>전체 리소스를 한 번에 로드하는 방식에서 벗어나 로딩 시점 제어 전략 수립</li>
+                    <li>빠르게 화면을 보여주고 이후 필요한 기능을 로드하는 체감 성능 개선이 목표.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>행동</strong>
+                  <ul>
+                    <li>코드 스플리팅을 통해 초기 로딩과 이후 로딩을 분리하는 구조로 개선</li>
+                    <li>React.lazy를 적용하여 주요 기능을 사용 시점에 로드되도록 지연 로딩 처리</li>
+                    <li>Vite manualChunks를 활용해 라이브러리 및 기능 단위로 번들 분리</li>
+                    <li>초기 렌더링에 필요한 코드와 이후 로드되는 코드를 구분</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>결과</strong>
+                  <ul>
+                    <li>번들 크기를 1.79MB → 0.63MB로 약 65% 감소</li>
+                    <li>초기 진입 시 필요한 리소스만 로드되어 첫 화면 표시 속도 개선</li>
+                    <li>사용자 입장에서 "기다림 없이 바로 사용 가능한" 경험 제공</li>
+                  </ul>
+                </li>
+              </ul>
+              <img class="bundle-architecture-img" src="./assets/bundle-architecture.png" alt="번들 분리 아키텍처 다이어그램" />
+            </section>
+          </section>
+          <p class="page-number">- 8 -</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -16,6 +16,7 @@
 
 - LLM이 유지하는 정규화 지식 계층이다.
 - 경험, 프로젝트, 수상, 기술, 스토리, 강점, 문장 뱅크를 관리한다.
+- 템플릿과 output brief를 통해 이력서/포트폴리오 조립 기준을 관리한다.
 - 직접 제출하지 않는 중간 컴파일 결과물이다.
 
 ### outputs/
@@ -64,10 +65,11 @@ Optional research files:
 ### Build General Outputs
 
 1. `wiki/themes/`, `wiki/stories/`, `wiki/sentence-bank/`를 우선 읽는다.
-2. 전달하려는 포지셔닝에 맞게 문장을 선택한다.
-3. 해당 범용 산출물 파일을 갱신한다.
-4. 최종 저장 전에 `career-output-polish` 기준으로 AI식 문장 패턴을 교정한다.
-5. `log.md`에 변경 이유를 기록한다.
+2. `wiki/output-briefs/`에서 산출물별 조립 기준을 확인한다.
+3. 전달하려는 포지셔닝에 맞게 문장을 선택한다.
+4. 해당 범용 산출물 파일을 갱신한다.
+5. 최종 저장 전에 `career-output-polish` 기준으로 AI식 문장 패턴을 교정한다.
+6. `log.md`에 변경 이유를 기록한다.
 
 ### Build Company-Specific Outputs
 
@@ -99,6 +101,7 @@ Optional research files:
 - 기본 언어는 한국어다.
 - 사실과 해석을 섞지 않는다.
 - 같은 내용을 여러 산출물에 직접 복붙하지 않는다. 먼저 `wiki/`를 갱신하고 산출물을 다시 만든다.
+- 새 경험, 프로젝트, 수상, 기술 페이지는 가능하면 `wiki/templates/`의 템플릿 구조를 따른다.
 - 회사명은 가능하면 ASCII 소문자 slug를 사용한다.
 - 맞춤본은 반드시 디렉터리 단위로 관리한다.
 

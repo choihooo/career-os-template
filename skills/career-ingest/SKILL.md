@@ -34,6 +34,7 @@ If the material spans multiple categories, choose the strongest primary category
 
 1. Save the raw source into the correct `raw/` directory.
 2. Read the closest matching pages under `wiki/` before creating anything new.
+   - For new experience, project, award, or skill pages, follow the relevant template under `wiki/templates/`.
 3. Extract only reusable facts:
    - what happened
    - where and when
