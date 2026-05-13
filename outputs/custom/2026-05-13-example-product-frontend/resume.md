@@ -29,6 +29,8 @@ React와 TypeScript 기반으로 B2B SaaS의 어드민, 대시보드, 폼 입력
 - 계약 시작일, 담당자 이메일, 정산 계좌 정보의 런타임 오류를 Zod 스키마와 명시 타입으로 입력 단계에서 검증하도록 개선했다.
 - 에러 메시지 매핑과 제출 버튼 disabled 조건을 추가해 QA 재현 이슈 5건 중 4건을 사전 검증 단계에서 차단했다.
 - 입력값, API 응답, 화면 상태, 기대 메시지를 함께 남기는 QA 재현 템플릿을 만들어 폼 검증 이슈를 필드 단위로 논의할 수 있게 했다.
+- 파트너 목록 테이블의 로딩, 빈 상태, 권한 없음, 서버 에러 상태를 구분해 운영자가 현재 처리 가능 여부를 바로 알 수 있게 했다.
+- 반복되는 필터 초기화, 저장 전 확인, 제출 실패 토스트 문구를 정리해 QA 피드백을 화면 상태별로 분류했다.
 
 ### 플로우키트 | Frontend Engineer Part-time
 
@@ -37,6 +39,9 @@ React와 TypeScript 기반으로 B2B SaaS의 어드민, 대시보드, 폼 입력
 - 운영자가 신청서 상태와 누락 서류를 빠르게 검토하도록 어드민 검토 큐 화면을 구현했다.
 - 상태별 탭, URL query 필터, 상세 패널, 액션 버튼 상태를 분리해 같은 조건의 검토 큐를 링크로 공유할 수 있게 했다.
 - default, focus, error, disabled 상태 규칙을 정리해 신규 폼 화면의 UI 리뷰 기준을 명확히 했다.
+- 검토 상세 패널에서 신청자 정보, 누락 서류, 담당자 메모, 처리 액션을 한 번에 확인하도록 정보 구조를 재배치했다.
+- 액션 버튼의 loading, disabled, error 상태를 명시해 중복 승인과 실패 후 재시도 흐름을 분리했다.
+- QA가 남긴 재현 조건을 URL query와 선택 행 기준으로 다시 확인할 수 있게 테스트 체크리스트를 작성했다.
 
 ## Projects
 
@@ -47,6 +52,8 @@ React와 TypeScript 기반으로 B2B SaaS의 어드민, 대시보드, 폼 입력
 - 광고비, 주문 수, CS 문의 수를 CSV로 따로 내려받아 만들던 주간 리포트를 한 화면에서 확인할 수 있는 대시보드로 구현했다.
 - TanStack Query로 서버 상태를 분리하고, 필터 상태를 URL query와 동기화해 조건 공유와 재현을 쉽게 만들었다.
 - Recharts로 주요 지표와 추세를 시각화하고 로딩, 빈 상태, 에러 상태를 분리했다.
+- 필터 조건을 query key에 반영해 기간, 채널, 브랜드 조건 변경 시 필요한 데이터만 다시 요청하도록 구성했다.
+- 테이블과 차트가 같은 필터 상태를 바라보게 만들어 리포트 화면의 수치 불일치 가능성을 줄였다.
 - 운영자로부터 주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 피드백을 받았다.
 
 ### ReviewFlow Admin | Frontend Owner
@@ -56,6 +63,8 @@ React와 TypeScript 기반으로 B2B SaaS의 어드민, 대시보드, 폼 입력
 - 신청서 상태, 누락 서류, 담당자 메모를 한 화면에서 확인하는 운영자 검토 큐를 만들었다.
 - 리스트 필터와 상세 패널의 책임을 분리하고 액션 버튼의 loading, disabled, error 상태를 명시했다.
 - 운영자가 화면 이동 없이 누락 서류와 처리 상태를 확인할 수 있게 정보 구조를 재배치했다.
+- 검토 상태 탭과 URL query를 연결해 "누락 서류 + 담당자 지정" 같은 조건을 팀원에게 그대로 전달할 수 있게 했다.
+- 승인 실패, 권한 없음, 이미 처리됨 상태를 구분해 운영자가 다음 행동을 판단할 수 있게 메시지를 나눴다.
 
 ### FormGuard System | Frontend Contributor
 
@@ -64,6 +73,29 @@ React와 TypeScript 기반으로 B2B SaaS의 어드민, 대시보드, 폼 입력
 - label, helper text, error text, disabled state의 우선순위를 정의하고 Input, Select, DateField 컴포넌트를 정리했다.
 - Zod 스키마와 UI 에러 메시지 매핑 규칙을 분리해 입력 검증과 표시 책임을 명확히 했다.
 - 키보드 접근과 focus ring 동작을 점검해 폼 입력 흐름의 기본 사용성을 보강했다.
+- 제출 버튼 활성 조건, 서버 에러 표시 위치, 필드별 helper text 우선순위를 문서화했다.
+- 신규 폼 화면에서 QA가 입력 필드 단위로 재현 경로를 남길 수 있도록 상태 이름과 메시지 규칙을 맞췄다.
+
+## Awards and Activities
+
+### SaaS Ops Prototype Challenge 우수상
+
+2025.09
+
+- OpsPulse Dashboard의 운영 지표 대시보드 프로토타입으로 30개 팀 중 3위를 기록했다.
+- 필터 재현성, 차트 기반 리포트 흐름, 실제 운영자 문제와 연결된 UX 설명을 맡았다.
+
+## Working Style
+
+- 요구사항을 API 상태, 화면 상태, 사용자 액션, 예외 상태로 나누어 구현 범위를 정리한다.
+- QA 이슈는 입력값, URL query, API 응답, 기대 메시지를 함께 남겨 재현 가능하게 만든다.
+- 화면 구현 전 로딩, 빈 상태, 권한 없음, 서버 에러, 제출 실패 상태를 먼저 정의한다.
+
+## Additional Context
+
+- Coursework: Web Programming, Database Systems, Human-Computer Interaction, Software Engineering
+- Tools: GitHub Projects, Figma handoff, Chrome DevTools, Playwright basic screenshot check
+- Target Fit: B2B SaaS 어드민 화면, 대시보드 필터, 입력 검증, QA 재현 문서화 경험이 Example Product JD와 맞다.
 
 ## Education
 

@@ -50,3 +50,8 @@
 - Reworked the sample candidate into the fictional persona `정유진`
 - Replaced generic sample company and project names with a coherent B2B SaaS narrative
 - Updated raw memos, rendered HTML, and generated PNG assets to match the persona
+
+## [2026-05-13] output | resume experience density improved
+
+- Expanded the rendered resume with additional work items, project details, award, evidence, and working style sections
+- Updated the matching markdown resume so the sample package reads like a fuller candidate profile
