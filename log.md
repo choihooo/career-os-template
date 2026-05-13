@@ -22,3 +22,8 @@
 
 - Copied existing Career OS card news into `card-news/career-os-template/`
 - Updated root landing page to show the exported PNG cards
+
+## [2026-05-13] output | guide pages added
+
+- Added HTML pages for guide, index, prompts, and checklist
+- Updated landing navigation to link to HTML pages instead of markdown files

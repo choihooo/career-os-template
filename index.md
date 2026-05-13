@@ -5,6 +5,10 @@
 ## Start Here
 
 - [landing](index.html) - Career OS 카드뉴스를 보여주는 웹 랜딩 페이지
+- [guide-page](guide.html) - GitHub Pages용 사용 가이드
+- [directory-page](directory.html) - GitHub Pages용 작업공간 인덱스
+- [prompts-page](prompts.html) - GitHub Pages용 요청 프롬프트
+- [checklist-page](checklist.html) - GitHub Pages용 제출 전 체크리스트
 - [README](README.md) - 템플릿 사용법과 전체 흐름
 - [AGENTS](AGENTS.md) - 에이전트 작업 규칙
 - [log](log.md) - append-only 변경 기록
