@@ -76,3 +76,8 @@
 
 - Removed the internal JD summary page from the rendered sample portfolio
 - Updated the cover contents and regenerated the portfolio PDF
+
+## [2026-05-13] output | rendered profile image replaced
+
+- Replaced the sample resume and portfolio profile image with the provided profile photo
+- Regenerated the rendered resume and portfolio PDFs
