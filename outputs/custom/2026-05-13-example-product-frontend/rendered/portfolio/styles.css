@@ -252,6 +252,14 @@ a {
   min-height: 296px;
 }
 
+.portfolio-shot {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
+}
+
 .figma-gray-box,
 .figma-gray-box li,
 .figma-gray-box p,
@@ -449,7 +457,7 @@ a {
 }
 
 .contents-item + .contents-item {
-  margin-top: 16px;
+  margin-top: 13px;
 }
 
 .contents-item img {
@@ -571,6 +579,19 @@ a {
   top: 203px;
 }
 
+.dashboard-shot {
+  position: absolute;
+  left: 0;
+  top: 292px;
+  width: var(--content-width);
+  height: 314px;
+}
+
+.page-two-report {
+  top: 622px;
+  min-height: 150px;
+}
+
 .main-issue-title {
   position: absolute;
   left: 0;
@@ -628,9 +649,15 @@ a {
 .page-three-box {
   position: static;
   width: var(--content-width);
-  min-height: 695px;
+  min-height: 326px;
   margin-top: 20px;
   padding: 10px;
+}
+
+.flow-shot {
+  width: var(--content-width);
+  height: 244px;
+  margin-top: 20px;
 }
 
 .page-three-box .report-block {
@@ -664,6 +691,65 @@ a {
   min-height: 709px;
   margin-top: 20px;
   padding: 10px;
+}
+
+.admin-shot {
+  width: var(--content-width);
+  height: 313px;
+  margin-top: 20px;
+}
+
+.compact-report {
+  min-height: 320px;
+}
+
+.asset-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.half-shot {
+  width: 100%;
+  height: 270px;
+  background: #f8fafc;
+  object-fit: contain;
+}
+
+.fit-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.fit-summary-grid article {
+  min-height: 118px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--surface-muted);
+}
+
+.fit-summary-grid h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.fit-summary-grid p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 9px;
+  line-height: 1.8;
+}
+
+.final-notes {
+  margin-top: 24px;
+  min-height: 330px;
 }
 
 .typescript-migration-img {

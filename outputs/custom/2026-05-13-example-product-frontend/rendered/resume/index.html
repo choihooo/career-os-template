@@ -18,7 +18,7 @@
 
           <section class="about-block">
             <h2>About Me</h2>
-            <p>업무용 웹 제품의 데이터 흐름과 입력 경험을 React/TypeScript로 개선하는 프론트엔드 엔지니어입니다.</p>
+            <p>React와 TypeScript로 업무용 웹 제품의 데이터 흐름, 검토 큐, 입력 검증을 개선합니다.</p>
           </section>
 
           <nav class="contact-row" aria-label="연락처 및 링크">
@@ -40,8 +40,8 @@
             </p>
           </nav>
 
-          <figure class="profile-frame sample-profile" aria-label="프로필 이미지 자리">
-            <span>SC</span>
+          <figure class="profile-frame" aria-label="샘플 프로필 이미지">
+            <img src="./assets/sample-profile.png" alt="" />
           </figure>
         </header>
 
@@ -61,11 +61,11 @@
 
             <div class="company-summary">
               <h3>Frontend Engineer Intern @Sample Company</h3>
-              <p>React/TypeScript 기반 어드민 화면에서 API 응답 타입, 폼 검증, 화면 상태 흐름을 정리했습니다.</p>
+              <p>React/TypeScript 기반 어드민 화면에서 API 응답 타입, 폼 검증, QA 재현 흐름을 정리했습니다.</p>
             </div>
           </section>
 
-          <section class="work-list" aria-label="상세 업무">
+          <section class="work-list" aria-label="Sample Company 상세 업무">
             <article class="work-item">
               <header>
                 <h3>폼 검증과 타입 안정성 개선</h3>
@@ -94,47 +94,42 @@
                 </div>
               </header>
               <ul>
-                <li>어드민 화면에서 서버 응답과 화면 상태가 섞여 변경 영향 범위가 커지는 문제를 정리</li>
+                <li>서버 응답과 화면 상태가 섞여 변경 영향 범위가 커지는 어드민 화면을 정리</li>
                 <li>API 응답 타입을 명시하고 화면 상태와 서버 상태의 책임을 분리</li>
-                <li>반복 QA 이슈의 재현 경로를 문서화해 요구사항, 개발, QA 간 커뮤니케이션 비용을 낮춤</li>
+                <li>반복 QA 이슈의 재현 경로와 기대 동작을 문서화해 확인 비용을 낮춤</li>
               </ul>
             </article>
           </section>
 
-          <div class="section-heading project-heading">
-            <h2>Project</h2>
-          </div>
-
-          <section class="company-row project-row">
+          <section class="company-row second-company-row">
             <aside class="period-block">
-              <p>25.07 - 25.08<br />(2개월)</p>
-              <a href="https://github.com/example/sample-dashboard" target="_blank" rel="noreferrer">
+              <p>24.09 - 25.02<br />(6개월)</p>
+              <a href="https://example.com/sample-saas" target="_blank" rel="noreferrer">
                 <img src="./assets/link-small.png" alt="" />
-                <span>Github</span>
+                <span>Homepage</span>
               </a>
             </aside>
 
             <div class="company-summary">
-              <h3>Sample Dashboard · Frontend Lead</h3>
-              <p>운영자가 여러 CSV를 수동으로 합쳐 보던 주간 지표를 한 화면에서 확인하도록 만든 대시보드입니다.</p>
+              <h3>Frontend Engineer Part-time @Sample SaaS Lab</h3>
+              <p>신청서 검토 큐와 폼 컴포넌트 상태 규칙을 정리해 운영자 워크플로를 개선했습니다.</p>
             </div>
           </section>
 
-          <section class="work-list project-list" aria-label="프로젝트 상세">
+          <section class="work-list compact-list" aria-label="Sample SaaS Lab 상세 업무">
             <article class="work-item">
               <header>
-                <h3>운영자 대시보드 상태 설계</h3>
+                <h3>어드민 검토 큐 화면 개선</h3>
                 <div class="tag-list">
-                  <span>TanStack Query</span>
                   <span>URL query</span>
-                  <span>Recharts</span>
+                  <span>Workflow</span>
+                  <span>Table UI</span>
                 </div>
               </header>
               <ul>
-                <li>서버 상태와 사용자가 조작하는 필터 상태를 분리해 데이터 요청과 화면 조건을 명확히 구분</li>
-                <li>필터 조건을 URL query와 동기화해 새로고침과 링크 공유 이후에도 같은 조건을 재현</li>
-                <li>Recharts로 주요 지표와 추세를 시각화해 리포트 작성 전 필요한 데이터를 빠르게 비교하도록 구성</li>
-                <li>운영자로부터 주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 피드백을 받음</li>
+                <li>상태별 탭, URL query 필터, 상세 패널, 액션 버튼 상태를 분리해 검토 흐름을 재구성</li>
+                <li>같은 조건의 검토 큐를 링크로 공유할 수 있게 만들어 운영자 간 확인 흐름을 단순화</li>
+                <li>default, focus, error, disabled 상태 규칙을 정리해 신규 폼 화면의 UI 리뷰 기준을 명확히 함</li>
               </ul>
             </article>
           </section>
@@ -142,8 +137,104 @@
         <p class="page-number">- 1 -</p>
       </article>
 
-      <article class="resume-page resume-page-plain" aria-label="Example Product 맞춤 이력서 추가 정보">
-        <section class="resume-content">
+      <article class="resume-page resume-page-plain" aria-label="Example Product 맞춤 프로젝트">
+        <section class="resume-content resume-extra-content">
+          <section class="resume-section-block">
+            <div class="section-heading">
+              <h2>Projects</h2>
+            </div>
+
+            <article class="project-entry">
+              <aside class="entry-side">
+                <p>25.07 - 25.08<br />(2개월)</p>
+                <div class="entry-links">
+                  <a href="https://github.com/example/sample-dashboard" target="_blank" rel="noreferrer">
+                    <img src="./assets/link-small.png" alt="" />
+                    <span>Github</span>
+                  </a>
+                </div>
+              </aside>
+              <div class="entry-main">
+                <header class="entry-header">
+                  <h3>Sample Dashboard · Frontend Lead</h3>
+                  <div class="tag-list">
+                    <span>TanStack Query</span>
+                    <span>URL query</span>
+                    <span>Recharts</span>
+                  </div>
+                </header>
+                <p class="entry-summary">운영자가 여러 CSV를 수동으로 합쳐 보던 주간 지표를 한 화면에서 확인하도록 만든 대시보드입니다.</p>
+                <ul class="entry-bullets">
+                  <li>서버 상태와 사용자가 조작하는 필터 상태를 분리해 데이터 요청과 화면 조건을 명확히 구분</li>
+                  <li>필터 조건을 URL query와 동기화해 새로고침과 링크 공유 이후에도 같은 조건을 재현</li>
+                  <li>Recharts로 주요 지표와 추세를 시각화하고 로딩, 빈 상태, 에러 상태를 분리</li>
+                  <li>주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 운영자 피드백을 받음</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-entry">
+              <aside class="entry-side">
+                <p>25.01 - 25.02<br />(2개월)</p>
+                <div class="entry-links">
+                  <a href="https://github.com/example/sample-admin-workflow" target="_blank" rel="noreferrer">
+                    <img src="./assets/link-small.png" alt="" />
+                    <span>Github</span>
+                  </a>
+                </div>
+              </aside>
+              <div class="entry-main">
+                <header class="entry-header">
+                  <h3>Sample Admin Workflow · Frontend Owner</h3>
+                  <div class="tag-list">
+                    <span>Admin UI</span>
+                    <span>Workflow</span>
+                    <span>State</span>
+                  </div>
+                </header>
+                <p class="entry-summary">신청서 상태, 누락 서류, 담당자 메모를 한 화면에서 확인하는 운영자 검토 큐입니다.</p>
+                <ul class="entry-bullets">
+                  <li>리스트 필터와 상세 패널의 책임을 분리하고 액션 버튼의 loading, disabled, error 상태를 명시</li>
+                  <li>운영자가 화면 이동 없이 누락 서류와 처리 상태를 확인할 수 있게 정보 구조를 재배치</li>
+                  <li>같은 조건의 검토 큐를 팀원에게 링크로 전달할 수 있게 URL 상태를 보존</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="project-entry">
+              <aside class="entry-side">
+                <p>24.11 - 24.12<br />(2개월)</p>
+                <div class="entry-links">
+                  <a href="https://github.com/example/sample-form-system" target="_blank" rel="noreferrer">
+                    <img src="./assets/link-small.png" alt="" />
+                    <span>Github</span>
+                  </a>
+                </div>
+              </aside>
+              <div class="entry-main">
+                <header class="entry-header">
+                  <h3>Sample Form System · Frontend Contributor</h3>
+                  <div class="tag-list">
+                    <span>Zod</span>
+                    <span>Form</span>
+                    <span>A11y</span>
+                  </div>
+                </header>
+                <p class="entry-summary">폼마다 달랐던 입력 상태, 검증 메시지, disabled 표현을 공통 규칙과 컴포넌트로 정리했습니다.</p>
+                <ul class="entry-bullets">
+                  <li>label, helper text, error text, disabled state의 우선순위를 정의하고 공통 입력 컴포넌트로 분리</li>
+                  <li>Zod 스키마와 UI 에러 메시지 매핑 규칙을 분리해 입력 검증과 표시 책임을 명확히 함</li>
+                  <li>키보드 접근과 focus ring 동작을 점검해 폼 입력 흐름의 기본 사용성을 보강</li>
+                </ul>
+              </div>
+            </article>
+          </section>
+        </section>
+        <p class="page-number">- 2 -</p>
+      </article>
+
+      <article class="resume-page resume-page-plain" aria-label="Example Product 맞춤 추가 정보">
+        <section class="resume-content resume-extra-content">
           <section class="resume-section-block compact">
             <div class="section-heading">
               <h2>JD Fit</h2>
@@ -154,7 +245,9 @@
               <span>URL query state</span>
               <span>Zod validation</span>
               <span>Dashboard UI</span>
+              <span>Admin workflow</span>
               <span>QA issue prevention</span>
+              <span>Form components</span>
             </div>
           </section>
 
@@ -164,19 +257,23 @@
             </div>
             <div class="simple-row">
               <p>Frontend</p>
-              <strong>React, TypeScript, HTML, CSS</strong>
+              <strong>React, TypeScript, HTML, CSS, component architecture</strong>
             </div>
             <div class="simple-row">
               <p>State/Data</p>
-              <strong>TanStack Query, URL query state, API response typing</strong>
+              <strong>TanStack Query, URL query state, API response typing, loading/error/empty states</strong>
             </div>
             <div class="simple-row">
               <p>Validation</p>
-              <strong>Zod, form schema, error message mapping</strong>
+              <strong>Zod, form schema, error message mapping, typed submit flow</strong>
             </div>
             <div class="simple-row">
               <p>Visualization</p>
-              <strong>Recharts</strong>
+              <strong>Recharts, dashboard metrics, report-oriented layout</strong>
+            </div>
+            <div class="simple-row">
+              <p>Collaboration</p>
+              <strong>Git, issue-based QA reproduction, product requirement breakdown, documentation</strong>
             </div>
           </section>
 
@@ -202,12 +299,13 @@
                   <li>이름, 연락처, GitHub, Portfolio 링크</li>
                   <li>실제 회사명, 프로젝트 링크, 화면 스크린샷</li>
                   <li>성과 수치의 측정 방식과 사용자 피드백 원문</li>
+                  <li>PR, 이슈, QA 재현 문서 등 검증 가능한 근거</li>
                 </ul>
               </div>
             </article>
           </section>
         </section>
-        <p class="page-number">- 2 -</p>
+        <p class="page-number">- 3 -</p>
       </article>
     </main>
   </body>

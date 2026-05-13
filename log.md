@@ -38,3 +38,9 @@
 - Kept root `resume/` and `portfolio/` as reusable HTML templates
 - Exported `resume.pdf` and `portfolio.pdf` into the custom package rendered folder
 - Copied the rendered resume and portfolio HTML/CSS into the custom package rendered folder
+
+## [2026-05-13] output | sample package enriched with assets and cases
+
+- Added additional sample raw experience and project memos
+- Generated sample PNG assets for profile, dashboard, workflow, and form system pages
+- Expanded the rendered sample resume to 3 pages and portfolio to 6 pages
