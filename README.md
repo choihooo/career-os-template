@@ -79,6 +79,8 @@ career-os-template/
 - `wiki/templates/`: 새 위키 페이지 작성 구조
 - `wiki/output-briefs/`: 범용 이력서/포트폴리오 조립 기준
 - `outputs/custom/2026-01-01-example-frontend/`: 샘플 JD 패키지
+- `outputs/custom/2026-05-13-example-product-frontend/`: JD 맞춤 이력서/포트폴리오 패키지 예시
+- `raw/applications/2026-05-13-example-product-frontend-jd.md`: 맞춤 패키지용 JD 원천 예시
 - `resume/assets/`, `portfolio/assets/`: 이력서/포트폴리오 렌더링에 직접 쓰는 에셋 위치
 - `resume/index.html`, `portfolio/index.html`: 개인정보 없는 렌더링 스타터
 

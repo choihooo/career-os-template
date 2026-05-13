@@ -44,6 +44,8 @@
 ## Raw Sources
 
 - [profile](raw/bios/profile.md) - 이름, 연락처, 링크, 학력, 선호 직무 등 기본정보 원천
+- [sample-candidate-profile](raw/bios/sample-candidate-profile.md) - 개인정보 없는 샘플 후보 프로필
+- [example-product-frontend-jd-raw](raw/applications/2026-05-13-example-product-frontend-jd.md) - JD 맞춤 패키지용 원천 JD
 - [raw-assets-guide](raw/assets/README.md) - 프로필 사진과 프로젝트 이미지 원본 보관 규칙
 - [sample-experience](raw/experiences/sample-company-intern.md) - 샘플 경력 원천
 - [sample-project](raw/projects/sample-dashboard.md) - 샘플 프로젝트 원천
@@ -75,6 +77,8 @@
 - [resume-general-v2](outputs/general/resume-general-v2.md) - 범용 이력서 포지셔닝 강화형 샘플
 - [portfolio-general-v1](outputs/general/portfolio-general-v1.md) - 범용 포트폴리오 균형형 샘플
 - [portfolio-general-v2](outputs/general/portfolio-general-v2.md) - 범용 포트폴리오 내러티브형 샘플
+- [example-product-frontend-resume](outputs/custom/2026-05-13-example-product-frontend/resume.md) - JD 맞춤 이력서 예시
+- [example-product-frontend-portfolio](outputs/custom/2026-05-13-example-product-frontend/portfolio.md) - JD 맞춤 포트폴리오 예시
 - [example-frontend](outputs/custom/2026-01-01-example-frontend/jd.md) - 샘플 회사별 패키지
 - [resume-html](resume/index.html) - 이력서 HTML 스타터
 - [resume-assets-guide](resume/assets/README.md) - 이력서 렌더링 에셋 규칙

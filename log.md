@@ -27,3 +27,8 @@
 
 - Added HTML pages for guide, index, prompts, and checklist
 - Updated landing navigation to link to HTML pages instead of markdown files
+
+## [2026-05-13] output | JD-tailored sample package added
+
+- Added raw sample candidate profile and Example Product frontend JD
+- Added `outputs/custom/2026-05-13-example-product-frontend/` with jd, analysis, strategy, resume, and portfolio
