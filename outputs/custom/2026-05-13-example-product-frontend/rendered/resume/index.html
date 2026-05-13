@@ -1,94 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sample Candidate - Example Product Resume</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample Candidate - Example Product 맞춤 이력서</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="page">
-      <header class="header">
-        <div>
-          <p class="eyebrow">Frontend Engineer · Example Product 맞춤</p>
-          <h1>Sample Candidate</h1>
-          <p class="summary">
-            React와 TypeScript로 업무용 웹 제품의 데이터 흐름과 입력 경험을 개선하는 프론트엔드 엔지니어
-          </p>
-        </div>
-        <ul class="contact">
-          <li>sample@example.com</li>
-          <li>github.com/example/sample-candidate</li>
-          <li>example.com/sample-portfolio</li>
-        </ul>
-      </header>
-
-      <section class="fit">
-        <h2>JD Fit</h2>
-        <div class="fit-grid">
-          <span>React / TypeScript</span>
-          <span>TanStack Query</span>
-          <span>URL query state</span>
-          <span>Zod validation</span>
-          <span>Dashboard UI</span>
-          <span>QA issue prevention</span>
-        </div>
-      </section>
-
-      <section>
-        <h2>Summary</h2>
-        <ul>
-          <li>어드민, 대시보드, 폼 입력 흐름을 React/TypeScript 기반으로 개선한 프론트엔드 엔지니어.</li>
-          <li>TanStack Query로 서버 상태를 분리하고 URL query로 필터 상태를 재현 가능하게 설계.</li>
-          <li>Zod 스키마와 명시 타입으로 QA 단계에서 반복되던 입력 오류를 사전 차단.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Experience</h2>
-        <article>
-          <div class="item-head">
-            <h3>Sample Company · Frontend Engineer Intern</h3>
-            <p class="meta">2025.03 - 2025.06</p>
+    <main class="resume-shell">
+      <article class="resume-page" aria-label="Example Product 맞춤 이력서">
+        <header class="resume-header">
+          <div class="identity">
+            <h1>Sample Candidate</h1>
+            <p>Frontend Engineer</p>
           </div>
-          <ul>
-            <li>React/TypeScript 기반 어드민 화면에서 API 응답 타입과 화면 상태 흐름을 정리해 유지보수성을 개선.</li>
-            <li>폼 데이터 타입이 느슨해 QA에서 반복 발견되던 런타임 오류를 Zod 스키마와 명시 타입으로 입력 단계에서 검증.</li>
-            <li>에러 메시지 매핑을 추가해 QA 재현 이슈 5건 중 4건을 사전 검증 단계에서 차단.</li>
-          </ul>
-        </article>
-      </section>
 
-      <section>
-        <h2>Projects</h2>
-        <article>
-          <div class="item-head">
-            <h3>Sample Dashboard · Frontend Lead</h3>
-            <p class="meta">2025.07 - 2025.08</p>
+          <section class="about-block">
+            <h2>About Me</h2>
+            <p>업무용 웹 제품의 데이터 흐름과 입력 경험을 React/TypeScript로 개선하는 프론트엔드 엔지니어입니다.</p>
+          </section>
+
+          <nav class="contact-row" aria-label="연락처 및 링크">
+            <a class="contact-item contact-blog" href="https://example.com/sample-portfolio" target="_blank" rel="noreferrer">
+              <img src="./assets/web-icon.png" alt="" />
+              <span>example.com/sample-portfolio</span>
+            </a>
+            <a class="contact-item" href="https://github.com/example/sample-candidate" target="_blank" rel="noreferrer">
+              <img src="./assets/github-mark.png" alt="" />
+              <span>github.com/example/sample-candidate</span>
+            </a>
+            <a class="contact-item" href="mailto:sample@example.com" target="_blank" rel="noreferrer">
+              <img src="./assets/email-icon.png" alt="" />
+              <span>sample@example.com</span>
+            </a>
+            <p class="contact-item">
+              <img src="./assets/phone-icon.png" alt="" />
+              <span>replace-with-phone</span>
+            </p>
+          </nav>
+
+          <figure class="profile-frame sample-profile" aria-label="프로필 이미지 자리">
+            <span>SC</span>
+          </figure>
+        </header>
+
+        <section class="work-section">
+          <div class="section-heading">
+            <h2>Work Experience</h2>
           </div>
-          <ul>
-            <li>내부 운영자가 여러 CSV를 수동으로 합쳐 보던 주간 지표를 한 화면에서 확인할 수 있는 대시보드 구현.</li>
-            <li>TanStack Query로 서버 상태를 분리하고, 필터 상태를 URL query와 동기화해 조건 공유와 재현성을 개선.</li>
-            <li>Recharts로 주요 지표와 추세를 시각화해 리포트 작성 전 필요한 데이터를 빠르게 비교하도록 구성.</li>
-            <li>운영자로부터 주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 피드백을 받음.</li>
-          </ul>
-        </article>
-      </section>
 
-      <section class="columns">
-        <div>
-          <h2>Skills</h2>
-          <p>React, TypeScript, HTML, CSS, TanStack Query, URL query state, Zod, Recharts, Git</p>
-        </div>
-        <div>
-          <h2>Education</h2>
-          <p>Sample University, Computer Science<br />2021.03 - 2026.02 expected</p>
-        </div>
-      </section>
+          <section class="company-row">
+            <aside class="period-block">
+              <p>25.03 - 25.06<br />(4개월)</p>
+              <a href="https://example.com" target="_blank" rel="noreferrer">
+                <img src="./assets/link-small.png" alt="" />
+                <span>Homepage</span>
+              </a>
+            </aside>
 
-      <footer class="note">
-        템플릿 샘플 문서입니다. 실제 제출 전 이름, 연락처, 링크, 회사명, 성과 근거를 자기 자료로 교체합니다.
-      </footer>
+            <div class="company-summary">
+              <h3>Frontend Engineer Intern @Sample Company</h3>
+              <p>React/TypeScript 기반 어드민 화면에서 API 응답 타입, 폼 검증, 화면 상태 흐름을 정리했습니다.</p>
+            </div>
+          </section>
+
+          <section class="work-list" aria-label="상세 업무">
+            <article class="work-item">
+              <header>
+                <h3>폼 검증과 타입 안정성 개선</h3>
+                <div class="tag-list">
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>Zod</span>
+                  <span>QA</span>
+                </div>
+              </header>
+              <ul>
+                <li>폼 데이터 타입이 느슨해 런타임 오류가 QA 단계에서 반복 발견되는 문제를 확인</li>
+                <li>Zod 스키마와 명시 타입을 적용해 입력 단계에서 데이터 구조와 검증 기준을 분리</li>
+                <li>검증 실패 메시지를 화면 입력 흐름에 맞게 매핑해 사용자가 오류 원인을 바로 확인하도록 개선</li>
+                <li>QA 재현 이슈 5건 중 4건을 사전 검증 단계에서 차단</li>
+              </ul>
+            </article>
+
+            <article class="work-item">
+              <header>
+                <h3>API 응답 타입과 화면 상태 흐름 정리</h3>
+                <div class="tag-list">
+                  <span>API typing</span>
+                  <span>Admin UI</span>
+                  <span>Maintainability</span>
+                </div>
+              </header>
+              <ul>
+                <li>어드민 화면에서 서버 응답과 화면 상태가 섞여 변경 영향 범위가 커지는 문제를 정리</li>
+                <li>API 응답 타입을 명시하고 화면 상태와 서버 상태의 책임을 분리</li>
+                <li>반복 QA 이슈의 재현 경로를 문서화해 요구사항, 개발, QA 간 커뮤니케이션 비용을 낮춤</li>
+              </ul>
+            </article>
+          </section>
+
+          <div class="section-heading project-heading">
+            <h2>Project</h2>
+          </div>
+
+          <section class="company-row project-row">
+            <aside class="period-block">
+              <p>25.07 - 25.08<br />(2개월)</p>
+              <a href="https://github.com/example/sample-dashboard" target="_blank" rel="noreferrer">
+                <img src="./assets/link-small.png" alt="" />
+                <span>Github</span>
+              </a>
+            </aside>
+
+            <div class="company-summary">
+              <h3>Sample Dashboard · Frontend Lead</h3>
+              <p>운영자가 여러 CSV를 수동으로 합쳐 보던 주간 지표를 한 화면에서 확인하도록 만든 대시보드입니다.</p>
+            </div>
+          </section>
+
+          <section class="work-list project-list" aria-label="프로젝트 상세">
+            <article class="work-item">
+              <header>
+                <h3>운영자 대시보드 상태 설계</h3>
+                <div class="tag-list">
+                  <span>TanStack Query</span>
+                  <span>URL query</span>
+                  <span>Recharts</span>
+                </div>
+              </header>
+              <ul>
+                <li>서버 상태와 사용자가 조작하는 필터 상태를 분리해 데이터 요청과 화면 조건을 명확히 구분</li>
+                <li>필터 조건을 URL query와 동기화해 새로고침과 링크 공유 이후에도 같은 조건을 재현</li>
+                <li>Recharts로 주요 지표와 추세를 시각화해 리포트 작성 전 필요한 데이터를 빠르게 비교하도록 구성</li>
+                <li>운영자로부터 주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 피드백을 받음</li>
+              </ul>
+            </article>
+          </section>
+        </section>
+        <p class="page-number">- 1 -</p>
+      </article>
+
+      <article class="resume-page resume-page-plain" aria-label="Example Product 맞춤 이력서 추가 정보">
+        <section class="resume-content">
+          <section class="resume-section-block compact">
+            <div class="section-heading">
+              <h2>JD Fit</h2>
+            </div>
+            <div class="fit-chip-list">
+              <span>React / TypeScript</span>
+              <span>TanStack Query</span>
+              <span>URL query state</span>
+              <span>Zod validation</span>
+              <span>Dashboard UI</span>
+              <span>QA issue prevention</span>
+            </div>
+          </section>
+
+          <section class="resume-section-block compact">
+            <div class="section-heading">
+              <h2>Skills</h2>
+            </div>
+            <div class="simple-row">
+              <p>Frontend</p>
+              <strong>React, TypeScript, HTML, CSS</strong>
+            </div>
+            <div class="simple-row">
+              <p>State/Data</p>
+              <strong>TanStack Query, URL query state, API response typing</strong>
+            </div>
+            <div class="simple-row">
+              <p>Validation</p>
+              <strong>Zod, form schema, error message mapping</strong>
+            </div>
+            <div class="simple-row">
+              <p>Visualization</p>
+              <strong>Recharts</strong>
+            </div>
+          </section>
+
+          <section class="resume-section-block compact">
+            <div class="section-heading">
+              <h2>Education</h2>
+            </div>
+            <div class="simple-row">
+              <p>2021.03 - 2026.02</p>
+              <strong>Computer Science @Sample University</strong>
+            </div>
+          </section>
+
+          <section class="resume-section-block external-block">
+            <div class="section-heading">
+              <h2>Notes</h2>
+            </div>
+            <article class="simple-row rich-row">
+              <p>Template</p>
+              <div>
+                <strong>실제 제출 전 교체할 항목</strong>
+                <ul>
+                  <li>이름, 연락처, GitHub, Portfolio 링크</li>
+                  <li>실제 회사명, 프로젝트 링크, 화면 스크린샷</li>
+                  <li>성과 수치의 측정 방식과 사용자 피드백 원문</li>
+                </ul>
+              </div>
+            </article>
+          </section>
+        </section>
+        <p class="page-number">- 2 -</p>
+      </article>
     </main>
   </body>
 </html>

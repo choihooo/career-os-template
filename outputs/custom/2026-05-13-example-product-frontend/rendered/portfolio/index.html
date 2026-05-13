@@ -1,99 +1,241 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sample Candidate - Example Product Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample Candidate - Example Product 맞춤 포트폴리오</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="deck">
-      <section class="page cover">
-        <p class="eyebrow">Example Product · Frontend Engineer</p>
-        <h1>업무용 웹 제품의 상태 흐름과 입력 경험을 개선합니다</h1>
-        <p class="lead">
-          React와 TypeScript로 운영자가 반복하는 확인, 입력, 리포트 흐름을 줄이는 UI 구조를 설계하고 구현합니다.
-        </p>
-        <div class="cover-grid">
-          <article>
-            <span>Focus 01</span>
-            <b>Dashboard</b>
-            <p>서버 상태와 URL 필터 상태를 분리해 공유 가능한 운영 화면 구성</p>
-          </article>
-          <article>
-            <span>Focus 02</span>
-            <b>Validation</b>
-            <p>Zod 스키마와 타입 안정성으로 QA 재현 이슈를 입력 단계에서 차단</p>
-          </article>
-        </div>
-      </section>
+    <main class="page-shell">
+      <section class="page-stack">
+        <article class="portfolio-page cover-page">
+          <div class="cover-bg"></div>
+          <section class="cover-content">
+            <h1>Example Product JD에 맞춘<br />프론트엔드 포트폴리오</h1>
 
-      <section class="page">
-        <p class="eyebrow">Case Study 1</p>
-        <h2>Sample Dashboard</h2>
-        <p class="lead small">운영자가 여러 CSV를 합쳐 보던 주간 지표 확인 흐름을 한 화면의 대시보드로 정리했습니다.</p>
-        <div class="case-grid">
-          <article>
-            <h3>Problem</h3>
-            <p>필터 조건을 공유하기 어렵고, 같은 조건으로 다시 확인하는 과정이 반복적이었습니다.</p>
-          </article>
-          <article>
-            <h3>Decision</h3>
-            <p>서버 데이터 상태와 사용자 필터 상태를 분리하고, 필터 조건은 URL query에 동기화했습니다.</p>
-          </article>
-          <article>
-            <h3>Action</h3>
-            <p>TanStack Query로 로딩, 재요청, 서버 상태를 관리하고 Recharts로 주요 지표와 추세를 시각화했습니다.</p>
-          </article>
-          <article>
-            <h3>Result</h3>
-            <p>운영자로부터 주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 피드백을 받았습니다.</p>
-          </article>
-        </div>
-        <div class="match-box">
-          <b>JD 연결점</b>
-          <p>대시보드 UI, API 연동 구조, 서버 상태 관리, 운영자 흐름 개선 요구와 직접 연결됩니다.</p>
-        </div>
-      </section>
+            <section class="profile-block">
+              <div class="profile-photo sample-profile-photo">SC</div>
+              <div class="profile-copy">
+                <h2>Sample Candidate</h2>
+                <div class="profile-meta">
+                  <p>Frontend Engineer</p>
+                  <p>sample@example.com</p>
+                  <a href="https://github.com/example/sample-candidate" target="_blank" rel="noreferrer">
+                    <img src="./assets/github-icon.png" alt="" />
+                    <span>github</span>
+                  </a>
+                  <a href="https://example.com/sample-portfolio" target="_blank" rel="noreferrer">
+                    <img src="./assets/link-icon.png" alt="" />
+                    <span>portfolio</span>
+                  </a>
+                </div>
+              </div>
+            </section>
 
-      <section class="page">
-        <p class="eyebrow">Case Study 2</p>
-        <h2>Sample Company Form Validation</h2>
-        <p class="lead small">QA 단계에서 반복 발견되던 폼 데이터 오류를 입력 단계에서 차단하도록 스키마와 타입을 정리했습니다.</p>
-        <div class="timeline">
-          <article>
-            <span>01</span>
-            <div>
-              <h3>Problem</h3>
-              <p>폼 데이터 타입이 느슨해 런타임 오류가 QA 단계에서 반복 발견됐습니다.</p>
-            </div>
-          </article>
-          <article>
-            <span>02</span>
-            <div>
-              <h3>Decision</h3>
-              <p>입력 단계에서 오류를 차단하도록 폼 스키마와 API 응답 타입을 명시했습니다.</p>
-            </div>
-          </article>
-          <article>
-            <span>03</span>
-            <div>
-              <h3>Action</h3>
-              <p>Zod 스키마, 명시 타입, 검증 실패 메시지 매핑을 추가했습니다.</p>
-            </div>
-          </article>
-          <article>
-            <span>04</span>
-            <div>
-              <h3>Result</h3>
-              <p>QA 재현 이슈 5건 중 4건을 사전 검증 단계에서 차단했습니다.</p>
-            </div>
-          </article>
-        </div>
-        <div class="proof">
-          <b>실제 제출 전 교체할 증빙</b>
-          <p>GitHub repository, PR 링크, 화면 스크린샷, 사용자 피드백 원문, before/after 측정 방식</p>
-        </div>
+            <section class="contents-block">
+              <h2>프로젝트 목록</h2>
+
+              <div class="contents-item">
+                <div class="sample-cover-card dashboard-card">Dashboard</div>
+                <div>
+                  <h3>Sample Dashboard</h3>
+                  <ol>
+                    <li><span>2p</span>프로젝트 소개, 담당 역할, 상태 설계 방향</li>
+                    <li><span>3p</span>핵심 기술 이슈 - TanStack Query + URL query</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div class="contents-item">
+                <div class="sample-cover-card validation-card">Validation</div>
+                <div>
+                  <h3>Sample Company Form Validation</h3>
+                  <ol>
+                    <li><span>4p</span>문제, 결정, 액션, 결과</li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 1 -</p>
+        </article>
+
+        <article class="portfolio-page page-two">
+          <div class="page-two-bg"></div>
+          <section class="page-two-content">
+            <header class="page-two-header">
+              <div class="eigene-logo-card sample-logo-card">SD</div>
+              <div class="page-two-title">
+                <h2>Sample Dashboard</h2>
+                <div class="project-meta-line">
+                  <p>2025.07-2025.08</p>
+                  <div class="small-tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>TanStack Query</span>
+                    <span>Recharts</span>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <section class="figma-section company-section">
+              <h3>프로젝트 소개</h3>
+              <p>내부 운영자가 여러 CSV를 수동으로 합쳐 보던 주간 지표를 한 화면에서 확인하도록 만든 대시보드입니다.</p>
+            </section>
+
+            <section class="figma-section role-section">
+              <h3>담당 역할</h3>
+              <p>프론트엔드 리드로 서버 상태, 필터 상태, 차트 시각화 흐름을 설계하고 구현했습니다.</p>
+              <ul>
+                <li>TanStack Query 기반 서버 상태 분리</li>
+                <li>URL query 기반 필터 조건 동기화</li>
+                <li>Recharts 기반 주요 지표와 추세 시각화</li>
+              </ul>
+            </section>
+
+            <h3 class="main-issue-title">운영자 리포트 흐름 개선</h3>
+
+            <section class="gray-report-box">
+              <div class="report-block">
+                <h4>1. 문제 상황</h4>
+                <ul>
+                  <li>운영자가 여러 CSV를 수동으로 합쳐 주간 지표를 확인</li>
+                  <li>필터 조건 공유와 같은 조건 재현이 어려움</li>
+                  <li>리포트 작성 전 필요한 데이터를 화면마다 다시 비교해야 함</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 과제</h4>
+                <ul>
+                  <li>서버 데이터 상태와 사용자가 조작하는 필터 상태 분리</li>
+                  <li>동일 조건의 화면을 URL로 공유하고 새로고침 후에도 유지</li>
+                  <li>운영자가 지표와 추세를 한 화면에서 비교하도록 구성</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 행동</h4>
+                <ul>
+                  <li>TanStack Query로 로딩, 재요청, 서버 상태를 관리</li>
+                  <li>필터 조건을 URL query에 동기화해 재현 가능한 화면 상태 구현</li>
+                  <li>Recharts로 주요 지표와 추세를 시각화</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>4. 결과</h4>
+                <ul>
+                  <li>주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 운영자 피드백 확보</li>
+                  <li>필터 조건 공유와 재현이 쉬워졌다는 정성 피드백 확보</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 2 -</p>
+        </article>
+
+        <article class="portfolio-page page-three">
+          <section class="page-three-content">
+            <h2 class="page-three-title">TanStack Query + URL query 상태 설계</h2>
+
+            <section class="gray-report-box page-three-box">
+              <div class="report-block">
+                <h4>1. 문제 상황</h4>
+                <ul>
+                  <li>필터 변경과 데이터 요청이 한 컴포넌트 안에 섞여 변경 영향 범위가 커짐</li>
+                  <li>운영자가 동일 조건을 공유해도 화면 상태가 재현되지 않음</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 과제</h4>
+                <ul>
+                  <li>서버 상태와 UI 상태를 분리해 유지보수성을 높임</li>
+                  <li>필터 조건을 URL에 저장해 링크 공유와 새로고침을 지원</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 행동</h4>
+                <ul>
+                  <li>서버 데이터 요청과 캐시 관리는 TanStack Query로 이동</li>
+                  <li>필터 조건은 URL query로 직렬화하고 화면 진입 시 복원</li>
+                  <li>차트와 테이블은 같은 query state를 기준으로 렌더링</li>
+                </ul>
+              </div>
+
+              <div class="sample-diagram">
+                <div>URL query</div>
+                <span></span>
+                <div>Filter state</div>
+                <span></span>
+                <div>TanStack Query</div>
+                <span></span>
+                <div>Chart / Table</div>
+              </div>
+
+              <div class="report-block result-block">
+                <h4>4. JD 연결점</h4>
+                <ul>
+                  <li>대시보드 UI, API 연동 구조, 서버 상태 관리, 운영자 흐름 개선 요구와 직접 연결</li>
+                  <li>업무용 화면에서 상태 설계 판단을 설명할 수 있는 사례로 사용</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 3 -</p>
+        </article>
+
+        <article class="portfolio-page page-four">
+          <section class="page-four-content">
+            <header class="page-four-header">
+              <h2>Sample Company Form Validation</h2>
+              <p>React · TypeScript · Zod · QA</p>
+            </header>
+
+            <section class="gray-report-box page-four-box">
+              <div class="report-block">
+                <h4>1. 문제 상황</h4>
+                <ul>
+                  <li>폼 데이터 타입이 느슨해 런타임 오류가 QA 단계에서 반복 발견</li>
+                  <li>사용자가 어떤 입력을 잘못했는지 화면에서 바로 알기 어려움</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 과제</h4>
+                <ul>
+                  <li>입력 단계에서 오류를 차단하도록 폼 스키마와 API 응답 타입 정리</li>
+                  <li>검증 실패를 명확한 에러 메시지로 매핑</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 행동</h4>
+                <ul>
+                  <li>Zod 스키마로 입력 데이터 구조와 검증 기준 명시</li>
+                  <li>API 응답 타입을 정리해 화면 상태와 서버 응답 간 불일치 축소</li>
+                  <li>검증 실패 메시지를 사용자 입력 흐름에 맞게 매핑</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>4. 결과</h4>
+                <ul>
+                  <li>QA 재현 이슈 5건 중 4건을 사전 검증 단계에서 차단</li>
+                  <li>JD의 폼 입력 검증, TypeScript 코드 품질 개선, QA 이슈 차단 요구와 연결</li>
+                </ul>
+              </div>
+
+              <div class="sample-diagram validation-flow">
+                <div>User input</div>
+                <span></span>
+                <div>Zod schema</div>
+                <span></span>
+                <div>Error mapping</div>
+                <span></span>
+                <div>Stable submit</div>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 4 -</p>
+        </article>
       </section>
     </main>
   </body>
