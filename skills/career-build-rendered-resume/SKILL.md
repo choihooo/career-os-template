@@ -73,6 +73,16 @@ Do not rewrite source markdown unless the rendered-output work reveals a factual
 - If content does not fit, cut weaker detail before shrinking text into unreadability.
 - Summary areas may use a one-line positioning statement, but evidence and fit should be expressed as short bullets or compact rows.
 - For experience and project sections, keep each bullet focused on one fact/action/result unit.
+- Keep rendered bullets in 개조식, but do not reduce them to feature lists.
+- Implementation bullets should expose the reason for the feature:
+  - problem or user friction
+  - solution or technical choice
+  - outcome or experience improvement
+  - feature area
+- Example weak rendered bullet: `애플 소셜 로그인 구현`.
+- Example strong rendered bullet: `이메일 가입 과정의 이탈을 줄이기 위해 OAuth 2 기반 애플 소셜 로그인을 구현해 회원가입 진입 장벽을 낮춤`.
+- Example strong rendered bullet with metric: `리뷰 게시글 조회 시 느린 응답이 발생해 로딩 처리와 데이터 요청 흐름을 개선하고 응답 속도를 350ms에서 20ms로 단축`.
+- If the source markdown only has a feature list, revise the source or ask for missing context before rendering weak filler.
 - Do not leave large empty areas when defensible source content exists. Fill pages with relevant evidence before ending the document.
 - It is acceptable for content to move between pages or for the resume to gain additional pages if readability and layout integrity are preserved.
 - Prefer adding stronger source-backed bullets, links, awards, education, external activity, or concise fit rows over stretching spacing or increasing font size.

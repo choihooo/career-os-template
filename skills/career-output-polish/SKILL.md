@@ -45,6 +45,10 @@ Use it after the main content is already written. Do not use it as a substitute 
 - Prefer direct Korean phrasing over translated-English cadence.
 - If a phrase is acceptable once but repeated many times, vary or cut it.
 - For resume files, preserve or convert to 개조식 where appropriate. Do not polish resumes into essay-style paragraphs.
+- For resume bullets, remove feature-only phrasing. A bullet like `애플 소셜 로그인 구현` should be rewritten, if source evidence exists, into 개조식 that shows problem/context + technical solution + outcome + feature.
+- Prefer `이메일 가입 과정의 이탈을 줄이기 위해 OAuth 2 기반 애플 소셜 로그인을 구현해 회원가입 진입 장벽을 낮춤` over `OAuth 2 애플 소셜 로그인 구현`.
+- Prefer `리뷰 게시글 조회 시 느린 응답이 발생해 로딩 처리와 데이터 요청 흐름을 개선하고 응답 속도를 350ms에서 20ms로 단축` over `리뷰 게시글 조회 로딩 개선`.
+- Do not invent a metric while polishing. If only a qualitative result is supported, state the observable improvement in user, operator, QA, or developer experience.
 - For portfolio files, narrative paragraphs are allowed, but keep resume-like evidence bullets concise.
 
 ## Output Standard

@@ -95,6 +95,13 @@ Apply these rules specifically to `resume.md`:
   - problem or context
   - concrete action or technical decision
   - measurable or observable outcome
+- Within 개조식, avoid plain feature lists such as "애플 소셜 로그인 구현" or "대시보드 개발".
+- Prefer bullets that make the user's reason for the feature clear: problem + solution/technical choice + outcome + feature.
+  - Weak: `애플 소셜 로그인 구현`
+  - Strong: `이메일 가입 과정의 이탈을 줄이기 위해 OAuth 2 기반 애플 소셜 로그인을 구현해 회원가입 진입 장벽을 낮춤`
+  - Weak: `리뷰 게시글 조회 로딩 개선`
+  - Strong: `리뷰 게시글 조회 시 느린 응답이 발생해 로딩 처리와 데이터 요청 흐름을 개선하고 응답 속도를 350ms에서 20ms로 단축`
+- If a numeric result is unavailable, still state the observable user, operator, QA, or developer experience improvement without inventing metrics.
 - Prefer one evidence-bearing bullet over several descriptive sentences.
 - Keep portfolio-style narrative, motivation, and interpretation in `portfolio.md`; the resume should prioritize facts, scope, tools, and impact.
 - Do not turn every line into a complete sentence if a compact noun phrase is clearer for skills, roles, periods, links, and awards.

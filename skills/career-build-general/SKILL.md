@@ -69,6 +69,13 @@ Apply these rules to `resume-general-v1.md` and `resume-general-v2.md`:
 - Default to 개조식. General resumes should be easy to scan as bullets and compact rows.
 - Keep summary sections short: one positioning line plus 2-4 bullets is enough.
 - Experience and project bullets should follow a fact/action/result shape whenever possible.
+- Do not write feature-only bullets like `애플 소셜 로그인 구현` or `관리자 대시보드 개발`.
+- In 개조식, make each implementation bullet show why it mattered: problem or friction + solution or technical choice + outcome + feature.
+  - Weak: `OAuth 2 애플 소셜 로그인 구현`
+  - Strong: `이메일 가입 과정의 이탈을 줄이기 위해 OAuth 2 기반 애플 소셜 로그인을 구현해 회원가입 진입 장벽을 낮춤`
+  - Weak: `리뷰 게시글 조회 로딩 개선`
+  - Strong: `리뷰 게시글 조회 시 느린 응답이 발생해 로딩 처리와 데이터 요청 흐름을 개선하고 응답 속도를 350ms에서 20ms로 단축`
+- If no measured metric exists, use a defensible observable result such as 사용자 경험 개선, 운영자 확인 흐름 단축, QA 재현 비용 감소, 유지보수 범위 축소.
 - Skills, awards, education, links, roles, and periods should use compact phrases rather than prose.
 - Do not write portfolio-style paragraphs in a resume. Move longer explanation, motivation, and case-study narrative to portfolio outputs.
 - Cut weaker detail before expanding bullets into long paragraphs.
