@@ -93,3 +93,10 @@
 - Added a profile photo gate to rendered resume and portfolio skills
 - Added the same gate to the application pipeline before HTML/PDF generation
 - Prevented final rendering with initials, gray boxes, generated placeholders, remote images, or broken profile image fallbacks
+
+## [2026-05-13] setup | repository structure cleaned up
+
+- Moved reusable render and card-news sources under `templates/`
+- Moved GitHub Pages HTML/CSS entry files under `docs/`
+- Limited the GitHub Pages deployment artifact to `docs/`
+- Updated README, index, agent guide, and skills to use the new paths

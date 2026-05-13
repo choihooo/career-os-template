@@ -68,11 +68,11 @@ Before writing:
 6. Render only when requested or clearly implied.
    - Before rendering, enforce the profile photo gate:
      - Confirm at least one source profile photo exists under `raw/assets/` as `profile-photo.png`, `profile-photo.jpg`, `profile-photo.jpeg`, or `profile-photo-square.png`.
-     - Confirm the rendered resume and portfolio have local profile image assets ready in `resume/assets/`, `portfolio/assets/`, or the target company-specific rendered asset folders.
+     - Confirm the rendered resume and portfolio have local profile image assets ready in `templates/resume/assets/`, `templates/portfolio/assets/`, or the target company-specific rendered asset folders.
      - If the profile photo is missing, stop before HTML/PDF generation and ask the user to provide one.
      - Do not render final HTML/PDF with initials, gray boxes, generated placeholders, remote images, or broken image fallbacks as the profile photo.
-   - Use `career-build-rendered-resume` for `resume/` and PDF export.
-   - Use `career-build-rendered-portfolio` for `portfolio/` and PDF export.
+   - Use `career-build-rendered-resume` for `templates/resume/` and PDF export.
+   - Use `career-build-rendered-portfolio` for `templates/portfolio/` and PDF export.
    - Treat markdown as source of truth and HTML/PDF as derived output.
 7. Quality-check the package.
    - Use `docs/checklists/custom-output-quality-checklist.md`.

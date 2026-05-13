@@ -12,4 +12,4 @@
 주의:
 
 - 공개 템플릿 레포에는 실제 프로필 사진이나 개인정보가 담긴 이미지를 커밋하지 않는다.
-- 제출용 렌더링에 필요한 이미지는 `resume/assets/` 또는 `portfolio/assets/`로 복사해 사용한다.
+- 제출용 렌더링에 필요한 이미지는 `templates/resume/assets/` 또는 `templates/portfolio/assets/`로 복사해 사용한다.

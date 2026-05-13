@@ -10,7 +10,7 @@
 
 ## Output Clarity
 
-- [ ] `raw/`, `wiki/`, `outputs/`, `resume/`, `portfolio/`의 역할 차이가 명확하다.
+- [ ] `raw/`, `wiki/`, `outputs/`, `templates/`의 역할 차이가 명확하다.
 - [ ] markdown 산출물과 HTML/PDF 렌더링 산출물의 관계가 설명되어 있다.
 - [ ] 회사별 맞춤 패키지의 폴더 구조가 예시와 함께 설명되어 있다.
 

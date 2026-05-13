@@ -1,13 +1,13 @@
 ---
 name: career-build-rendered-resume
-description: Use when generating or updating the polished HTML/CSS resume render output in this career wiki, especially resume/index.html, resume/styles.css, and resume/assets from the current markdown resume output and wiki knowledge.
+description: Use when generating or updating the polished HTML/CSS resume render output in this career wiki, especially templates/resume/index.html, templates/resume/styles.css, and templates/resume/assets from the current markdown resume output and wiki knowledge.
 ---
 
 # Career Build Rendered Resume
 
 ## Purpose
 
-이 스킬은 제출용 이력서 markdown 원본을 기반으로 `resume/`의 HTML/CSS 렌더링 산출물을 갱신할 때 사용한다.
+이 스킬은 제출용 이력서 markdown 원본을 기반으로 `templates/resume/`의 HTML/CSS 렌더링 템플릿을 갱신할 때 사용한다.
 
 `career-build-general`, `career-build-custom-package`, 또는 `career-apply-pipeline`이 이력서 내용 원본을 만든 뒤, 이 스킬은 실제로 열어 보는 A4 이력서 화면을 만든다.
 
@@ -26,16 +26,16 @@ Read these files before writing:
    - `wiki/themes/positioning.md`
    - relevant experience, project, award, and skill pages
 5. Existing rendered resume files:
-   - `resume/index.html`
-   - `resume/styles.css`
+   - `templates/resume/index.html`
+   - `templates/resume/styles.css`
 
 ## Output Targets
 
 Only write to these paths unless the user explicitly asks for more:
 
-- `resume/index.html`
-- `resume/styles.css`
-- `resume/assets/*`
+- `templates/resume/index.html`
+- `templates/resume/styles.css`
+- `templates/resume/assets/*`
 - `log.md`
 
 Do not rewrite source markdown unless the rendered-output work reveals a factual source error that must be fixed first.
@@ -49,18 +49,18 @@ Do not rewrite source markdown unless the rendered-output work reveals a factual
      - `raw/assets/profile-photo.jpg`
      - `raw/assets/profile-photo.jpeg`
      - `raw/assets/profile-photo-square.png`
-   - Confirm a resume-ready local image exists at `resume/assets/profile.png` or in the target rendered resume asset folder for company-specific output.
+   - Confirm a resume-ready local image exists at `templates/resume/assets/profile.png` or in the target rendered resume asset folder for company-specific output.
    - Do not use initials, gray boxes, generated placeholders, remote images, or broken image fallbacks in place of a profile photo.
    - If the user provided a photo in the current task, copy or convert it into the required local asset paths before continuing.
    - If no usable profile photo is available, stop before HTML/PDF generation and ask the user to provide one.
-3. Compare the source resume against the current `resume/index.html`.
+3. Compare the source resume against the current `templates/resume/index.html`.
 4. Update the HTML so visible resume content matches the chosen source.
 5. Preserve the existing visual system unless the user asks for a redesign:
    - A4 page structure
    - compact recruiter-friendly hierarchy
    - local asset usage
    - print-friendly page boundaries
-6. Keep assets local under `resume/assets/`.
+6. Keep assets local under `templates/resume/assets/`.
 7. Remove stale visible content that no longer exists in the chosen source.
 8. Check for:
    - text overflow
@@ -101,7 +101,7 @@ Do not rewrite source markdown unless the rendered-output work reveals a factual
 ## HTML/CSS Rules
 
 - Prefer editing the existing static HTML/CSS directly.
-- Keep the output usable by opening `resume/index.html` in a browser.
+- Keep the output usable by opening `templates/resume/index.html` in a browser.
 - Use semantic structure where practical: `main`, `article`, `section`, `header`, `nav`, `figure`.
 - Keep image `alt` text meaningful when the image carries content; use empty `alt` only for decorative icons.
 - Do not reference remote images for core assets.
@@ -119,7 +119,7 @@ At minimum:
 When feasible:
 
 - Start a local static server.
-- Open `resume/index.html` in a browser.
+- Open `templates/resume/index.html` in a browser.
 - Check screenshots for overflow, broken images, and page boundary issues.
 
 ## Log Format
@@ -127,7 +127,7 @@ When feasible:
 ```md
 ## [YYYY-MM-DD] output | rendered resume updated
 
-- Updated `resume/index.html` and/or `resume/styles.css`
+- Updated `templates/resume/index.html` and/or `templates/resume/styles.css`
 - Synced rendered resume with `outputs/...`
 - Verified local assets and layout basics
 ```

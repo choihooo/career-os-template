@@ -3,160 +3,77 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Career OS Template Docs</title>
-    <style>
-      :root {
-        --bg: #08111f;
-        --bg-soft: #10213a;
-        --ink: #e8f1ff;
-        --muted: #9cb3d1;
-        --line: #244a87;
-        --accent: #2f75ff;
-        --accent-2: #00cfff;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background:
-          radial-gradient(circle at top right, rgba(0, 207, 255, 0.12), transparent 28%),
-          linear-gradient(180deg, #040914, #08111f 42%, #0a1730);
-        color: var(--ink);
-        font-family: Arial, sans-serif;
-      }
-
-      main {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 72px 24px 96px;
-      }
-
-      .eyebrow {
-        color: var(--accent-2);
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        max-width: 10ch;
-        margin: 14px 0 18px;
-        font-size: clamp(44px, 8vw, 82px);
-        line-height: 1.02;
-      }
-
-      .lead {
-        max-width: 720px;
-        color: var(--muted);
-        font-size: 21px;
-        line-height: 1.55;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 30px;
-      }
-
-      .button {
-        border-radius: 999px;
-        background: var(--accent);
-        color: #07111f;
-        display: inline-block;
-        padding: 16px 24px;
-        font-size: 16px;
-        font-weight: 700;
-        text-decoration: none;
-      }
-
-      .button.secondary {
-        border: 1px solid var(--line);
-        background: transparent;
-        color: var(--ink);
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 18px;
-        margin-top: 48px;
-      }
-
-      .card {
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: rgba(16, 33, 58, 0.92);
-        padding: 24px;
-      }
-
-      .card h2 {
-        margin: 0 0 10px;
-        font-size: 26px;
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.5;
-      }
-
-      .card a {
-        color: var(--accent-2);
-        font-weight: 700;
-        text-decoration: none;
-      }
-
-      .preview {
-        margin-top: 16px;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid rgba(47, 117, 255, 0.3);
-      }
-
-      .preview img {
-        width: 100%;
-        display: block;
-      }
-    </style>
+    <title>Career OS Template 카드뉴스</title>
+    <meta
+      name="description"
+      content="Career OS 템플릿의 구조와 사용 흐름을 카드뉴스로 소개하는 랜딩 페이지"
+    />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main>
-      <div class="eyebrow">Career OS Template</div>
-      <h1>채용 자료를 운영 가능한 시스템으로</h1>
-      <p class="lead">
-        `raw/`, `wiki/`, `outputs/`를 분리해 이력서와 포트폴리오를 반복 생성하는 템플릿이다.
-        이 페이지는 공개 문서와 카드뉴스 같은 설명 자산을 모아 둔 진입점이다.
-      </p>
-      <div class="actions">
-        <a class="button" href="https://github.com/choihooo/career-os-template">GitHub 레포 보기</a>
-        <a class="button secondary" href="./card-news/career-os-template/">카드뉴스 열기</a>
-      </div>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Career OS home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Career OS</span>
+      </a>
+      <nav class="top-nav" aria-label="주요 링크">
+        <a href="./guide.html">Guide</a>
+        <a href="./directory.html">Index</a>
+        <a href="./prompts.html">Prompts</a>
+        <a href="./checklist.html">Checklist</a>
+      </nav>
+    </header>
 
-      <section class="grid" aria-label="Docs links">
-        <article class="card">
-          <h2>카드뉴스</h2>
-          <p>Career OS Template의 구조와 사용 순서를 8장 카드뉴스로 정리했다.</p>
-          <div class="preview">
-            <a href="./card-news/career-os-template/">
-              <img src="./card-news/career-os-template/exports/card-01.png" alt="Career OS Template 카드뉴스 표지" />
-            </a>
-          </div>
-        </article>
-        <article class="card">
-          <h2>PNG Exports</h2>
-          <p><a href="./card-news/career-os-template/exports/card-08.png">개별 카드 PNG</a>로 바로 공유할 수 있다.</p>
-        </article>
-        <article class="card">
-          <h2>체크리스트</h2>
-          <p><a href="./checklists/product-readiness-criteria.md">제품 준비도 기준</a>과 품질 체크리스트를 같이 둔다.</p>
-        </article>
+    <main>
+      <section class="landing-hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Career OS Template</p>
+          <h1 id="hero-title">지원 과정을 OS처럼 만드는 방법</h1>
+          <p class="hero-lede">
+            흩어진 지원 자료를 원천, 위키, 제출본으로 나누고 JD별 패키지까지 이어가는 흐름을
+            카드뉴스로 정리했습니다.
+          </p>
+        </div>
+
+        <div class="feature-card" aria-label="카드뉴스 대표 이미지">
+          <img
+            src="./card-news/career-os-template/exports/card-01.png"
+            alt="Career OS Template 카드뉴스 첫 장"
+          />
+        </div>
+      </section>
+
+      <section class="section exports" id="intro" aria-labelledby="exports-title">
+        <div class="section-heading">
+          <p class="eyebrow">Card news</p>
+          <h2 id="exports-title">소개</h2>
+        </div>
+        <div class="export-grid">
+          <a href="./card-news/career-os-template/exports/card-01.png">
+            <img src="./card-news/career-os-template/exports/card-01.png" alt="Career OS 카드뉴스 1장" />
+          </a>
+          <a href="./card-news/career-os-template/exports/card-02.png">
+            <img src="./card-news/career-os-template/exports/card-02.png" alt="Career OS 카드뉴스 2장" />
+          </a>
+          <a href="./card-news/career-os-template/exports/card-03.png">
+            <img src="./card-news/career-os-template/exports/card-03.png" alt="Career OS 카드뉴스 3장" />
+          </a>
+          <a href="./card-news/career-os-template/exports/card-04.png">
+            <img src="./card-news/career-os-template/exports/card-04.png" alt="Career OS 카드뉴스 4장" />
+          </a>
+          <a href="./card-news/career-os-template/exports/card-05.png">
+            <img src="./card-news/career-os-template/exports/card-05.png" alt="Career OS 카드뉴스 5장" />
+          </a>
+          <a href="./card-news/career-os-template/exports/card-07.png">
+            <img src="./card-news/career-os-template/exports/card-07.png" alt="Career OS 카드뉴스 7장" />
+          </a>
+        </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <p>Career OS Template</p>
+      <a href="./checklist.html">제출 전 체크리스트</a>
+    </footer>
   </body>
 </html>

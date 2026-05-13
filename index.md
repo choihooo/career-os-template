@@ -4,11 +4,11 @@
 
 ## Start Here
 
-- [landing](index.html) - Career OS 카드뉴스를 보여주는 웹 랜딩 페이지
-- [guide-page](guide.html) - GitHub Pages용 사용 가이드
-- [directory-page](directory.html) - GitHub Pages용 작업공간 인덱스
-- [prompts-page](prompts.html) - GitHub Pages용 요청 프롬프트
-- [checklist-page](checklist.html) - GitHub Pages용 제출 전 체크리스트
+- [landing](docs/index.html) - Career OS 카드뉴스를 보여주는 웹 랜딩 페이지
+- [guide-page](docs/guide.html) - GitHub Pages용 사용 가이드
+- [directory-page](docs/directory.html) - GitHub Pages용 작업공간 인덱스
+- [prompts-page](docs/prompts.html) - GitHub Pages용 요청 프롬프트
+- [checklist-page](docs/checklist.html) - GitHub Pages용 제출 전 체크리스트
 - [README](README.md) - 템플릿 사용법과 전체 흐름
 - [AGENTS](AGENTS.md) - 에이전트 작업 규칙
 - [log](log.md) - append-only 변경 기록
@@ -84,7 +84,7 @@
 - [example-product-frontend-portfolio-pdf](outputs/custom/2026-05-13-example-product-frontend/rendered/portfolio.pdf) - JD 맞춤 포트폴리오 PDF 예시
 - [example-product-frontend-portfolio-html](outputs/custom/2026-05-13-example-product-frontend/rendered/portfolio/index.html) - JD 맞춤 포트폴리오 HTML 예시
 - [example-frontend](outputs/custom/2026-01-01-example-frontend/jd.md) - 샘플 회사별 패키지
-- [resume-html](resume/index.html) - 이력서 HTML 스타터
-- [resume-assets-guide](resume/assets/README.md) - 이력서 렌더링 에셋 규칙
-- [portfolio-html](portfolio/index.html) - 포트폴리오 HTML 스타터
-- [portfolio-assets-guide](portfolio/assets/README.md) - 포트폴리오 렌더링 에셋 규칙
+- [resume-html](templates/resume/index.html) - 이력서 HTML 스타터
+- [resume-assets-guide](templates/resume/assets/README.md) - 이력서 렌더링 에셋 규칙
+- [portfolio-html](templates/portfolio/index.html) - 포트폴리오 HTML 스타터
+- [portfolio-assets-guide](templates/portfolio/assets/README.md) - 포트폴리오 렌더링 에셋 규칙

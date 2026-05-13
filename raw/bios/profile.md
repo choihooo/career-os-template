@@ -1,6 +1,6 @@
 # Profile Raw
 
-이 파일은 기본정보 원천이다. 제출용 문서에 직접 넣기 전에 필요한 항목만 `wiki/overview/`, `outputs/`, `resume/`, `portfolio/`에 반영한다.
+이 파일은 기본정보 원천이다. 제출용 문서에 직접 넣기 전에 필요한 항목만 `wiki/overview/`, `outputs/`, `templates/resume/`, `templates/portfolio/`에 반영한다.
 
 ## Identity
 
@@ -48,8 +48,8 @@
 ## Assets
 
 - Original profile photo: `raw/assets/profile-photo.jpg`
-- Resume profile image: `resume/assets/profile.png`
-- Portfolio profile image: `portfolio/assets/profile.png`
+- Resume profile image: `templates/resume/assets/profile.png`
+- Portfolio profile image: `templates/portfolio/assets/profile.png`
 
 ## Gaps
 
