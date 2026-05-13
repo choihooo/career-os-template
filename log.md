@@ -32,3 +32,9 @@
 
 - Added raw sample candidate profile and Example Product frontend JD
 - Added `outputs/custom/2026-05-13-example-product-frontend/` with jd, analysis, strategy, resume, and portfolio
+
+## [2026-05-13] output | rendered resume and portfolio updated
+
+- Kept root `resume/` and `portfolio/` as reusable HTML templates
+- Exported `resume.pdf` and `portfolio.pdf` into the custom package rendered folder
+- Copied the rendered resume and portfolio HTML/CSS into the custom package rendered folder

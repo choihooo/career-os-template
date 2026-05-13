@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eaf0f7;
+  color: #172033;
+  font-family: Arial, "Apple SD Gothic Neo", sans-serif;
+  line-height: 1.55;
+}
+
+.deck {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 25mm;
+  background: #fff;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(145deg, rgba(47, 117, 255, 0.1), transparent 45%),
+    #ffffff;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: #1553c7;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  max-width: 14em;
+  margin: 0;
+  font-size: 46px;
+  line-height: 1.08;
+}
+
+h2 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.12;
+}
+
+h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+p {
+  margin: 0;
+}
+
+.lead {
+  max-width: 660px;
+  margin-top: 22px;
+  color: #4b5b70;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.lead.small {
+  margin-bottom: 28px;
+  font-size: 17px;
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 72px;
+}
+
+.cover-grid article,
+.case-grid article,
+.match-box,
+.timeline article,
+.proof {
+  border: 1px solid #d6deea;
+  border-radius: 8px;
+  background: #f7faff;
+}
+
+.cover-grid article {
+  padding: 22px;
+}
+
+.cover-grid span {
+  color: #66768b;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cover-grid b {
+  display: block;
+  margin: 10px 0 8px;
+  color: #1553c7;
+  font-size: 24px;
+}
+
+.cover-grid p,
+.case-grid p,
+.timeline p,
+.match-box p,
+.proof p {
+  color: #536171;
+  font-size: 15px;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.case-grid article {
+  min-height: 128px;
+  padding: 18px;
+}
+
+.match-box,
+.proof {
+  margin-top: 22px;
+  padding: 20px;
+}
+
+.match-box b,
+.proof b {
+  display: block;
+  margin-bottom: 8px;
+  color: #1553c7;
+}
+
+.timeline {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.timeline article {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px;
+}
+
+.timeline span {
+  color: #1553c7;
+  font-weight: 800;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .deck {
+    display: block;
+    padding: 0;
+  }
+
+  .page {
+    page-break-after: always;
+  }
+}

@@ -79,6 +79,10 @@
 - [portfolio-general-v2](outputs/general/portfolio-general-v2.md) - 범용 포트폴리오 내러티브형 샘플
 - [example-product-frontend-resume](outputs/custom/2026-05-13-example-product-frontend/resume.md) - JD 맞춤 이력서 예시
 - [example-product-frontend-portfolio](outputs/custom/2026-05-13-example-product-frontend/portfolio.md) - JD 맞춤 포트폴리오 예시
+- [example-product-frontend-resume-pdf](outputs/custom/2026-05-13-example-product-frontend/rendered/resume.pdf) - JD 맞춤 이력서 PDF 예시
+- [example-product-frontend-resume-html](outputs/custom/2026-05-13-example-product-frontend/rendered/resume/index.html) - JD 맞춤 이력서 HTML 예시
+- [example-product-frontend-portfolio-pdf](outputs/custom/2026-05-13-example-product-frontend/rendered/portfolio.pdf) - JD 맞춤 포트폴리오 PDF 예시
+- [example-product-frontend-portfolio-html](outputs/custom/2026-05-13-example-product-frontend/rendered/portfolio/index.html) - JD 맞춤 포트폴리오 HTML 예시
 - [example-frontend](outputs/custom/2026-01-01-example-frontend/jd.md) - 샘플 회사별 패키지
 - [resume-html](resume/index.html) - 이력서 HTML 스타터
 - [resume-assets-guide](resume/assets/README.md) - 이력서 렌더링 에셋 규칙
