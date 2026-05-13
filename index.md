@@ -4,6 +4,7 @@
 
 ## Start Here
 
+- [landing](index.html) - Career OS 카드뉴스를 보여주는 웹 랜딩 페이지
 - [README](README.md) - 템플릿 사용법과 전체 흐름
 - [AGENTS](AGENTS.md) - 에이전트 작업 규칙
 - [log](log.md) - append-only 변경 기록

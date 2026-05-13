@@ -12,3 +12,13 @@
 - Added `raw/bios/profile.md` for basic profile information
 - Added asset guide files under `raw/assets/`, `resume/assets/`, and `portfolio/assets/`
 - Updated README, index, and AGENTS with profile and asset placement rules
+
+## [2026-05-13] output | landing page added
+
+- Added a static root landing page for the Career OS template
+- Linked the landing page from `README.md` and `index.md`
+
+## [2026-05-13] output | card news landing connected
+
+- Copied existing Career OS card news into `card-news/career-os-template/`
+- Updated root landing page to show the exported PNG cards

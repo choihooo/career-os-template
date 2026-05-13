@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Career OS Template 카드뉴스</title>
+    <link rel="stylesheet" href="../shared/card-news.css" />
+    <style>
+      body.career-os {
+        --primary: #2f75ff;
+        --primary-rgb: 47, 117, 255;
+        --primary-active: #00cfff;
+        --primary-active-rgb: 0, 207, 255;
+      }
+
+      .file-tree {
+        display: grid;
+        gap: 18px;
+      }
+
+      .file-row {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        align-items: center;
+        border: 1px solid var(--hairline-light);
+        border-radius: var(--radius-lg);
+        background: var(--surface-soft-light);
+        padding: 28px 34px;
+      }
+
+      .file-row b {
+        color: var(--primary);
+        font-size: 34px;
+      }
+
+      .file-row span {
+        color: var(--muted);
+        font-size: 27px;
+        font-weight: 600;
+        line-height: 1.34;
+        word-break: keep-all;
+      }
+
+      .branch-card {
+        border: 1px solid rgba(var(--primary-rgb), 0.5);
+        border-radius: var(--radius-lg);
+        background:
+          linear-gradient(135deg, rgba(var(--primary-rgb), 0.18), rgba(var(--primary-active-rgb), 0.08)),
+          var(--surface-elevated-dark);
+        padding: 44px 46px;
+      }
+
+      .branch-card b {
+        display: block;
+        color: var(--primary-active);
+        font-size: 48px;
+        line-height: 1.1;
+      }
+
+      .branch-card span {
+        display: block;
+        margin-top: 22px;
+        color: var(--body);
+        font-size: 30px;
+        line-height: 1.38;
+        word-break: keep-all;
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .mini-list li {
+        border-left: 10px solid var(--primary);
+        border-radius: var(--radius-md);
+        background: var(--surface-soft-light);
+        color: var(--ink);
+        list-style: none;
+        padding: 22px 30px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.28;
+        word-break: keep-all;
+      }
+
+      .mini-list {
+        margin: 0;
+        padding: 0;
+      }
+
+      .final-card .canvas {
+        gap: 38px;
+        padding-top: 116px;
+        padding-bottom: 96px;
+      }
+
+      .final-card h2 {
+        font-size: 66px;
+        line-height: 1.12;
+      }
+
+      .final-card .cta-panel {
+        padding: 30px 38px;
+      }
+
+      .final-card .cta-panel b {
+        font-size: 44px;
+      }
+
+      .final-card .cta-button {
+        padding: 30px 40px 34px;
+        font-size: 31px;
+      }
+    </style>
+  </head>
+  <body class="career-os">
+    <main aria-label="Career OS Template 카드뉴스">
+      <section class="card-frame">
+        <article class="card hero aws-hero">
+          <img
+            alt="raw, wiki, outputs, template branch로 이어지는 Career OS 구조도"
+            src="./assets/career-os-map.svg"
+          />
+          <div class="canvas">
+            <div class="eyebrow">Career OS Template</div>
+            <div class="hero-copy">
+              <div class="hero-kicker">이력서가 매번 새로 시작된다면</div>
+              <h1>지원 과정을 OS처럼 만들자</h1>
+              <p class="lead">자료 저장부터 JD 맞춤 패키지까지 한 흐름으로.</p>
+            </div>
+            <div class="footer no-source">
+              <span></span>
+              <span>01 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-frame">
+        <article class="card">
+          <div class="canvas split">
+            <div class="eyebrow">문제</div>
+            <h2 class="tight">지원할 때마다 자료가 흩어진다</h2>
+            <div class="quote-panel">
+              <b>“이 프로젝트 설명 어디 있었지?”</b>
+              <span>수치, 링크, 수상, 회고, JD 분석이 따로 놀면 매번 새 문서를 다시 쓰게 된다.</span>
+            </div>
+            <p class="body">
+              Career OS는 원천 자료와 제출 문서를 분리해, 같은 사실을 여러 산출물에 안정적으로 재사용하게 만든다.
+            </p>
+            <div class="footer no-source">
+              <span></span>
+              <span>02 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-frame">
+        <article class="card">
+          <div class="canvas split">
+            <div class="eyebrow">핵심 구조</div>
+            <h2>3개 레이어로 나눈다</h2>
+            <div class="diagram-row">
+              <div class="diagram-card">
+                <b>raw/</b>
+                <span>사실 원형, 링크, 메모를 보존</span>
+              </div>
+              <div class="diagram-card strong">
+                <b>wiki/</b>
+                <span>경험, 프로젝트, 스토리, 문장 뱅크로 정규화</span>
+              </div>
+              <div class="diagram-card">
+                <b>outputs/</b>
+                <span>범용본과 회사별 제출 패키지 생성</span>
+              </div>
+            </div>
+            <p class="body">
+              핵심은 제출 문서를 바로 고치는 게 아니라, 먼저 wiki를 갱신하고 산출물을 다시 만드는 것이다.
+            </p>
+            <div class="footer no-source">
+              <span></span>
+              <span>03 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-frame">
+        <article class="card dark">
+          <div class="canvas split">
+            <div class="eyebrow">사용 순서</div>
+            <h2 class="compact">처음 쓰는 사람은 이 순서대로</h2>
+            <div class="flow">
+              <div class="flow-item">
+                <b>01</b>
+                <span>index 확인</span>
+              </div>
+              <div class="flow-arrow"></div>
+              <div class="flow-item highlight">
+                <b>02</b>
+                <span>career-ingest</span>
+              </div>
+              <div class="flow-arrow"></div>
+              <div class="flow-item">
+                <b>03</b>
+                <span>general build</span>
+              </div>
+            </div>
+            <div class="flow">
+              <div class="flow-item">
+                <b>04</b>
+                <span>career-apply-pipeline</span>
+              </div>
+              <div class="flow-arrow"></div>
+              <div class="flow-item">
+                <b>05</b>
+                <span>rendered output</span>
+              </div>
+              <div class="flow-arrow"></div>
+              <div class="flow-item highlight">
+                <b>06</b>
+                <span>quality check</span>
+              </div>
+            </div>
+            <div class="footer no-source">
+              <span></span>
+              <span>04 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-frame">
+        <article class="card">
+          <div class="canvas split">
+            <div class="eyebrow">핵심 스킬</div>
+            <h2 class="tight">JD 하나를 넣으면 패키지까지 이어진다</h2>
+            <div class="pipeline">
+              <div>JD 저장</div>
+              <div>회사 조사</div>
+              <div>전략 수립</div>
+              <div>resume</div>
+              <div>portfolio</div>
+              <div>polish</div>
+              <div>HTML/PDF</div>
+              <div>품질 체크</div>
+            </div>
+            <p class="body">
+              `career-apply-pipeline`은 하위 스킬들을 순서대로 묶는 상위 런북이다.
+            </p>
+            <div class="footer no-source">
+              <span></span>
+              <span>05 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-frame">
+        <article class="card">
+          <div class="canvas split">
+            <div class="eyebrow">템플릿 구성</div>
+            <h2>가져가면 바로 있는 것들</h2>
+            <div class="file-tree">
+              <div class="file-row"><b>examples/</b><span>프로젝트, 경력, 수상, JD 입력 예시</span></div>
+              <div class="file-row"><b>wiki/</b><span>샘플 후보의 정규화 지식과 템플릿</span></div>
+              <div class="file-row"><b>skills/</b><span>ingest, general build, custom package, render, lint 워크플로</span></div>
+              <div class="file-row"><b>resume/</b><span>개인정보 없는 HTML 이력서 스타터</span></div>
+              <div class="file-row"><b>portfolio/</b><span>개인정보 없는 HTML 포트폴리오 스타터</span></div>
+            </div>
+            <div class="footer no-source">
+              <span></span>
+              <span>06 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-frame">
+        <article class="card dark">
+          <div class="canvas split">
+            <div class="eyebrow">브랜치 전략</div>
+            <h2 class="compact">개인 자료와 템플릿은 분리한다</h2>
+            <div class="compare-two">
+              <div>
+                <span>main</span>
+                <b>실제 커리어 위키</b>
+              </div>
+              <div>
+                <span>career-os-template</span>
+                <b>개인정보 제거 후 샘플화</b>
+              </div>
+            </div>
+            <div class="branch-card">
+              <b>떼어낼 기준점</b>
+              <span>템플릿 브랜치를 별도 레포로 만들면, 다른 사람은 자기 raw와 wiki만 채워서 시작할 수 있다.</span>
+            </div>
+            <div class="footer no-source">
+              <span></span>
+              <span>07 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card-frame">
+        <article class="card cta final-card">
+          <div class="canvas split">
+            <div class="eyebrow">다음 액션</div>
+            <h2>복사한 뒤 자기 자료를 넣으면 된다</h2>
+            <ul class="mini-list">
+              <li>샘플 후보명과 링크를 자기 정보로 교체</li>
+              <li>프로젝트와 경력을 raw/에 저장</li>
+              <li>career-ingest로 wiki를 채우기</li>
+            </ul>
+            <div class="cta-panel">
+              <span>첫 사용 명령</span>
+              <b>“이 자료를 career-ingest 기준으로 반영해줘”</b>
+            </div>
+            <a class="cta-button" href="https://github.com/choihooo/carrer-wiki/tree/career-os-template">템플릿 브랜치 열기</a>
+            <div class="footer no-source">
+              <span></span>
+              <span>08 / 08</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Career OS workflow map</title>
+  <desc id="desc">Abstract workflow map showing raw, wiki, outputs, and template branch stages.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020711"/>
+      <stop offset="0.55" stop-color="#081a33"/>
+      <stop offset="1" stop-color="#0b3b6f"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#153a6f" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#07111f" stop-opacity="0.72"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <g opacity="0.18">
+    <path d="M0 188H1080M0 376H1080M0 564H1080M0 752H1080M0 940H1080M0 1128H1080" stroke="#7dd3fc" stroke-width="2"/>
+    <path d="M180 0V1350M360 0V1350M540 0V1350M720 0V1350M900 0V1350" stroke="#7dd3fc" stroke-width="2"/>
+  </g>
+  <circle cx="858" cy="176" r="182" fill="#00cfff" opacity="0.16" filter="url(#glow)"/>
+  <circle cx="236" cy="1044" r="248" fill="#2f75ff" opacity="0.18" filter="url(#glow)"/>
+  <g transform="translate(152 266)">
+    <rect x="0" y="0" width="260" height="156" rx="18" fill="url(#card)" stroke="#2f75ff" stroke-width="3"/>
+    <rect x="410" y="0" width="260" height="156" rx="18" fill="url(#card)" stroke="#00cfff" stroke-width="3"/>
+    <rect x="205" y="300" width="300" height="174" rx="18" fill="url(#card)" stroke="#2f75ff" stroke-width="3"/>
+    <rect x="548" y="300" width="260" height="174" rx="18" fill="url(#card)" stroke="#00cfff" stroke-width="3"/>
+    <path d="M260 78H410M540 156L375 300M505 387H548" stroke="#8fb8e8" stroke-width="6" stroke-linecap="round"/>
+    <path d="M392 64l18 14-18 14M391 286l-16 14 22 8M531 373l17 14-17 14" fill="none" stroke="#8fb8e8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="38" y="68" fill="#dbeafe" font-family="Arial, sans-serif" font-size="34" font-weight="700">raw/</text>
+    <text x="38" y="112" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">source facts</text>
+    <text x="448" y="68" fill="#dbeafe" font-family="Arial, sans-serif" font-size="34" font-weight="700">wiki/</text>
+    <text x="448" y="112" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">career knowledge</text>
+    <text x="250" y="372" fill="#dbeafe" font-family="Arial, sans-serif" font-size="34" font-weight="700">outputs/</text>
+    <text x="250" y="416" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">resume + portfolio</text>
+    <text x="584" y="372" fill="#dbeafe" font-family="Arial, sans-serif" font-size="34" font-weight="700">template</text>
+    <text x="584" y="416" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">branch to repo</text>
+  </g>
+  <g opacity="0.42">
+    <rect x="120" y="880" width="840" height="18" rx="9" fill="#2f75ff"/>
+    <rect x="120" y="932" width="640" height="18" rx="9" fill="#00cfff"/>
+    <rect x="120" y="984" width="760" height="18" rx="9" fill="#2f75ff"/>
+  </g>
+</svg>

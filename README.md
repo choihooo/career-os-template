@@ -70,6 +70,8 @@ career-os-template/
 
 ## Template Files
 
+- `index.html`, `styles.css`: Career OS 카드뉴스를 보여주는 정적 랜딩 페이지
+- `card-news/career-os-template/exports/`: Career OS 템플릿 소개 카드뉴스 PNG export
 - `examples/`: 사용자가 붙여 넣을 입력 형식
 - `raw/bios/profile.md`: 이름, 연락처, 링크, 학력, 선호 직무 같은 기본정보 원천
 - `raw/assets/`: 프로필 사진과 프로젝트 이미지의 원본 보관 위치
