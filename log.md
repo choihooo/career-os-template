@@ -60,3 +60,8 @@
 
 - Removed template guidance sections from the rendered resume third page
 - Replaced them with awards, activities, certifications, coursework, skills, and education
+
+## [2026-05-13] output | resume credentials page filled
+
+- Added more awards and external experiences to fill the rendered resume third page
+- Kept the page limited to education, certification, awards, and external experience
