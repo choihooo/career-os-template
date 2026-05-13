@@ -1,12 +1,12 @@
-# Sample Admin Workflow Project Raw Memo
+# ReviewFlow Admin Project Raw Memo
 
 ## Project
 
-- Name: Sample Admin Workflow
+- Name: ReviewFlow Admin
 - Period: 2025.01 - 2025.02
 - Team: 3명
 - Role: Frontend Owner
-- Links: https://github.com/example/sample-admin-workflow
+- Links: https://github.com/yujin-jung-career/reviewflow-admin
 
 ## Context
 
@@ -20,10 +20,11 @@
 - 검토 상태별 탭과 상세 패널의 상태를 분리했다.
 - 액션 버튼의 loading, disabled, error 상태를 명시했다.
 - 누락 서류와 담당자 메모를 한 화면에서 확인하도록 정보 구조를 재배치했다.
+- QA 재현 경로를 "필터 조건, 선택 행, API 응답, 기대 상태" 형식으로 정리했다.
 
 ## Result
 
 - 정성 결과: 같은 조건의 검토 큐를 링크로 공유할 수 있게 됐다.
 - 정성 결과: 검토 담당자가 화면 이동 없이 누락 서류와 처리 상태를 확인할 수 있게 됐다.
-- 증빙 링크: 샘플 raw라 실제 링크 없음
+- 증빙 링크: 가상 페르소나 자료라 실제 링크 없음
 - 아직 근거가 부족한 부분: 실제 검토 시간 감소 수치와 사용 로그

@@ -1,21 +1,25 @@
-# Sample Candidate Profile Raw
+# 정유진 Persona Raw
 
-개인정보 없는 샘플 후보 프로필이다. 실제 사용자는 `raw/bios/profile.md`에 자기 정보를 채우고, 이 파일은 참고용으로만 사용한다.
+이 파일은 개인정보가 없는 가상 페르소나 원천 자료다. 템플릿 사용자는 구조와 밀도를 참고하되, 실제 제출 시 `raw/bios/profile.md`와 각 raw 문서를 자기 사실로 교체한다.
 
 ## Identity
 
-- Name: Sample Candidate
-- Current role: Frontend Engineer
+- Name: 정유진
+- Current role: Product Frontend Engineer
 - Location: Seoul, Korea
-- Email: sample@example.com
-- GitHub: https://github.com/example/sample-candidate
-- Portfolio: https://example.com/sample-portfolio
+- Email: yujin.jung@career.example
+- GitHub: https://github.com/yujin-jung-career
+- Portfolio: https://yujin-jung-career.example
+
+## Persona Snapshot
+
+정유진은 B2B SaaS와 어드민 화면을 중심으로 React/TypeScript 경험을 쌓은 주니어 프론트엔드 엔지니어다. 단순 화면 구현보다 운영자가 반복하는 확인, 검토, 입력 흐름을 줄이는 데 관심이 많고, 서버 상태와 화면 상태를 분리해 재현 가능한 UI를 만드는 쪽에 강점이 있다.
 
 ## One-line Introductions
 
-- 이력서 상단 한 줄: React와 TypeScript로 업무용 웹 제품의 데이터 흐름과 입력 경험을 개선하는 프론트엔드 엔지니어
-- 포트폴리오 첫 문장: 운영자가 반복하던 확인, 입력, 리포트 흐름을 줄이는 UI 구조를 설계하고 구현합니다.
-- 자기소개 기본 문장: 화면 구현에 그치지 않고 API 응답, 서버 상태, URL 상태, 입력 검증을 함께 설계해 재현 가능한 사용자 흐름을 만드는 데 강점이 있습니다.
+- 이력서 상단 한 줄: React와 TypeScript로 운영자 대시보드, 검토 큐, 폼 입력 흐름을 개선하는 제품 프론트엔드 엔지니어
+- 포트폴리오 첫 문장: 운영자가 매일 반복하는 확인, 검토, 입력 업무를 더 짧고 재현 가능하게 만드는 UI를 설계하고 구현합니다.
+- 자기소개 기본 문장: 화면 구현에 그치지 않고 API 응답, 서버 상태, URL 상태, 입력 검증을 함께 설계해 운영자가 같은 조건을 다시 확인하고 팀원에게 공유할 수 있는 사용자 흐름을 만드는 데 강점이 있습니다.
 
 ## Representative Themes
 
@@ -26,20 +30,21 @@
 
 ## Education
 
-- School: Sample University
-- Major: Computer Science
+- School: 한빛대학교
+- Major: 컴퓨터공학
 - Period: 2021.03 - 2026.02
-- Status: Expected graduation
+- Status: 졸업 예정
 
 ## Work Preferences
 
-- Target roles: Frontend Engineer, Product Frontend Engineer
-- Preferred domains: B2B SaaS, admin tools, data products
-- Preferred company stage: Product-led startup, growing SaaS team
-- Work style: 요구사항을 작게 쪼개고, 상태 흐름과 검증 기준을 먼저 합의하는 방식
-- Claims to avoid: 대규모 트래픽 운영, 매출 직접 기여, 백엔드 주도 개발
+- Target roles: Product Frontend Engineer, Frontend Engineer
+- Preferred domains: B2B SaaS, admin tools, workflow tools, data products
+- Preferred company stage: 운영 지표와 사용자 피드백을 빠르게 제품에 반영하는 성장 단계 SaaS 팀
+- Work style: 요구사항을 화면 상태, API 상태, 사용자 액션 단위로 나누고 QA 재현 경로를 남기는 방식
+- Claims to avoid: 대규모 트래픽 운영, 매출 직접 기여, 백엔드 주도 개발, 실제 근거가 없는 성과 수치
 
-## Gaps
+## Replace Guide
 
-- 실제 이름, 연락처, 링크로 교체해야 한다.
-- 수치와 성과는 각 프로젝트 원천 자료의 근거가 있는 것만 사용한다.
+- 이름, 연락처, 링크는 실제 사용자 정보로 교체한다.
+- 회사명과 프로젝트명은 실제 경력과 프로젝트로 교체한다.
+- 수치 성과는 원천 자료에 근거가 있는 경우에만 사용한다.

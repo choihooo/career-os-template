@@ -44,3 +44,9 @@
 - Added additional sample raw experience and project memos
 - Generated sample PNG assets for profile, dashboard, workflow, and form system pages
 - Expanded the rendered sample resume to 3 pages and portfolio to 6 pages
+
+## [2026-05-13] output | sample package converted to detailed persona
+
+- Reworked the sample candidate into the fictional persona `정유진`
+- Replaced generic sample company and project names with a coherent B2B SaaS narrative
+- Updated raw memos, rendered HTML, and generated PNG assets to match the persona

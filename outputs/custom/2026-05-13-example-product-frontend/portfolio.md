@@ -1,14 +1,14 @@
-# Example Product Frontend Portfolio
+# 정유진 Frontend Portfolio
 
 ## Positioning
 
 이 포트폴리오는 Example Product JD가 요구하는 업무용 UI, 상태 설계, 입력 검증, 운영자 대시보드 경험을 보여주기 위해 구성했다. 첫 번째 사례는 운영자 대시보드의 상태 흐름을, 두 번째 사례는 어드민 검토 큐를, 세 번째 사례는 폼 검증과 컴포넌트 상태 규칙을 강조한다.
 
-## Case Study 1. Sample Dashboard
+## Case Study 1. OpsPulse Dashboard
 
 ### Problem
 
-내부 운영자는 여러 CSV를 수동으로 합쳐 주간 지표를 확인했다. 필터 조건을 공유하기 어렵고, 같은 조건으로 다시 확인하는 과정도 반복적이었다.
+브랜드 운영자는 광고비, 주문 수, CS 문의 수를 CSV로 따로 내려받아 주간 리포트를 만들었다. 필터 조건을 공유하기 어렵고, 같은 조건으로 다시 확인하는 과정도 반복적이었다.
 
 ### Decision
 
@@ -30,7 +30,7 @@
 
 이 사례는 JD의 대시보드 UI, API 연동 구조, 서버 상태 관리, 운영자 흐름 개선 요구와 직접 연결된다.
 
-## Case Study 2. Sample Admin Workflow
+## Case Study 2. ReviewFlow Admin
 
 ### Problem
 
@@ -54,7 +54,7 @@
 
 이 사례는 운영자용 어드민 UI, 상태별 워크플로, API 상태 기반 액션 처리 요구와 연결된다.
 
-## Case Study 3. Sample Form System
+## Case Study 3. FormGuard System
 
 ### Problem
 

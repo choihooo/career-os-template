@@ -1,12 +1,12 @@
-# Sample Form System Project Raw Memo
+# FormGuard System Project Raw Memo
 
 ## Project
 
-- Name: Sample Form System
+- Name: FormGuard System
 - Period: 2024.11 - 2024.12
 - Team: 2명
 - Role: Frontend Contributor
-- Links: https://github.com/example/sample-form-system
+- Links: https://github.com/yujin-jung-career/formguard-system
 
 ## Context
 
@@ -20,10 +20,11 @@
 - Zod 스키마와 UI 에러 메시지 매핑 규칙을 분리했다.
 - 공통 Input, Select, DateField 컴포넌트를 작성했다.
 - 키보드 접근과 focus ring 동작을 점검했다.
+- 제출 버튼 활성 조건과 서버 에러 표시 위치를 문서화했다.
 
 ## Result
 
 - 정성 결과: 신규 폼 화면에서 상태별 UI 리뷰 기준이 명확해졌다.
 - 정성 결과: QA가 재현 경로를 입력 필드 단위로 남길 수 있게 됐다.
-- 증빙 링크: 샘플 raw라 실제 링크 없음
+- 증빙 링크: 가상 페르소나 자료라 실제 링크 없음
 - 아직 근거가 부족한 부분: 재사용률, QA 피드백 감소율
