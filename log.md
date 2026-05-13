@@ -71,3 +71,8 @@
 - Generated a person profile image and additional project screen assets
 - Expanded the rendered portfolio with dashboard detail, review detail, form error mapping, and QA checklist pages
 - Updated the source portfolio markdown to match the richer case-study structure
+
+## [2026-05-13] output | portfolio final summary page removed
+
+- Removed the internal JD summary page from the rendered sample portfolio
+- Updated the cover contents and regenerated the portfolio PDF
