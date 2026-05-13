@@ -66,6 +66,11 @@ Before writing:
    - Apply `career-output-polish` to `portfolio.md`.
    - Preserve resume 개조식.
 6. Render only when requested or clearly implied.
+   - Before rendering, enforce the profile photo gate:
+     - Confirm at least one source profile photo exists under `raw/assets/` as `profile-photo.png`, `profile-photo.jpg`, `profile-photo.jpeg`, or `profile-photo-square.png`.
+     - Confirm the rendered resume and portfolio have local profile image assets ready in `resume/assets/`, `portfolio/assets/`, or the target company-specific rendered asset folders.
+     - If the profile photo is missing, stop before HTML/PDF generation and ask the user to provide one.
+     - Do not render final HTML/PDF with initials, gray boxes, generated placeholders, remote images, or broken image fallbacks as the profile photo.
    - Use `career-build-rendered-resume` for `resume/` and PDF export.
    - Use `career-build-rendered-portfolio` for `portfolio/` and PDF export.
    - Treat markdown as source of truth and HTML/PDF as derived output.
@@ -127,5 +132,6 @@ Stop and ask the user if:
 - there is no JD, no role, and no reliable company context
 - multiple target roles are mixed into one package
 - the requested positioning depends on facts not present in `raw/` or `wiki/`
+- rendered HTML/PDF output is requested but no usable local profile photo exists
 - rendering requires deleting major evidence from the source markdown
 - the user asks to submit or send materials externally without review

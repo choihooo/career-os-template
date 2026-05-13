@@ -87,3 +87,9 @@
 - Removed the resume profile image corner mask that exposed the gray frame
 - Added a cache-busting query to the portfolio profile image reference
 - Regenerated the rendered resume and portfolio PDFs
+
+## [2026-05-13] skill | profile photo required before rendering
+
+- Added a profile photo gate to rendered resume and portfolio skills
+- Added the same gate to the application pipeline before HTML/PDF generation
+- Prevented final rendering with initials, gray boxes, generated placeholders, remote images, or broken profile image fallbacks

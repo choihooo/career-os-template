@@ -43,24 +43,34 @@ Do not rewrite source markdown unless the rendered-output work reveals a factual
 ## Required Workflow
 
 1. Identify the resume source version.
-2. Compare the source resume against the current `resume/index.html`.
-3. Update the HTML so visible resume content matches the chosen source.
-4. Preserve the existing visual system unless the user asks for a redesign:
+2. Run the required profile photo gate before editing rendered files:
+   - Confirm at least one original profile photo exists under `raw/assets/`:
+     - `raw/assets/profile-photo.png`
+     - `raw/assets/profile-photo.jpg`
+     - `raw/assets/profile-photo.jpeg`
+     - `raw/assets/profile-photo-square.png`
+   - Confirm a resume-ready local image exists at `resume/assets/profile.png` or in the target rendered resume asset folder for company-specific output.
+   - Do not use initials, gray boxes, generated placeholders, remote images, or broken image fallbacks in place of a profile photo.
+   - If the user provided a photo in the current task, copy or convert it into the required local asset paths before continuing.
+   - If no usable profile photo is available, stop before HTML/PDF generation and ask the user to provide one.
+3. Compare the source resume against the current `resume/index.html`.
+4. Update the HTML so visible resume content matches the chosen source.
+5. Preserve the existing visual system unless the user asks for a redesign:
    - A4 page structure
    - compact recruiter-friendly hierarchy
    - local asset usage
    - print-friendly page boundaries
-5. Keep assets local under `resume/assets/`.
-6. Remove stale visible content that no longer exists in the chosen source.
-7. Check for:
+6. Keep assets local under `resume/assets/`.
+7. Remove stale visible content that no longer exists in the chosen source.
+8. Check for:
    - text overflow
    - broken links
    - missing images
    - inconsistent page numbering
    - excessive unused white space on each page
    - weak bullets copied only to fill layout space
-8. If a browser or screenshot workflow is available, render-check the first page and every page touched by the edit.
-9. If this skill is running inside `career-apply-pipeline`, report verification results back to the pipeline and let it own the final log entry. Otherwise, append one `output` entry to `log.md`.
+9. If a browser or screenshot workflow is available, render-check the first page and every page touched by the edit.
+10. If this skill is running inside `career-apply-pipeline`, report verification results back to the pipeline and let it own the final log entry. Otherwise, append one `output` entry to `log.md`.
 
 ## Resume Rules
 
@@ -128,5 +138,6 @@ Stop and ask the user if:
 
 - the source resume and current rendered page disagree on important facts
 - the user asks for a redesign but no target format or visual direction is clear
+- no usable profile photo exists in the required local asset paths
 - required image assets are missing and cannot be replaced with existing local assets
 - fitting the content would require deleting major evidence from the source resume
