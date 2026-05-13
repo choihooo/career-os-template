@@ -16,7 +16,7 @@
             <h1>Example Product JD에 맞춘<br />정유진 프론트엔드 포트폴리오</h1>
 
             <section class="profile-block">
-              <img class="profile-photo" src="../resume/assets/sample-profile.png" alt="" />
+              <img class="profile-photo" src="../resume/assets/person-profile.png" alt="정유진 프로필 이미지" />
               <div class="profile-copy">
                 <h2>정유진</h2>
                 <div class="profile-meta">
@@ -34,7 +34,7 @@
               </div>
             </section>
 
-            <section class="contents-block">
+            <section class="contents-block contents-block-rich">
               <h2>프로젝트 목록</h2>
 
               <div class="contents-item">
@@ -42,8 +42,9 @@
                 <div>
                   <h3>OpsPulse Dashboard</h3>
                   <ol>
-                    <li><span>2p</span>프로젝트 소개, 담당 역할, 대시보드 화면</li>
-                    <li><span>3p</span>핵심 기술 이슈 - TanStack Query + URL query</li>
+                    <li><span>2p</span>대시보드 화면과 문제 정의</li>
+                    <li><span>3p</span>TanStack Query + URL query 상태 설계</li>
+                    <li><span>4p</span>필터/리포트 화면과 결과</li>
                   </ol>
                 </div>
               </div>
@@ -53,7 +54,8 @@
                 <div>
                   <h3>ReviewFlow Admin</h3>
                   <ol>
-                    <li><span>4p</span>검토 큐 문제, 설계 결정, 결과</li>
+                    <li><span>5p</span>검토 큐 화면과 운영자 문제</li>
+                    <li><span>6p</span>상세 패널, 액션 상태, 결과</li>
                   </ol>
                 </div>
               </div>
@@ -63,8 +65,9 @@
                 <div>
                   <h3>FormGuard System</h3>
                   <ol>
-                    <li><span>5p</span>폼 검증, 컴포넌트 상태 규칙</li>
-                    <li><span>6p</span>JD 연결점과 제출 전 교체 항목</li>
+                    <li><span>7p</span>폼 검증과 컴포넌트 상태 규칙</li>
+                    <li><span>8p</span>에러 매핑과 QA 재현 체크리스트</li>
+                    <li><span>9p</span>JD 연결 요약</li>
                   </ol>
                 </div>
               </div>
@@ -109,19 +112,25 @@
 
             <img class="portfolio-shot dashboard-shot" src="./assets/dashboard-overview.png" alt="" />
 
-            <section class="gray-report-box page-two-report">
+            <section class="gray-report-box page-two-report dense-report">
               <div class="report-block">
-                <h4>1. 문제 상황</h4>
+                <h4>1. 문제</h4>
                 <ul>
                   <li>운영자가 광고비, 주문 수, CS 문의 수를 CSV로 따로 내려받아 주간 지표를 확인</li>
-                  <li>필터 조건 공유와 같은 조건 재현이 어려움</li>
+                  <li>필터 조건 공유와 같은 조건 재현이 어려워 리포트 확인이 반복됨</li>
                 </ul>
               </div>
               <div class="report-block">
-                <h4>2. 결과</h4>
+                <h4>2. 해결</h4>
+                <ul>
+                  <li>서버 상태와 필터 상태를 분리하고 URL query로 화면 조건을 저장</li>
+                  <li>테이블과 차트가 같은 필터 상태를 바라보게 구성해 화면 수치 불일치 가능성을 줄임</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 결과</h4>
                 <ul>
                   <li>주간 리포트 작성 시간이 2시간에서 30분으로 줄었다는 운영자 피드백 확보</li>
-                  <li>필터 조건 공유와 재현이 쉬워졌다는 정성 피드백 확보</li>
                 </ul>
               </div>
             </section>
@@ -134,27 +143,27 @@
             <h2 class="page-three-title">TanStack Query + URL query 상태 설계</h2>
             <img class="portfolio-shot flow-shot" src="./assets/url-state-flow.png" alt="" />
 
-            <section class="gray-report-box page-three-box">
+            <section class="gray-report-box page-three-box dense-report">
               <div class="report-block">
-                <h4>1. 문제 상황</h4>
+                <h4>1. 문제</h4>
                 <ul>
                   <li>필터 변경과 데이터 요청이 한 컴포넌트 안에 섞여 변경 영향 범위가 커짐</li>
                   <li>운영자가 동일 조건을 공유해도 화면 상태가 재현되지 않음</li>
                 </ul>
               </div>
               <div class="report-block">
-                <h4>2. 행동</h4>
+                <h4>2. 기술 판단</h4>
                 <ul>
                   <li>서버 데이터 요청과 캐시 관리는 TanStack Query로 이동</li>
                   <li>필터 조건은 URL query로 직렬화하고 화면 진입 시 복원</li>
-                  <li>차트와 테이블은 같은 query state를 기준으로 렌더링</li>
+                  <li>period, channel, brand 조건을 query key에 포함해 필요한 데이터만 다시 요청</li>
                 </ul>
               </div>
               <div class="report-block result-block">
-                <h4>3. JD 연결점</h4>
+                <h4>3. 결과</h4>
                 <ul>
-                  <li>대시보드 UI, API 연동 구조, 서버 상태 관리, 운영자 흐름 개선 요구와 직접 연결</li>
-                  <li>업무용 화면에서 상태 설계 판단을 설명할 수 있는 사례로 사용</li>
+                  <li>링크 공유, 새로고침, QA 재현 상황에서 같은 리포트 화면을 다시 열 수 있게 됨</li>
+                  <li>대시보드 UI, API 연동 구조, 서버 상태 관리 요구와 직접 연결되는 사례로 정리</li>
                 </ul>
               </div>
             </section>
@@ -165,22 +174,74 @@
         <article class="portfolio-page page-four">
           <section class="page-four-content">
             <header class="page-four-header">
+              <h2>OpsPulse 필터/리포트 화면</h2>
+              <p>URL state · query key · report table · shared filters</p>
+            </header>
+
+            <img class="portfolio-shot admin-shot" src="./assets/dashboard-filter-detail.png" alt="" />
+
+            <section class="gray-report-box page-four-box compact-report dense-report">
+              <div class="report-block">
+                <h4>1. 구현 포인트</h4>
+                <ul>
+                  <li>기간, 브랜드, 채널, 상태 필터를 URL에 남겨 같은 리포트 조건을 팀원에게 공유</li>
+                  <li>필터 조건을 query key에 반영해 조건 변경 시 필요한 데이터만 재요청</li>
+                  <li>빈 상태, 로딩 상태, API 에러 상태를 분리해 운영자가 현재 화면 상태를 오해하지 않도록 구성</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 결과</h4>
+                <ul>
+                  <li>운영자가 리포트 조건을 다시 맞추는 시간을 줄이고, 같은 링크로 지표 화면을 재검토할 수 있게 됨</li>
+                  <li>차트와 테이블이 동일한 필터 상태를 기준으로 렌더링되어 수치 비교 흐름이 단순해짐</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. Before / After</h4>
+                <ul>
+                  <li>Before: CSV 다운로드, 수동 병합, 조건 재설정, 스크린샷 공유를 반복</li>
+                  <li>After: 저장된 URL 조건으로 동일 리포트 화면을 열고 지표를 바로 비교</li>
+                  <li>운영자 피드백 기준 주간 리포트 작성 시간이 2시간에서 30분으로 감소</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>4. 내 역할</h4>
+                <ul>
+                  <li>필터 상태 모델링, query key 설계, Recharts 시각화, 빈 상태/에러 상태 UI 구현</li>
+                  <li>리포트 공유 흐름을 기준으로 QA 시나리오와 화면 상태를 함께 정리</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>5. 면접에서 설명할 판단</h4>
+                <ul>
+                  <li>필터 상태를 전역 상태가 아니라 URL에 둔 이유와 새로고침/공유 요구사항의 관계</li>
+                  <li>차트와 테이블을 같은 상태 기준으로 묶어 운영자가 숫자를 비교하는 방식을 단순화한 과정</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 4 -</p>
+        </article>
+
+        <article class="portfolio-page page-five">
+          <section class="page-four-content">
+            <header class="page-four-header">
               <h2>ReviewFlow Admin</h2>
               <p>React · URL query · Table UI · Review workflow</p>
             </header>
 
             <img class="portfolio-shot admin-shot" src="./assets/admin-workflow.png" alt="" />
 
-            <section class="gray-report-box page-four-box compact-report">
+            <section class="gray-report-box page-four-box compact-report dense-report">
               <div class="report-block">
-                <h4>1. 문제 상황</h4>
+                <h4>1. 문제</h4>
                 <ul>
                   <li>검토 담당자가 신청 상태, 누락 서류, 담당자 메모를 여러 화면에서 확인</li>
                   <li>필터 조건 공유가 어려워 스크린샷이나 구두 설명에 의존</li>
                 </ul>
               </div>
               <div class="report-block">
-                <h4>2. 행동</h4>
+                <h4>2. 해결</h4>
                 <ul>
                   <li>상태별 탭과 리스트 필터를 URL query로 동기화</li>
                   <li>상세 패널에서 누락 서류, 담당자 메모, 처리 액션을 한 번에 확인하도록 배치</li>
@@ -191,15 +252,66 @@
                 <h4>3. 결과</h4>
                 <ul>
                   <li>같은 조건의 검토 큐를 팀원에게 링크로 전달할 수 있게 됨</li>
-                  <li>화면 이동 없이 누락 서류와 처리 상태를 확인할 수 있다는 정성 피드백 확보</li>
                 </ul>
               </div>
             </section>
           </section>
-          <p class="page-number">- 4 -</p>
+          <p class="page-number">- 5 -</p>
         </article>
 
-        <article class="portfolio-page page-five">
+        <article class="portfolio-page page-six">
+          <section class="page-four-content">
+            <header class="page-four-header">
+              <h2>ReviewFlow 상세 패널과 액션 상태</h2>
+              <p>detail panel · missing docs · action state · retry flow</p>
+            </header>
+
+            <img class="portfolio-shot admin-shot" src="./assets/review-detail-panel.png" alt="" />
+
+            <section class="gray-report-box page-four-box compact-report dense-report">
+              <div class="report-block">
+                <h4>1. 구현 포인트</h4>
+                <ul>
+                  <li>선택 행, 상세 패널, 처리 액션을 분리해 리스트 화면의 변경 영향 범위를 줄임</li>
+                  <li>승인 실패, 권한 없음, 이미 처리됨 상태를 구분해 운영자가 다음 행동을 판단할 수 있게 메시지를 분리</li>
+                  <li>URL query와 selected row를 기준으로 QA가 같은 검토 상태를 다시 열 수 있게 구성</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 결과</h4>
+                <ul>
+                  <li>화면 이동 없이 누락 서류와 처리 상태를 확인할 수 있다는 정성 피드백 확보</li>
+                  <li>중복 승인과 실패 후 재시도 흐름을 UI 상태로 분리해 처리 실수를 줄이는 방향으로 개선</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 상태 설계</h4>
+                <ul>
+                  <li>검토 가능, 서류 대기, 이미 처리됨, 권한 없음, 서버 실패 상태를 액션 버튼 조건과 연결</li>
+                  <li>선택 행이 바뀌어도 상세 패널의 loading, stale data, retry 상태가 섞이지 않도록 분리</li>
+                  <li>팀원이 같은 큐를 열 수 있도록 status, assignee, missingDoc 조건을 URL에 보존</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>4. 협업 방식</h4>
+                <ul>
+                  <li>운영 담당자 피드백을 기준으로 정보 우선순위를 신청자 정보, 누락 서류, 메모, 액션 순서로 정리</li>
+                  <li>QA 재현 조건을 URL query와 선택 행 기준으로 남기도록 체크리스트를 작성</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>5. 면접에서 설명할 판단</h4>
+                <ul>
+                  <li>검토 화면에서 리스트와 상세 패널을 분리해야 했던 이유와 변경 영향 범위</li>
+                  <li>운영자 액션 버튼을 비활성화하는 조건과 실패 후 재시도 흐름을 나눈 기준</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 6 -</p>
+        </article>
+
+        <article class="portfolio-page page-seven">
           <section class="page-four-content">
             <header class="page-four-header">
               <h2>FormGuard System</h2>
@@ -211,16 +323,16 @@
               <img class="portfolio-shot half-shot" src="./assets/design-system.png" alt="" />
             </div>
 
-            <section class="gray-report-box page-four-box compact-report">
+            <section class="gray-report-box page-four-box compact-report dense-report">
               <div class="report-block">
-                <h4>1. 문제 상황</h4>
+                <h4>1. 문제</h4>
                 <ul>
                   <li>폼마다 입력 상태와 에러 메시지 표현이 달라 QA 피드백이 반복</li>
                   <li>사용자가 어떤 입력을 잘못했는지 화면에서 바로 알기 어려움</li>
                 </ul>
               </div>
               <div class="report-block">
-                <h4>2. 행동</h4>
+                <h4>2. 해결</h4>
                 <ul>
                   <li>Zod 스키마로 입력 데이터의 구조와 검증 기준을 명시</li>
                   <li>label, helper text, error text, disabled state의 우선순위를 정의</li>
@@ -236,54 +348,124 @@
               </div>
             </section>
           </section>
-          <p class="page-number">- 5 -</p>
+          <p class="page-number">- 7 -</p>
         </article>
 
-        <article class="portfolio-page page-six">
+        <article class="portfolio-page page-eight">
+          <section class="page-four-content">
+            <header class="page-four-header">
+              <h2>FormGuard 에러 매핑과 QA 재현</h2>
+              <p>Zod schema · error priority · QA checklist · typed submit</p>
+            </header>
+
+            <div class="asset-grid">
+              <img class="portfolio-shot half-shot" src="./assets/form-error-map.png" alt="" />
+              <img class="portfolio-shot half-shot" src="./assets/qa-checklist.png" alt="" />
+            </div>
+
+            <section class="gray-report-box page-four-box compact-report dense-report">
+              <div class="report-block">
+                <h4>1. 구현 포인트</h4>
+                <ul>
+                  <li>스키마 검증 실패, 서버 에러, helper text의 우선순위를 나눠 사용자에게 한 번에 하나의 원인을 보여줌</li>
+                  <li>입력값, URL query, API 응답, 기대 메시지를 함께 남기는 QA 재현 체크리스트 작성</li>
+                  <li>제출 버튼 활성 조건과 필드별 에러 위치를 문서화해 신규 폼 화면에 같은 기준을 적용</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>2. 결과</h4>
+                <ul>
+                  <li>폼 검증 이슈를 필드 단위로 재현할 수 있게 되어 QA와 개발 간 확인 비용을 줄임</li>
+                  <li>입력 검증, 타입 안정성, 사용자 오류 회복 흐름을 함께 설명할 수 있는 사례로 정리</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>3. 컴포넌트 규칙</h4>
+                <ul>
+                  <li>default, focus, error, disabled 상태의 시각 규칙과 helper text 우선순위를 문서화</li>
+                  <li>서버 에러는 폼 하단, 필드 에러는 입력 필드 하단에 배치해 원인 위치를 분리</li>
+                  <li>submit 버튼은 스키마 검증 통과 전까지 disabled 상태를 유지하도록 기준을 통일</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>4. 적용 범위</h4>
+                <ul>
+                  <li>파트너 등록, 계약 정보, 정산 계좌 입력 화면에 같은 검증 규칙을 점진 적용</li>
+                  <li>신규 폼 화면 리뷰 시 QA가 동일한 상태 이름으로 이슈를 남길 수 있게 정리</li>
+                </ul>
+              </div>
+              <div class="report-block">
+                <h4>5. 면접에서 설명할 판단</h4>
+                <ul>
+                  <li>검증 로직과 UI 메시지 매핑을 분리해 폼 화면이 늘어나도 규칙을 재사용하도록 만든 과정</li>
+                  <li>사용자가 오류를 복구할 수 있도록 필드 에러와 서버 에러의 위치를 다르게 둔 이유</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <p class="page-number">- 8 -</p>
+        </article>
+
+        <article class="portfolio-page page-nine">
           <section class="template-content">
             <h2 class="template-title">Example Product JD 연결 요약</h2>
 
-            <section class="fit-summary-grid">
+            <section class="fit-summary-grid fit-summary-grid-large">
               <article>
                 <h3>Dashboard UI</h3>
-                <p>운영자가 지표, 필터, 추세를 한 화면에서 비교하도록 상태와 정보 구조를 설계했습니다.</p>
+                <p>OpsPulse에서 운영자가 지표, 필터, 추세를 한 화면에서 비교하도록 리포트 화면을 설계했습니다.</p>
               </article>
               <article>
                 <h3>API State</h3>
-                <p>서버 상태, UI 필터, URL 상태를 분리해 재현 가능한 화면 상태를 만들었습니다.</p>
+                <p>TanStack Query와 URL query를 분리해 서버 상태와 화면 조건을 재현 가능하게 만들었습니다.</p>
+              </article>
+              <article>
+                <h3>Admin Workflow</h3>
+                <p>ReviewFlow에서 검토 큐, 상세 패널, 액션 버튼 상태를 나눠 운영자 처리 흐름을 단순화했습니다.</p>
               </article>
               <article>
                 <h3>Form Quality</h3>
-                <p>Zod 스키마와 에러 메시지 매핑으로 입력 단계에서 QA 이슈를 줄였습니다.</p>
-              </article>
-              <article>
-                <h3>Workflow</h3>
-                <p>검토 큐, 상세 패널, 액션 버튼 상태를 나눠 운영자 처리 흐름을 단순화했습니다.</p>
+                <p>FormGuard에서 Zod 스키마와 에러 메시지 매핑으로 입력 단계의 QA 이슈를 줄였습니다.</p>
               </article>
             </section>
 
-            <section class="figma-gray-box final-notes">
+            <section class="figma-gray-box final-notes final-notes-dense">
               <ol>
                 <li>
-                  <strong>실제 제출 전 교체할 증빙</strong>
+                  <strong>지원 직무와 직접 연결되는 근거</strong>
                   <ul class="figma-nested-list">
-                    <li>실제 GitHub repository, PR, 이슈 링크</li>
-                    <li>실제 대시보드와 폼 화면 스크린샷</li>
-                    <li>운영자 피드백 원문과 before/after 측정 방식</li>
+                    <li>React/TypeScript 기반 업무용 화면 구현 경험</li>
+                    <li>대시보드, 테이블, 필터, 폼 검증 등 B2B SaaS 화면 패턴 경험</li>
+                    <li>API 응답, 서버 상태, URL 상태를 분리한 화면 상태 설계 경험</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>JD 맞춤 조정 방향</strong>
+                  <strong>면접에서 확장할 수 있는 질문</strong>
                   <ul class="figma-nested-list">
-                    <li>대시보드와 API 상태 관리 요구가 강하면 OpsPulse Dashboard를 첫 사례로 유지</li>
-                    <li>어드민 운영 효율 요구가 강하면 ReviewFlow Admin을 앞쪽으로 이동</li>
-                    <li>입력 품질과 TypeScript 요구가 강하면 FormGuard System의 수치와 PR 근거를 보강</li>
+                    <li>왜 URL query를 필터 상태의 기준으로 삼았는가</li>
+                    <li>폼 검증을 Zod 스키마와 UI 메시지 매핑으로 분리한 이유는 무엇인가</li>
+                    <li>운영자 화면에서 빈 상태, 권한 없음, 서버 에러를 나눈 기준은 무엇인가</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>프로젝트별 강조 포인트</strong>
+                  <ul class="figma-nested-list">
+                    <li>OpsPulse: 대시보드 필터 재현성과 운영 리포트 흐름 개선</li>
+                    <li>ReviewFlow: 검토 큐, 상세 패널, 액션 상태 분리</li>
+                    <li>FormGuard: 입력 검증, 에러 메시지 우선순위, QA 재현성</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>보여줄 수 있는 작업 방식</strong>
+                  <ul class="figma-nested-list">
+                    <li>요구사항을 API 상태, 화면 상태, 사용자 액션, 예외 상태로 나누어 구현 범위를 정리</li>
+                    <li>기능 구현을 단순 목록으로 두지 않고 사용자/운영자 경험 개선 결과와 함께 설명</li>
                   </ul>
                 </li>
               </ol>
             </section>
           </section>
-          <p class="page-number">- 6 -</p>
+          <p class="page-number">- 9 -</p>
         </article>
       </section>
     </main>

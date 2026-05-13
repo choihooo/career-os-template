@@ -65,3 +65,9 @@
 
 - Added more awards and external experiences to fill the rendered resume third page
 - Kept the page limited to education, certification, awards, and external experience
+
+## [2026-05-13] output | portfolio sample enriched with assets
+
+- Generated a person profile image and additional project screen assets
+- Expanded the rendered portfolio with dashboard detail, review detail, form error mapping, and QA checklist pages
+- Updated the source portfolio markdown to match the richer case-study structure
