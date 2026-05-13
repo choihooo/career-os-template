@@ -55,3 +55,8 @@
 
 - Expanded the rendered resume with additional work items, project details, award, evidence, and working style sections
 - Updated the matching markdown resume so the sample package reads like a fuller candidate profile
+
+## [2026-05-13] output | resume third page replaced with credentials
+
+- Removed template guidance sections from the rendered resume third page
+- Replaced them with awards, activities, certifications, coursework, skills, and education

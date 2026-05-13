@@ -76,7 +76,21 @@ React와 TypeScript 기반으로 B2B SaaS의 어드민, 대시보드, 폼 입력
 - 제출 버튼 활성 조건, 서버 에러 표시 위치, 필드별 helper text 우선순위를 문서화했다.
 - 신규 폼 화면에서 QA가 입력 필드 단위로 재현 경로를 남길 수 있도록 상태 이름과 메시지 규칙을 맞췄다.
 
-## Awards and Activities
+## Education
+
+한빛대학교 컴퓨터공학
+
+2021.03 - 2026.02 졸업 예정
+
+영문학과 부전공, 성균관사이버대학교
+
+2023.03 - 2025.02
+
+## Certification
+
+- SQLD, 한국데이터산업진흥원, 2025.04
+
+## Awards
 
 ### SaaS Ops Prototype Challenge 우수상
 
@@ -85,26 +99,34 @@ React와 TypeScript 기반으로 B2B SaaS의 어드민, 대시보드, 폼 입력
 - OpsPulse Dashboard의 운영 지표 대시보드 프로토타입으로 30개 팀 중 3위를 기록했다.
 - 필터 재현성, 차트 기반 리포트 흐름, 실제 운영자 문제와 연결된 UX 설명을 맡았다.
 
-## Working Style
+### 한빛대학교 SW 캡스톤 쇼케이스 장려상
 
-- 요구사항을 API 상태, 화면 상태, 사용자 액션, 예외 상태로 나누어 구현 범위를 정리한다.
-- QA 이슈는 입력값, URL query, API 응답, 기대 메시지를 함께 남겨 재현 가능하게 만든다.
-- 화면 구현 전 로딩, 빈 상태, 권한 없음, 서버 에러, 제출 실패 상태를 먼저 정의한다.
+2024.12
 
-## Additional Context
+- 팀 프로젝트에서 프론트엔드 화면 구조와 폼 검증 파트를 담당했다.
+- 테이블 필터, 상세 패널, 제출 전 검증 흐름을 React 컴포넌트로 구현했다.
 
-- Coursework: Web Programming, Database Systems, Human-Computer Interaction, Software Engineering
-- Tools: GitHub Projects, Figma handoff, Chrome DevTools, Playwright basic screenshot check
-- Target Fit: B2B SaaS 어드민 화면, 대시보드 필터, 입력 검증, QA 재현 문서화 경험이 Example Product JD와 맞다.
+### Product Builders UI Challenge 입선
 
-## Education
+2024.10
 
-한빛대학교 컴퓨터공학
+- 운영자용 테이블 필터와 빈 상태 UX 개선안을 제출했다.
+- 검색 조건 저장과 링크 공유 흐름을 화면 플로우로 설계했다.
 
-2021.03 - 2026.02 졸업 예정
+## External Experience
 
-## Notes
+### 한빛대학교 웹서비스 개발 동아리 H-Builder | 프론트엔드 운영진
 
-- 이 문서는 가상 페르소나 기반 예시다.
-- 실제 제출 전 이름, 연락처, 링크, 회사명, 성과 근거를 자기 자료로 교체해야 한다.
-- 성과 수치는 raw 자료의 근거가 있는 경우에만 사용한다.
+2024.03 - 2024.12
+
+- React 기초 스터디와 TypeScript 전환 실습 세션을 운영하며 주니어 학회원 12명의 과제 리뷰를 진행했다.
+- 공통 과제로 어드민 테이블, 검색 필터, 폼 검증 화면을 설계해 실무형 UI 패턴을 반복 연습했다.
+- GitHub Issues와 Pull Request 템플릿을 도입해 요구사항, 구현 내용, QA 체크리스트를 함께 남기도록 운영했다.
+
+### Campus Product Lab | 프론트엔드 멘토
+
+2025.03 - 2025.05
+
+- 6주 제품 프로토타입 프로그램에서 3개 팀의 화면 구조, 상태 관리, 폼 UX 리뷰를 담당했다.
+- Figma 시안을 React 컴포넌트 단위로 나누고 빈 상태, 로딩 상태, 에러 상태를 먼저 정의하도록 가이드했다.
+- 최종 데모 전 Playwright screenshot check로 주요 화면의 레이아웃 깨짐을 점검했다.
