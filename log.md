@@ -81,3 +81,9 @@
 
 - Replaced the sample resume and portfolio profile image with the provided profile photo
 - Regenerated the rendered resume and portfolio PDFs
+
+## [2026-05-13] output | profile image rendering fixed
+
+- Removed the resume profile image corner mask that exposed the gray frame
+- Added a cache-busting query to the portfolio profile image reference
+- Regenerated the rendered resume and portfolio PDFs
