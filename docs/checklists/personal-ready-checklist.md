@@ -18,14 +18,13 @@
 
 ## Outputs
 
-- [ ] `outputs/general/resume-general-v1.md`가 placeholder 없이 완성되어 있다.
-- [ ] `outputs/general/resume-general-v2.md`가 v1과 다른 포지셔닝을 가진다.
-- [ ] `outputs/general/portfolio-general-v1.md`가 대표 프로젝트와 proof를 포함한다.
-- [ ] `outputs/general/portfolio-general-v2.md`가 내러티브와 signature story를 포함한다.
+- [ ] `outputs/general/source/resume.md`가 placeholder 없이 완성되어 있다.
+- [ ] `outputs/general/source/portfolio.md`가 대표 프로젝트와 proof를 포함한다.
+- [ ] 필요하면 `outputs/general/final/resume.html`, `resume.pdf`, `portfolio.html`, `portfolio.pdf`를 생성할 수 있다.
 - [ ] 최종 산출물에 과장된 주장이나 근거 없는 임팩트가 없다.
 
 ## Custom Flow
 
-- [ ] JD를 주면 `jd.md`, `analysis.md`, `strategy.md`, `resume.md`, `portfolio.md`가 생성된다.
+- [ ] JD를 주면 `source/jd.md`, `source/brief.md`, `source/resume.md`, `source/portfolio.md`가 생성된다.
 - [ ] JD와 맞지 않는 강한 경험은 제외 또는 축소된다.
-- [ ] 부족한 근거는 `analysis.md`에 gap으로 남는다.
+- [ ] 부족한 근거는 `brief.md`에 gap으로 남는다.

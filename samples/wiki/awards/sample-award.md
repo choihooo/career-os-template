@@ -11,7 +11,7 @@
 
 - What this award recognized: 운영 지표 대시보드 프로토타입
 - Competition or selection pool: 30개 팀 중 3위
-- Related project or experience: `wiki/projects/sample-dashboard.md`
+- Related project or experience: `samples/wiki/projects/sample-dashboard.md`
 
 ## My Contribution
 

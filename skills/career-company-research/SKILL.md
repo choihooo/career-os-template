@@ -1,6 +1,6 @@
 ---
 name: career-company-research
-description: Use when the user provides a JD link, company careers page, or target company name and wants research materials for an application, including analysis of the JD, official company messaging, talent principles, hiring signals, new year messages, and interview or acceptance patterns, saved into the company package folder.
+description: Use when the user provides a JD link, company careers page, or target company name and wants compact research materials for an application, saved into outputs/custom/YYYY-MM-DD-company/research.
 ---
 
 # Career Company Research
@@ -17,20 +17,12 @@ Use sources in this order:
 
 1. Official JD or careers page
 2. Official company site
-3. Official leadership messages:
-   - CEO message
-   - annual letter
-   - new year message
-   - mission or values page
+3. Official leadership messages
 4. Official hiring or culture pages
 5. Official tech blog, newsroom, or investor materials if relevant
-6. Secondary sources:
-   - interview 후기
-   - employee posts
-   - 합격자 후기
-   - community threads
+6. Secondary sources such as interview 후기, employee posts, and community threads
 
-Treat secondary sources as weak evidence. Use them to generate hypotheses, not to state company facts confidently.
+Treat secondary sources as weak evidence.
 
 ## Required Inputs
 
@@ -40,97 +32,40 @@ At least one of:
 - company careers URL
 - company name plus target role
 
-If there is no URL, infer the company package name from the company name and date, then stop if the role context is too vague.
-
 ## Output Folder
 
 Write into:
 
-`outputs/custom/YYYY-MM-DD-company/`
+`outputs/custom/YYYY-MM-DD-company/research/`
 
-If the folder does not exist yet, create it.
+If the package folder does not exist yet, create it along with `source/`.
 
 ## Required Files
 
 This skill produces or updates:
 
-- `jd.md`
-- `company-research.md`
-- `culture-signals.md`
-- `interview-signals.md`
-- `fit-hypotheses.md`
+- `research/company.md`
+- `research/signals.md`
 
 It may also update:
 
-- `analysis.md`
-- `strategy.md`
+- `source/jd.md`
+- `source/brief.md`
 - `log.md`
 
 ## Required Workflow
 
 1. Create or locate the target company folder under `outputs/custom/YYYY-MM-DD-company/`.
-2. Save the JD text or a structured summary in `jd.md`.
-3. Research official company sources and write `company-research.md`:
+2. Save the JD text or a structured summary in `source/jd.md` if it is not already there.
+3. Research official company sources and write `research/company.md`:
    - company summary
    - business direction
    - recent priorities
    - role relevance
    - dated source links
-4. Extract official values, talent signals, leadership language, and recurring internal themes into `culture-signals.md`.
-5. Review secondary signals and write `interview-signals.md`:
-   - likely interview themes
-   - commonly emphasized competencies
-   - weak or noisy signals clearly labeled
-6. Synthesize the findings into `fit-hypotheses.md`:
-   - why you may fit
-   - where your evidence is strong
-   - where your fit is weaker
-   - what stories or metrics to emphasize
-   - what claims to avoid
-7. If useful, backfill:
-   - `analysis.md`
-   - `strategy.md`
-8. If this skill is running inside `career-apply-pipeline`, let the pipeline own the final log entry. Otherwise, append one `research` or `output` entry to `log.md`.
-
-## File Expectations
-
-### `company-research.md`
-
-Keep this factual and source-driven:
-
-- target company and role
-- official source list with dates
-- business and product context
-- team or role context if available
-- recent strategic signals
-
-### `culture-signals.md`
-
-Capture:
-
-- mission and values wording
-- talent principles
-- leadership language patterns
-- phrases worth matching in application materials
-- signals that should shape tone or emphasis
-
-### `interview-signals.md`
-
-Separate clearly:
-
-- strong signals from official or repeated evidence
-- weak signals from anecdotal reports
-
-Always label anecdotal material as anecdotal.
-
-### `fit-hypotheses.md`
-
-This is the bridge to resume and portfolio tailoring. It should answer:
-
-- what angle should the application take
-- which projects should lead
-- which stories should support them
-- which gaps need careful handling
+4. Extract official values, talent signals, leadership language, interview themes, and repeated patterns into `research/signals.md`.
+5. Push only actionable tailoring implications back into `source/brief.md` when useful.
+6. If this skill is running inside `career-apply-pipeline`, let the pipeline own the final log entry. Otherwise, append one `research` or `output` entry to `log.md`.
 
 ## Research Rules
 
@@ -138,7 +73,6 @@ This is the bridge to resume and portfolio tailoring. It should answer:
 - Prefer official sources whenever possible.
 - Include dates and links for claims that could change over time.
 - Do not present community anecdotes as company truth.
-- Do not infer culture from a single blog post or a single 후기.
 - If the company has little public information, say so plainly.
 
 ## Log Format
@@ -147,8 +81,9 @@ This is the bridge to resume and portfolio tailoring. It should answer:
 ## [YYYY-MM-DD] research | built company research package for company
 
 - Saved JD summary and source links
-- Added company, culture, and interview signal notes
-- Wrote fit hypotheses for tailored application materials
+- Added `research/company.md`
+- Added `research/signals.md`
+- Backfilled `source/brief.md` if useful
 ```
 
 ## Stop Conditions
@@ -157,5 +92,4 @@ Stop and ask the user if:
 
 - the provided link is dead or clearly unrelated
 - multiple roles or business units are mixed together
-- the company slug or target package folder is ambiguous
 - the available evidence is too weak to support meaningful fit hypotheses

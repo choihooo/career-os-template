@@ -6,7 +6,7 @@
 
 ### Sample Dashboard Filter Flow
 
-- Related page: `wiki/projects/sample-dashboard.md`
+- Related page: `samples/wiki/projects/sample-dashboard.md`
 - Situation: 운영자가 여러 파일을 오가며 주간 리포트를 만들고 있었다.
 - Task: 같은 조건을 다시 재현하고 공유할 수 있는 대시보드 흐름이 필요했다.
 - Action: TanStack Query로 서버 상태를 분리하고 URL query로 필터 상태를 동기화했다.

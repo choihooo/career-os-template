@@ -1,143 +1,71 @@
 ---
 name: career-build-rendered-resume
-description: Use when generating or updating the polished HTML/CSS resume render output in this career wiki, especially templates/resume/index.html, templates/resume/styles.css, and templates/resume/assets from the current markdown resume output and wiki knowledge.
+description: Use when generating or updating the polished HTML/PDF resume render output from source markdown into outputs/.../final using the shared resume template.
 ---
 
 # Career Build Rendered Resume
 
 ## Purpose
 
-이 스킬은 제출용 이력서 markdown 원본을 기반으로 `templates/resume/`의 HTML/CSS 렌더링 템플릿을 갱신할 때 사용한다.
+이 스킬은 제출용 이력서 markdown 원본을 기반으로 HTML/PDF 결과물을 `outputs/.../final/`에 생성할 때 사용한다.
 
-`career-build-general`, `career-build-custom-package`, 또는 `career-apply-pipeline`이 이력서 내용 원본을 만든 뒤, 이 스킬은 실제로 열어 보는 A4 이력서 화면을 만든다.
+`templates/resume/`는 공용 템플릿이다. 최종 결과물은 항상 `outputs/general/final/` 또는 `outputs/custom/*/final/`에 저장한다.
 
 ## Read Order
-
-Read these files before writing:
 
 1. `AGENTS.md`
 2. `index.md`
 3. Resume source content:
-   - default: `outputs/general/resume-general-v2.md`
-   - alternative: `outputs/general/resume-general-v1.md`
-   - company-specific: `outputs/custom/*/resume.md`
-4. Supporting wiki pages only when needed:
-   - `wiki/overview/career-overview.md`
-   - `wiki/themes/positioning.md`
-   - relevant experience, project, award, and skill pages
-5. Existing rendered resume files:
+   - `outputs/general/source/resume.md`
+   - or `outputs/custom/*/source/resume.md`
+4. Supporting wiki pages only when needed
+5. Shared resume template:
    - `templates/resume/index.html`
    - `templates/resume/styles.css`
 
 ## Output Targets
 
-Only write to these paths unless the user explicitly asks for more:
+Write rendered results to one of:
 
-- `templates/resume/index.html`
-- `templates/resume/styles.css`
-- `templates/resume/assets/*`
-- `log.md`
-
-Do not rewrite source markdown unless the rendered-output work reveals a factual source error that must be fixed first.
+- `outputs/general/final/resume.html`
+- `outputs/general/final/resume.pdf`
+- `outputs/custom/*/final/resume.html`
+- `outputs/custom/*/final/resume.pdf`
+- `outputs/.../final/assets/`
 
 ## Required Workflow
 
-1. Identify the resume source version.
-2. Run the required profile photo gate before editing rendered files:
-   - Confirm at least one original profile photo exists under `raw/assets/`:
-     - `raw/assets/profile-photo.png`
-     - `raw/assets/profile-photo.jpg`
-     - `raw/assets/profile-photo.jpeg`
-     - `raw/assets/profile-photo-square.png`
-   - Confirm a resume-ready local image exists at `templates/resume/assets/profile.png` or in the target rendered resume asset folder for company-specific output.
-   - Do not use initials, gray boxes, generated placeholders, remote images, or broken image fallbacks in place of a profile photo.
-   - If the user provided a photo in the current task, copy or convert it into the required local asset paths before continuing.
-   - If no usable profile photo is available, stop before HTML/PDF generation and ask the user to provide one.
-3. Compare the source resume against the current `templates/resume/index.html`.
-4. Update the HTML so visible resume content matches the chosen source.
-5. Preserve the existing visual system unless the user asks for a redesign:
-   - A4 page structure
-   - compact recruiter-friendly hierarchy
-   - local asset usage
-   - print-friendly page boundaries
-6. Keep assets local under `templates/resume/assets/`.
-7. Remove stale visible content that no longer exists in the chosen source.
-8. Check for:
-   - text overflow
-   - broken links
-   - missing images
-   - inconsistent page numbering
-   - excessive unused white space on each page
-   - weak bullets copied only to fill layout space
-9. If a browser or screenshot workflow is available, render-check the first page and every page touched by the edit.
-10. If this skill is running inside `career-apply-pipeline`, report verification results back to the pipeline and let it own the final log entry. Otherwise, append one `output` entry to `log.md`.
+1. Identify the source resume version.
+2. Confirm a usable local profile photo exists under `raw/assets/`.
+3. Render the resume using the shared template.
+4. Save the HTML result under `final/resume.html`.
+5. Save or export the PDF result under `final/resume.pdf` if requested.
+6. Keep any support images or icons under `final/assets/`.
+7. Confirm the final HTML opens without broken links, broken images, overflow, or clipping.
+8. If this skill is running inside `career-apply-pipeline`, let the pipeline own the final log entry. Otherwise, append one `output` entry to `log.md`.
 
 ## Resume Rules
 
 - Keep the resume compact, scannable, and recruiter-friendly.
-- Render resume content in 개조식 by default. The visible HTML should preserve bullet structure instead of turning source bullets into paragraphs.
-- Prioritize summary, strongest experience, strongest projects, skills, awards, and links.
-- Use bullets only when they carry concrete evidence.
+- Preserve bullet structure from the source markdown.
 - Avoid portfolio-style long narrative.
 - Do not add unsupported metrics just to fill layout space.
 - If content does not fit, cut weaker detail before shrinking text into unreadability.
-- Summary areas may use a one-line positioning statement, but evidence and fit should be expressed as short bullets or compact rows.
-- For experience and project sections, keep each bullet focused on one fact/action/result unit.
-- Keep rendered bullets in 개조식, but do not reduce them to feature lists.
-- Implementation bullets should expose the reason for the feature:
-  - problem or user friction
-  - solution or technical choice
-  - outcome or experience improvement
-  - feature area
-- Example weak rendered bullet: `애플 소셜 로그인 구현`.
-- Example strong rendered bullet: `이메일 가입 과정의 이탈을 줄이기 위해 OAuth 2 기반 애플 소셜 로그인을 구현해 회원가입 진입 장벽을 낮춤`.
-- Example strong rendered bullet with metric: `리뷰 게시글 조회 시 느린 응답이 발생해 로딩 처리와 데이터 요청 흐름을 개선하고 응답 속도를 350ms에서 20ms로 단축`.
-- If the source markdown only has a feature list, revise the source or ask for missing context before rendering weak filler.
-- Do not leave large empty areas when defensible source content exists. Fill pages with relevant evidence before ending the document.
-- It is acceptable for content to move between pages or for the resume to gain additional pages if readability and layout integrity are preserved.
-- Prefer adding stronger source-backed bullets, links, awards, education, external activity, or concise fit rows over stretching spacing or increasing font size.
-- Never fill space with weak repetition. Empty space is better than padding, but source-backed detail should not be omitted solely to keep the page count low.
-
-## HTML/CSS Rules
-
-- Prefer editing the existing static HTML/CSS directly.
-- Keep the output usable by opening `templates/resume/index.html` in a browser.
-- Use semantic structure where practical: `main`, `article`, `section`, `header`, `nav`, `figure`.
-- Keep image `alt` text meaningful when the image carries content; use empty `alt` only for decorative icons.
-- Do not reference remote images for core assets.
-- Keep print layout stable with explicit page dimensions and predictable page breaks.
-- Page count is flexible. Do not force all content into a fixed number of pages if doing so creates clipping, overlap, unreadable text, or excessive blank space.
 
 ## Validation
 
 At minimum:
 
 - Run `git diff --check`.
-- Inspect changed HTML around edited sections.
 - Confirm every referenced local resume asset exists.
-
-When feasible:
-
-- Start a local static server.
-- Open `templates/resume/index.html` in a browser.
-- Check screenshots for overflow, broken images, and page boundary issues.
+- Open the HTML or inspect it closely enough to catch broken asset paths.
 
 ## Log Format
 
 ```md
 ## [YYYY-MM-DD] output | rendered resume updated
 
-- Updated `templates/resume/index.html` and/or `templates/resume/styles.css`
-- Synced rendered resume with `outputs/...`
-- Verified local assets and layout basics
+- Synced rendered resume with `outputs/.../source/resume.md`
+- Wrote `outputs/.../final/resume.html`
+- Wrote `outputs/.../final/resume.pdf` if requested
 ```
-
-## Stop Conditions
-
-Stop and ask the user if:
-
-- the source resume and current rendered page disagree on important facts
-- the user asks for a redesign but no target format or visual direction is clear
-- no usable profile photo exists in the required local asset paths
-- required image assets are missing and cannot be replaced with existing local assets
-- fitting the content would require deleting major evidence from the source resume

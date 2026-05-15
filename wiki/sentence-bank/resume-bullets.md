@@ -5,13 +5,13 @@
 ## Reusable Bullets
 
 - Zod 스키마와 명시 타입을 적용해 QA 재현 이슈 5건 중 4건을 입력 단계에서 차단했다.
-  - Source: `wiki/experiences/sample-company.md`
+  - Source: `samples/wiki/experiences/sample-company.md`
   - Strength: 운영 안정성 개선
   - Target role: Frontend Engineer
   - Evidence level: sample
   - Output fit: resume-v1 | custom-only
 - TanStack Query와 URL query를 조합해 대시보드 필터 상태를 공유 가능하게 만들고, 주간 리포트 작성 시간을 2시간에서 30분으로 줄였다는 운영자 피드백을 받았다.
-  - Source: `wiki/projects/sample-dashboard.md`
+  - Source: `samples/wiki/projects/sample-dashboard.md`
   - Strength: 사용자 흐름 개선
   - Target role: Frontend Engineer | Product Engineer
   - Evidence level: sample

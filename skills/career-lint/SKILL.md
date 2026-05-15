@@ -1,13 +1,13 @@
 ---
 name: career-lint
-description: Use when auditing the health of this career wiki, especially to find orphan pages, duplicate project descriptions, conflicting metrics or facts, missing reusable strengths, stale outputs, and gaps between raw sources and wiki pages.
+description: Use when auditing the health of this career wiki, especially to find orphan pages, duplicate project descriptions, conflicting metrics or facts, missing reusable strengths, and stale outputs across source and final layers.
 ---
 
 # Career Lint
 
 ## Purpose
 
-이 스킬은 커리어 위키의 구조적 품질을 점검하고, 어디를 보강해야 하는지 찾는 데 사용한다.
+이 스킬은 커리어 위키와 output 구조의 품질을 점검하고, 어디를 보강해야 하는지 찾는 데 사용한다.
 
 ## Read First
 
@@ -22,6 +22,7 @@ Then inspect relevant files under:
 - `raw/`
 - `wiki/`
 - `outputs/`
+- `samples/` when template examples are part of the task
 
 ## Lint Checks
 
@@ -38,8 +39,11 @@ Run these checks in order:
      - `wiki/sentence-bank/resume-bullets.md`
      - `wiki/stories/story-bank.md`
 5. Stale outputs
-   - general or custom outputs that no longer reflect current positioning
-6. Missing high-value pages
+   - `outputs/general/source/` or `outputs/custom/*/source/` no longer reflect current positioning
+   - rendered outputs under `final/` clearly lag the current source files
+6. Missing package structure
+   - missing `source/jd.md`, `source/brief.md`, `source/resume.md`, `source/portfolio.md` in a custom package
+7. Missing high-value pages
    - concepts, strengths, or major projects that are repeatedly referenced but lack a dedicated page
 
 ## Output Style
@@ -61,20 +65,3 @@ By default, lint is read-only and diagnostic.
 Only modify files if the user explicitly asks you to fix the findings in the same turn.
 
 If you do fix things, also append one `lint` entry to `log.md`.
-
-## Log Format
-
-```md
-## [YYYY-MM-DD] lint | short description
-
-- Checked orphan pages, duplicates, and conflicts
-- Fixed or documented the highest-priority issues
-```
-
-## Stop Conditions
-
-Stop and ask the user if:
-
-- you find a contradiction that changes the factual record materially
-- a raw source appears corrupted or misleading
-- the scope is too broad and needs to be split into diagnostic pass and fix pass

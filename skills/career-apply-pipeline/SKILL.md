@@ -1,6 +1,6 @@
 ---
 name: career-apply-pipeline
-description: Use when the user wants to go from a company JD or target role to a complete application package in one workflow, including company research when useful, outputs/custom/YYYY-MM-DD-company files, polished resume and portfolio markdown, optional rendered HTML/PDF outputs, quality checks, and log updates.
+description: Use when the user wants to go from a company JD or target role to a complete application package in one workflow, including company research when useful, outputs/custom/YYYY-MM-DD-company source files, optional final HTML/PDF outputs, quality checks, and log updates.
 ---
 
 # Career Apply Pipeline
@@ -20,16 +20,14 @@ Accept any of:
 - 회사명과 역할명
 - 이미 존재하는 `outputs/custom/YYYY-MM-DD-company/` 폴더
 
-If the user asks for "지원 패키지", "맞춤 이력서", "JD 기준으로 끝까지", "HTML/PDF까지", or "제출용으로 만들어줘", use this pipeline unless they explicitly ask for only one subtask.
-
 ## Pipeline Decision
 
 Use the smallest complete path:
 
-- JD analysis only: use `career-build-custom-package` up to `analysis.md` and `strategy.md`.
-- Markdown package: run research if needed, then create `jd.md`, `analysis.md`, `strategy.md`, `resume.md`, `portfolio.md`.
-- Submission package: create markdown package, polish it, render requested HTML/PDF outputs, then run quality checks.
-- Existing package refresh: reuse the folder, update only stale files, then polish and validate.
+- Brief only: create `source/jd.md` and `source/brief.md`
+- Markdown package: create `source/jd.md`, `source/brief.md`, `source/resume.md`, `source/portfolio.md`
+- Submission package: create the markdown package, polish it, render requested HTML/PDF outputs under `final/`, then run quality checks
+- Existing package refresh: reuse the folder, update only stale files, then polish and validate
 
 ## Read Order
 
@@ -50,66 +48,57 @@ Before writing:
 1. Resolve the target package folder.
    - Use `outputs/custom/YYYY-MM-DD-company/`.
    - Use ASCII lowercase company slugs.
-   - If a folder already exists for the same company and role, update it instead of creating a near-duplicate unless the user wants a new version.
-2. Capture the JD.
-   - Save the JD text, URL, or structured summary to `jd.md`.
-   - If the JD is too short, record the limitation in `analysis.md` and ask only if a credible package cannot be made.
+2. Capture the JD in `source/jd.md`.
 3. Decide whether research is needed.
-   - Use `career-company-research` when the user provides a URL, asks for company fit, or the role/company context affects positioning.
-   - Skip broad research when the user provides enough JD context and wants speed.
+   - Use `career-company-research` when company fit, official signals, or interview signals matter.
 4. Build the custom package with `career-build-custom-package`.
-   - Create or update `analysis.md`, `strategy.md`, `resume.md`, and `portfolio.md`.
+   - Create or update `source/brief.md`, `source/resume.md`, and `source/portfolio.md`.
    - Keep gaps explicit.
    - Do not fabricate full-stack, AI, traffic, revenue, or domain expertise.
 5. Polish final markdown outputs.
-   - Apply `career-output-polish` to `resume.md`.
-   - Apply `career-output-polish` to `portfolio.md`.
-   - Preserve resume 개조식.
+   - Apply `career-output-polish` to `source/resume.md`.
+   - Apply `career-output-polish` to `source/portfolio.md`.
 6. Render only when requested or clearly implied.
-   - Before rendering, enforce the profile photo gate:
-     - Confirm at least one source profile photo exists under `raw/assets/` as `profile-photo.png`, `profile-photo.jpg`, `profile-photo.jpeg`, or `profile-photo-square.png`.
-     - Confirm the rendered resume and portfolio have local profile image assets ready in `templates/resume/assets/`, `templates/portfolio/assets/`, or the target company-specific rendered asset folders.
-     - If the profile photo is missing, stop before HTML/PDF generation and ask the user to provide one.
-     - Do not render final HTML/PDF with initials, gray boxes, generated placeholders, remote images, or broken image fallbacks as the profile photo.
-   - Use `career-build-rendered-resume` for `templates/resume/` and PDF export.
-   - Use `career-build-rendered-portfolio` for `templates/portfolio/` and PDF export.
-   - Treat markdown as source of truth and HTML/PDF as derived output.
+   - Use `career-build-rendered-resume` and `career-build-rendered-portfolio`.
+   - Save results under `final/`.
 7. Quality-check the package.
    - Use `docs/checklists/custom-output-quality-checklist.md`.
-   - Confirm all required files exist.
+   - Confirm `source/jd.md`, `source/brief.md`, `source/resume.md`, and `source/portfolio.md` exist.
    - Confirm final outputs have no placeholders.
-   - Confirm strong claims trace back to `wiki/`, `raw/`, or `analysis.md`.
-   - Confirm known gaps are not hidden in final claims.
+   - Confirm strong claims trace back to `wiki/`, `raw/`, or `source/brief.md`.
 8. Backfill reusable knowledge if the application produced a better general framing.
-   - Update `wiki/themes/positioning.md`, `wiki/sentence-bank/resume-bullets.md`, or `wiki/stories/story-bank.md` only when the framing is reusable beyond one company.
 9. Append one `output` entry to `log.md`.
 
 ## Output Standard
 
 A completed markdown package must contain:
 
-- `jd.md`
-- `analysis.md`
-- `strategy.md`
-- `resume.md`
-- `portfolio.md`
+- `source/jd.md`
+- `source/brief.md`
+- `source/resume.md`
+- `source/portfolio.md`
+
+A completed research package may also contain:
+
+- `research/company.md`
+- `research/signals.md`
 
 A completed submission package may also contain:
 
-- `company-research.md`
-- `culture-signals.md`
-- `interview-signals.md`
-- `fit-hypotheses.md`
-- rendered PDF or screenshot checks
+- `final/resume.html`
+- `final/resume.pdf`
+- `final/portfolio.html`
+- `final/portfolio.pdf`
+- `final/assets/`
 
 ## Quality Gates
 
 Do not call the package done until:
 
-- `analysis.md` separates must-have, preferred, repeated keywords, candidate match, and gaps.
-- `strategy.md` states what to emphasize and de-emphasize.
-- `resume.md` is compact, source-backed, and JD-specific.
-- `portfolio.md` uses case studies rather than copied resume bullets.
+- `source/brief.md` separates must-have, preferred, repeated keywords, and gaps.
+- `source/brief.md` states what to emphasize and de-emphasize.
+- `source/resume.md` is compact, source-backed, and JD-specific.
+- `source/portfolio.md` uses case studies rather than copied resume bullets.
 - unsupported claims are removed or moved to gaps.
 - `log.md` records what changed.
 
@@ -118,10 +107,10 @@ Do not call the package done until:
 ```md
 ## [YYYY-MM-DD] output | application pipeline for <company-role>
 
-- Created or updated `outputs/custom/YYYY-MM-DD-company/`
-- Built JD analysis, strategy, resume, and portfolio
-- Polished final markdown outputs
-- Rendered HTML/PDF outputs if requested
+- Created or updated `outputs/custom/YYYY-MM-DD-company/source/`
+- Built `brief.md`, `resume.md`, and `portfolio.md`
+- Added `research/...` if needed
+- Rendered `final/...` if requested
 - Ran custom output quality checks
 ```
 
@@ -132,6 +121,4 @@ Stop and ask the user if:
 - there is no JD, no role, and no reliable company context
 - multiple target roles are mixed into one package
 - the requested positioning depends on facts not present in `raw/` or `wiki/`
-- rendered HTML/PDF output is requested but no usable local profile photo exists
-- rendering requires deleting major evidence from the source markdown
 - the user asks to submit or send materials externally without review

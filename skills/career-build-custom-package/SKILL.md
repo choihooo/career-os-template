@@ -1,6 +1,6 @@
 ---
 name: career-build-custom-package
-description: Use when preparing an application package for a specific company or role, including creating outputs/custom/YYYY-MM-DD-company and filling jd.md, analysis.md, strategy.md, resume.md, and portfolio.md from the wiki and the job description.
+description: Use when preparing an application package for a specific company or role, including creating outputs/custom/YYYY-MM-DD-company/source, optional research, and final rendered outputs from the wiki and the job description.
 ---
 
 # Career Build Custom Package
@@ -24,10 +24,8 @@ Read these files before writing:
 7. The most relevant project, experience, award, and skill pages
 8. The incoming JD or company context
 9. If present:
-   - `company-research.md`
-   - `culture-signals.md`
-   - `interview-signals.md`
-   - `fit-hypotheses.md`
+   - `research/company.md`
+   - `research/signals.md`
 
 ## Required Output Folder
 
@@ -41,90 +39,74 @@ Use ASCII lowercase slug for `company` unless the user explicitly wants otherwis
 
 Every package must contain:
 
-- `jd.md`
-- `analysis.md`
-- `strategy.md`
-- `resume.md`
-- `portfolio.md`
+- `source/jd.md`
+- `source/brief.md`
+- `source/resume.md`
+- `source/portfolio.md`
 
 Optional supporting files:
 
-- `company-research.md`
-- `culture-signals.md`
-- `interview-signals.md`
-- `fit-hypotheses.md`
+- `research/company.md`
+- `research/signals.md`
+
+Optional rendered files:
+
+- `final/resume.html`
+- `final/resume.pdf`
+- `final/portfolio.html`
+- `final/portfolio.pdf`
+- `final/assets/`
 
 ## Required Workflow
 
-1. Save the JD text or summary into `jd.md`.
-2. In `analysis.md`, extract:
+1. Save the JD text or summary into `source/jd.md`.
+2. In `source/brief.md`, capture:
    - target role
    - must-have requirements
    - preferred requirements
    - repeated keywords
    - likely evaluation themes
-3. In `strategy.md`, decide:
    - what to emphasize
    - what to de-emphasize
-   - which projects and stories to surface
-   - the positioning angle for this application
-4. Build `resume.md` from the strongest matching facts and bullets.
-5. Build `portfolio.md` from the strongest matching case studies and proof.
-6. Before finalizing `resume.md` and `portfolio.md`, invoke `career-output-polish` on both files.
-7. If the package produces a better reusable framing, backfill the relevant wiki pages.
-8. If the user asked for submission-ready HTML/PDF, hand off to:
+   - leading projects or stories
+   - gaps or claims to avoid
+3. Build `source/resume.md` from the strongest matching facts and bullets.
+4. Build `source/portfolio.md` from the strongest matching case studies and proof.
+5. Before finalizing `resume.md` and `portfolio.md`, invoke `career-output-polish` on both files.
+6. If the package produces a better reusable framing, backfill the relevant wiki pages.
+7. If the user asked for submission-ready HTML/PDF, hand off to:
    - `career-build-rendered-resume`
    - `career-build-rendered-portfolio`
-9. If this skill is running inside `career-apply-pipeline`, let the pipeline own the final quality check and final log entry. Otherwise, append one `output` entry to `log.md`.
+8. If this skill is running inside `career-apply-pipeline`, let the pipeline own the final quality check and log entry. Otherwise, append one `output` entry to `log.md`.
 
 ## Writing Rules
 
 - Tailor aggressively, but do not fabricate fit.
 - Match the JD's language where accurate.
 - Remove strong but irrelevant material if it weakens the application.
-- Keep `analysis.md` analytical, `strategy.md` prescriptive, and `resume.md` or `portfolio.md` final-form.
+- Keep `brief.md` analytical and prescriptive, and keep `resume.md` and `portfolio.md` final-form.
 - Do not leave placeholders in the final package.
 
 ## Resume Formatting Rules
 
-Apply these rules specifically to `resume.md`:
+Apply these rules specifically to `source/resume.md`:
 
-- Default to 개조식. The resume should scan as structured bullets, not essay-style paragraphs.
-- Keep any summary to a short title line plus 2-4 bullets. Avoid long prose summaries.
-- For experience and project sections, write bullets in a fact/action/result shape:
-  - problem or context
-  - concrete action or technical decision
-  - measurable or observable outcome
-- Within 개조식, avoid plain feature lists such as "애플 소셜 로그인 구현" or "대시보드 개발".
-- Prefer bullets that make the user's reason for the feature clear: problem + solution/technical choice + outcome + feature.
-  - Weak: `애플 소셜 로그인 구현`
-  - Strong: `이메일 가입 과정의 이탈을 줄이기 위해 OAuth 2 기반 애플 소셜 로그인을 구현해 회원가입 진입 장벽을 낮춤`
-  - Weak: `리뷰 게시글 조회 로딩 개선`
-  - Strong: `리뷰 게시글 조회 시 느린 응답이 발생해 로딩 처리와 데이터 요청 흐름을 개선하고 응답 속도를 350ms에서 20ms로 단축`
+- Default to 개조식.
+- Keep any summary to a short title line plus 2-4 bullets.
+- For experience and project sections, write bullets in a fact/action/result shape.
+- Avoid plain feature lists such as `애플 소셜 로그인 구현` or `대시보드 개발`.
 - If a numeric result is unavailable, still state the observable user, operator, QA, or developer experience improvement without inventing metrics.
-- Prefer one evidence-bearing bullet over several descriptive sentences.
-- Keep portfolio-style narrative, motivation, and interpretation in `portfolio.md`; the resume should prioritize facts, scope, tools, and impact.
-- Do not turn every line into a complete sentence if a compact noun phrase is clearer for skills, roles, periods, links, and awards.
-
-## Folder Naming
-
-Use the current local date and company slug:
-
-- `2026-05-10-openai`
-- `2026-05-10-kakao`
-
-If multiple roles exist for the same company on the same day, append a short role slug:
-
-- `2026-05-10-openai-research-engineer`
+- Keep portfolio-style narrative, motivation, and interpretation in `source/portfolio.md`.
 
 ## Log Format
 
 ```md
 ## [YYYY-MM-DD] output | built custom package for company
 
-- Created `outputs/custom/YYYY-MM-DD-company/`
-- Added JD analysis and strategy
-- Wrote tailored resume and portfolio
+- Created `outputs/custom/YYYY-MM-DD-company/source/`
+- Added `jd.md`, `brief.md`, `resume.md`, `portfolio.md`
+- Added `research/...` if needed
+- Rendered `final/...` if requested
 ```
 
 ## Stop Conditions

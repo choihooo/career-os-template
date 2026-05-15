@@ -39,9 +39,9 @@
           <li><b>에셋 정리</b><span>원본 이미지는 `raw/assets/`, 렌더링용 이미지는 `templates/resume/assets/`, `templates/portfolio/assets/`에 둡니다.</span></li>
           <li><b>자료 준비</b><span>프로젝트, 경력, 수상, JD 자료를 examples 형식에 맞춰 준비합니다.</span></li>
           <li><b>위키 반영</b><span>`career-ingest`로 raw와 wiki를 먼저 채웁니다.</span></li>
-          <li><b>범용본 생성</b><span>`career-build-general`로 일반 이력서와 포트폴리오를 만듭니다.</span></li>
-          <li><b>맞춤 지원</b><span>실제 JD가 생기면 `career-apply-pipeline`으로 회사별 패키지를 만듭니다.</span></li>
-          <li><b>렌더링</b><span>제출용 HTML/PDF가 필요할 때만 rendered workflow를 실행합니다.</span></li>
+          <li><b>범용본 생성</b><span>`career-build-general`로 `outputs/general/source/`의 resume과 portfolio를 만듭니다.</span></li>
+          <li><b>맞춤 지원</b><span>실제 JD가 생기면 `career-apply-pipeline`으로 `outputs/custom/YYYY-MM-DD-company/` 패키지를 만듭니다.</span></li>
+          <li><b>렌더링</b><span>제출용 HTML/PDF가 필요할 때만 `final/`에 렌더링합니다.</span></li>
           <li><b>검수</b><span>체크리스트와 `career-lint`로 누락, 과장, 중복을 확인합니다.</span></li>
         </ol>
       </section>
@@ -52,8 +52,8 @@
           <ul class="plain-list">
             <li><b>raw/</b><span>사실 원형, 링크, 메모를 보존합니다.</span></li>
             <li><b>wiki/</b><span>경험, 프로젝트, 수상, 기술, 스토리, 문장 뱅크를 정규화합니다.</span></li>
-            <li><b>outputs/</b><span>제출 가능한 범용본과 회사별 맞춤본을 보관합니다.</span></li>
-            <li><b>templates/</b><span>Markdown 산출물을 HTML/PDF/카드뉴스로 렌더링하는 템플릿입니다.</span></li>
+            <li><b>outputs/</b><span>`source/`와 `final/`로 나뉜 범용본과 회사별 맞춤본을 보관합니다.</span></li>
+            <li><b>templates/</b><span>Markdown 산출물을 HTML/PDF/카드뉴스로 렌더링하는 공용 템플릿입니다.</span></li>
           </ul>
         </article>
         <article>
@@ -61,7 +61,7 @@
           <ul class="plain-list">
             <li>기본 언어는 한국어입니다.</li>
             <li>근거 없는 수치, 역할, 임팩트는 만들지 않습니다.</li>
-            <li>부족한 정보는 `Gaps` 또는 `analysis.md`에 남깁니다.</li>
+            <li>부족한 정보는 `Gaps` 또는 `brief.md`에 남깁니다.</li>
             <li>같은 내용을 직접 복붙하지 않고 wiki를 갱신한 뒤 다시 산출합니다.</li>
           </ul>
         </article>

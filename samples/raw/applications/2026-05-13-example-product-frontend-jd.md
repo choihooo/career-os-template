@@ -1,12 +1,18 @@
-# Example Product Frontend JD
+# Example Product Frontend JD Raw
 
-## Company
+이 파일은 회사별 맞춤 패키지를 만들기 위한 JD 원천 샘플이다. 실제 지원 시에는 회사명, 직무명, 링크, 요구사항 원문을 그대로 저장한 뒤 `outputs/custom/YYYY-MM-DD-company/source/`에 `jd.md`, `brief.md`, `resume.md`, `portfolio.md`를 만든다.
 
-Example Product
+## Source
 
-## Role
+- Company: Example Product
+- Role: Frontend Engineer
+- Source type: Sample JD
+- Source URL: https://example.com/jobs/frontend
+- Captured at: 2026-05-13
 
-Frontend Engineer
+## Job Description
+
+Example Product는 내부 운영자가 매일 쓰는 B2B SaaS 웹 제품을 만들고 있다. 프론트엔드 엔지니어는 React와 TypeScript 기반으로 어드민 화면, 데이터 대시보드, 폼 입력 흐름을 개선한다.
 
 ## Responsibilities
 
@@ -32,7 +38,7 @@ Frontend Engineer
 - QA 이슈를 재현하고 입력 단계에서 차단한 경험
 - 사용자 피드백을 바탕으로 반복 업무 시간을 줄인 경험
 
-## Source
+## Notes
 
-- Raw source: `raw/applications/2026-05-13-example-product-frontend-jd.md`
-- Captured at: 2026-05-13
+- 이 JD는 샘플이다.
+- 실제 제출 전에는 회사명, 제품명, 링크, 요구사항 문구를 실제 JD로 교체한다.

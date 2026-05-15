@@ -14,13 +14,13 @@
 ## Core Themes
 
 - Theme 1: 타입과 검증으로 운영 리스크 줄이기
-  - Evidence: `wiki/experiences/sample-company.md`
+  - Evidence: `samples/wiki/experiences/sample-company.md`
   - Best output use: 이력서 summary, 운영/어드민 JD
 - Theme 2: 사용자 흐름을 끊지 않는 상태 설계
-  - Evidence: `wiki/projects/sample-dashboard.md`
+  - Evidence: `samples/wiki/projects/sample-dashboard.md`
   - Best output use: 포트폴리오 케이스 스터디, 제품 엔지니어 JD
 - Theme 3: 반복 업무를 줄이는 UI 구조화
-  - Evidence: `wiki/projects/sample-dashboard.md`
+  - Evidence: `samples/wiki/projects/sample-dashboard.md`
   - Best output use: 플랫폼/프론트엔드 JD
 
 ## Output Priorities

@@ -27,7 +27,7 @@
 - What happened: 폼 데이터와 API 응답 타입이 느슨해 QA 단계에서 오류가 반복 발견됐다.
 - My role: 폼 스키마와 타입 정의를 정리했다.
 - Metric: QA 재현 이슈 5건 중 4건 사전 차단
-- Evidence: `raw/experiences/sample-company-intern.md`
+- Evidence: `samples/raw/experiences/sample-company-intern.md`
 - Resume bullet candidate: Zod 스키마와 명시 타입을 적용해 QA 재현 이슈 5건 중 4건을 입력 단계에서 차단했다.
 - Portfolio relevance: 운영 리스크를 타입과 검증 구조로 줄인 사례
 

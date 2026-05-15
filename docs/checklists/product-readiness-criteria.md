@@ -15,10 +15,11 @@
 - `wiki/overview/career-overview.md`와 `wiki/themes/positioning.md`에 목표 역할, 강점, 피해야 할 주장이 정리되어 있다.
 - `wiki/sentence-bank/resume-bullets.md`에 실전 bullet이 20개 이상 있다.
 - `wiki/stories/story-bank.md`에 STAR 스토리가 5개 이상 있다.
-- `outputs/general/resume-general-v1.md`, `resume-general-v2.md`, `portfolio-general-v1.md`, `portfolio-general-v2.md`가 샘플이 아니라 자기 자료 기반으로 완성되어 있다.
+- `outputs/general/source/resume.md`와 `outputs/general/source/portfolio.md`가 샘플이 아니라 자기 자료 기반으로 완성되어 있다.
+- 필요하면 `outputs/general/final/resume.html`, `resume.pdf`, `portfolio.html`, `portfolio.pdf`를 생성할 수 있다.
 - 실제 회사 JD 2개 이상으로 custom package를 생성해봤고, 결과가 서로 다르게 맞춤화된다.
-- 생성된 custom package가 `jd.md`, `analysis.md`, `strategy.md`, `resume.md`, `portfolio.md`를 모두 포함한다.
-- 근거가 부족한 수치나 역할은 생성하지 않고 `Gaps` 또는 `analysis.md`에 남긴다.
+- 생성된 custom package가 `source/jd.md`, `source/brief.md`, `source/resume.md`, `source/portfolio.md`를 모두 포함한다.
+- 근거가 부족한 수치나 역할은 생성하지 않고 `Gaps` 또는 `brief.md`에 남긴다.
 
 100%가 아닌 경우:
 
@@ -36,7 +37,7 @@
 - `README.md` 첫 화면에서 제품 목적과 사용 흐름을 이해할 수 있다.
 - `examples/`에 프로젝트, 경력, 수상, JD, 요청 프롬프트 예시가 있다.
 - `docs/checklists/`에 개인 준비도, 베타 준비도, custom output 품질 기준이 있다.
-- `outputs/custom/` 아래에 샘플 custom package가 있다.
+- `samples/custom-packages/` 아래에 `source/`, `research/`, `final/` 구조를 따르는 샘플 custom package가 있다.
 - markdown 산출물, HTML 템플릿, PDF export의 역할 차이가 설명되어 있다.
 - 실패 조건이 설명되어 있다.
   - JD가 너무 짧은 경우

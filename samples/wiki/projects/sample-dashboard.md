@@ -5,7 +5,7 @@
 - Project: Sample Dashboard
 - Period: 2025.07 - 2025.08
 - Link: https://github.com/example/sample-dashboard
-- Related raw source: `raw/projects/sample-dashboard.md`
+- Related raw source: `samples/raw/projects/sample-dashboard.md`
 - Related experience: none
 
 ## One-line Summary
@@ -37,7 +37,7 @@
 
 - Metric: 리포트 작성 시간이 2시간에서 30분으로 줄었다는 피드백
 - Qualitative outcome: 필터 공유와 재현이 쉬워졌다.
-- Evidence: `raw/projects/sample-dashboard.md`
+- Evidence: `samples/raw/projects/sample-dashboard.md`
 - Follow-up: 실제 사용 로그와 스크린샷이 필요하다.
 
 ## Reusable Output Material

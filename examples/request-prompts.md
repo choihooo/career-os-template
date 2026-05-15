@@ -11,13 +11,13 @@
 ## 범용 이력서/포트폴리오 생성
 
 ```md
-현재 위키 기준으로 outputs/general의 resume-general-v1, resume-general-v2, portfolio-general-v1, portfolio-general-v2를 갱신해줘. 최종 저장 전에 career-output-polish 기준으로 다듬어줘.
+현재 위키 기준으로 outputs/general/source/resume.md와 outputs/general/source/portfolio.md를 갱신해줘. 최종 저장 전에 career-output-polish 기준으로 다듬어줘.
 ```
 
 ## JD 기반 맞춤 패키지 생성
 
 ```md
-이 JD 기준으로 career-apply-pipeline을 실행해줘. 회사별 맞춤 패키지를 만들고, 필요하면 HTML/PDF 렌더링까지 이어서 처리해줘. 근거가 부족한 부분은 analysis에 gap으로 남겨줘.
+이 JD 기준으로 career-apply-pipeline을 실행해줘. 회사별 맞춤 패키지를 만들고, 필요하면 HTML/PDF 렌더링까지 이어서 처리해줘. 근거가 부족한 부분은 brief에 gap으로 남겨줘.
 
 [JD 링크 또는 원문]
 ```

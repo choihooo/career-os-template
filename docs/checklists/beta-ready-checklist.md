@@ -18,10 +18,10 @@
 
 - [ ] JD가 너무 짧거나 링크 접근이 안 될 때의 처리 방식이 설명되어 있다.
 - [ ] 근거 없는 수치를 만들지 않는다는 규칙이 명시되어 있다.
-- [ ] 부족한 정보는 `Gaps` 또는 `analysis.md`에 남긴다는 규칙이 있다.
+- [ ] 부족한 정보는 `Gaps` 또는 `brief.md`에 남긴다는 규칙이 있다.
 
 ## Reproducibility
 
-- [ ] `outputs/custom/2026-01-01-example-frontend/` 샘플 패키지가 있다.
+- [ ] `samples/custom-packages/2026-01-01-example-frontend/` 샘플 패키지가 있다.
 - [ ] 샘플 JD에서 analysis, strategy, resume, portfolio가 어떻게 생성되는지 확인할 수 있다.
 - [ ] `index.md`가 새 페이지와 샘플을 찾을 수 있게 연결한다.
