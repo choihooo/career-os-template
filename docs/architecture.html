@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Career OS 설계 문서 — 4-Layer Document Workflow</title>
+  <meta name="description" content="Career OS를 문서형 LLM 워크플로우로 설계하기 위한 읽기 쉬운 설계 문서" />
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2328;
+      --muted: #626a73;
+      --subtle: #8a7966;
+      --line: #e1d8cc;
+      --line-strong: #cabcae;
+      --code-bg: #f0ebe3;
+      --source: #2e7d32;
+      --knowledge: #1565c0;
+      --workflow: #7b1fa2;
+      --output: #b26a00;
+      --danger: #b42318;
+      --ok: #227950;
+      --shadow: 0 1px 2px rgba(24, 27, 31, .05), 0 16px 40px rgba(24, 27, 31, .08);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.72;
+      word-break: keep-all;
+    }
+    a { color: #0b5cad; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    code, pre { font-family: var(--mono); }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    aside {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      overflow: auto;
+      border-right: 1px solid var(--line);
+      background: #f1ece4;
+      padding: 28px 22px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.03em;
+      font-size: 18px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .version { color: var(--muted); font-size: 12px; margin-bottom: 24px; }
+    nav { display: grid; gap: 4px; }
+    nav a {
+      color: #3f4750;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    nav a:hover { background: rgba(31,35,40,.06); color: var(--ink); }
+    .nav-group { margin: 18px 0 6px; color: var(--subtle); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    main { padding: 42px 36px 80px; }
+    article {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: clamp(28px, 5vw, 64px);
+    }
+    header.doc-header { border-bottom: 2px solid var(--ink); padding-bottom: 24px; margin-bottom: 34px; }
+    .kicker { color: var(--subtle); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    h1 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -.055em;
+      margin: 10px 0 16px;
+    }
+    .subtitle { color: var(--muted); font-size: 19px; max-width: 760px; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+    .pill {
+      border: 1px solid var(--line-strong);
+      background: #faf7f1;
+      color: #4a4037;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 29px;
+      line-height: 1.18;
+      letter-spacing: -.035em;
+      margin: 52px 0 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+    h2:first-child { border-top: 0; }
+    h3 { font-size: 21px; margin: 32px 0 10px; letter-spacing: -.02em; }
+    h4 { font-size: 16px; margin: 22px 0 8px; color: #3d4146; }
+    p { margin: 10px 0 14px; }
+    ul, ol { padding-left: 22px; margin: 10px 0 18px; }
+    li { margin: 5px 0; }
+    .summary-box {
+      border: 1px solid var(--line-strong);
+      background: #fbf7ef;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 22px 0 30px;
+    }
+    .summary-box strong { display: block; margin-bottom: 8px; }
+    .decision {
+      border-left: 4px solid var(--ink);
+      padding: 12px 16px;
+      background: #f6f1e9;
+      margin: 20px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    .decision .label { font-size: 12px; color: var(--subtle); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 28px;
+      font-size: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    th, td { border-bottom: 1px solid var(--line); padding: 11px 12px; text-align: left; vertical-align: top; }
+    th { background: #f0ebe3; font-size: 12px; color: #4d443b; text-transform: uppercase; letter-spacing: .05em; }
+    tr:last-child td { border-bottom: 0; }
+    .layer-source { color: var(--source); font-weight: 800; }
+    .layer-knowledge { color: var(--knowledge); font-weight: 800; }
+    .layer-workflow { color: var(--workflow); font-weight: 800; }
+    .layer-output { color: var(--output); font-weight: 800; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+    .card {
+      border: 1px solid var(--line);
+      background: #fcfaf5;
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .card h4 { margin-top: 0; }
+    .do { border-left: 4px solid var(--ok); }
+    .dont { border-left: 4px solid var(--danger); }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      overflow: auto;
+      font-size: 13px;
+      line-height: 1.58;
+      margin: 14px 0 24px;
+      white-space: pre;
+    }
+    code:not(pre code) {
+      background: #efe7dc;
+      border: 1px solid #e3d8ca;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-size: .92em;
+    }
+    .path-tree { color: #363b41; }
+    .note {
+      background: #eef6ff;
+      border: 1px solid #c9def5;
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #253b53;
+      margin: 18px 0;
+    }
+    .warning {
+      background: #fff4e5;
+      border: 1px solid #f5d19a;
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #5b3b09;
+      margin: 18px 0;
+    }
+    .small { color: var(--muted); font-size: 13px; }
+
+
+    .audit-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin: 18px 0; }
+    .audit-card { border: 1px solid var(--line); border-radius: 14px; padding: 16px; background:#fffdf8; }
+    .audit-card h3 { margin-top:0; }
+    .severity { display:inline-block; border-radius:999px; padding:3px 8px; font-size:11px; font-weight:900; letter-spacing:.04em; text-transform:uppercase; }
+    .sev-high { background:#ffe7df; color:#8a2d13; border:1px solid #f3b49f; }
+    .sev-med { background:#fff0c2; color:#765600; border:1px solid #e7ca6c; }
+    .sev-good { background:#e8f5e9; color:#225c2a; border:1px solid #a8d8ad; }
+    .rule-list { margin: 10px 0 0; padding-left: 20px; }
+    .mapping-table td:first-child { white-space: nowrap; }
+    @media (max-width: 900px) { .audit-grid { grid-template-columns: 1fr; } }
+
+    .usecase-list { display: grid; gap: 18px; margin: 20px 0 28px; }
+    .usecase {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fcfaf5;
+      padding: 18px;
+    }
+    .usecase h3 { margin-top: 0; }
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+      margin: 14px 0;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+    .diagram.compact { grid-template-columns: repeat(4, minmax(135px, 1fr)); }
+    .step {
+      position: relative;
+      min-height: 96px;
+      border: 1px solid var(--line-strong);
+      border-top: 4px solid var(--ink);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fffaf2;
+    }
+    .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -16px;
+      top: 36px;
+      color: var(--subtle);
+      font-weight: 900;
+      z-index: 2;
+    }
+    .step.source { border-top-color: var(--source); }
+    .step.knowledge { border-top-color: var(--knowledge); }
+    .step.workflow { border-top-color: var(--workflow); }
+    .step.output { border-top-color: var(--output); }
+    .step .step-label {
+      display: block;
+      color: var(--subtle);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .step strong { display: block; line-height: 1.25; margin-bottom: 5px; }
+    .step span { display: block; color: var(--muted); font-size: 12px; line-height: 1.42; word-break: keep-all; }
+    .usecase-meta {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 4px 12px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .usecase-meta b { color: #4d443b; }
+    footer { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 13px; }
+    @media print {
+      body { background: white; }
+      .layout { display: block; }
+      aside { display: none; }
+      main { padding: 0; }
+      article { box-shadow: none; border: 0; border-radius: 0; max-width: none; padding: 0; }
+      a { color: inherit; text-decoration: none; }
+      h2 { break-after: avoid; }
+      pre, table, .card { break-inside: avoid; }
+    }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-group { grid-column: 1 / -1; }
+      main { padding: 20px 12px 48px; }
+      article { border-radius: 14px; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="brand">Career OS<br />설계 문서</div>
+      <div class="version">4-Layer Document Workflow · v0.2</div>
+      <nav aria-label="문서 목차">
+        <div class="nav-group">Overview</div>
+        <a href="#purpose">1. 목적</a>
+        <a href="#principles">2. 설계 원칙</a>
+        <a href="#layers">3. 4개 레이어</a>
+        <a href="#movement">4. 레이어 이동</a>
+        <div class="nav-group">Source</div>
+        <a href="#source-structure">5. Source 구조</a>
+        <a href="#complex-project">6. 복합 프로젝트 처리</a>
+        <a href="#source-frontmatter">7. Source 메타데이터</a>
+        <div class="nav-group">Knowledge / Workflow / Output</div>
+        <a href="#knowledge">8. Knowledge 구조</a>
+        <a href="#workflow">9. Workflow 구조</a>
+        <a href="#output">10. Output 구조</a>
+        <a href="#skills">11. 스킬 구성</a>
+        <div class="nav-group">Rules</div>
+        <a href="#quality-gates">12. 품질 기준</a>
+        <a href="#use-cases">13. 유스케이스 흐름</a>
+        <a href="#implementation">14. 적용 순서</a>
+        <a href="#open-questions">15. 남은 결정</a>
+        <a href="#skill-rule-audit">16. 스킬 규칙 점검</a>
+      </nav>
+    </aside>
+
+    <main>
+      <article>
+        <header class="doc-header">
+          <div class="kicker">Architecture Document</div>
+          <h1>Career OS 4-Layer 설계 문서</h1>
+          <p class="subtitle">CLI나 앱이 아니라, LLM이 문서를 읽고 따라가는 Career OS를 만들기 위한 레이어·폴더·스킬·품질 기준 설계안.</p>
+          <div class="meta">
+            <span class="pill">문서형 LLM Workflow</span>
+            <span class="pill">Source → Knowledge → Output</span>
+            <span class="pill">Workflow-controlled</span>
+            <span class="pill">v0.2</span>
+          </div>
+        </header>
+
+        <section id="purpose">
+          <h2>1. 목적</h2>
+          <p>Career OS는 사용자의 경력 자료를 모아 범용 이력서와 JD 맞춤 이력서로 재조합하는 문서형 시스템이다. 이 설계의 목표는 <strong>LLM이 자료를 헷갈리지 않고 안전하게 승격시키는 구조</strong>를 만드는 것이다.</p>
+          <div class="summary-box">
+            <strong>핵심 한 줄</strong>
+            <p>Career OS는 “파일 구조”가 아니라, <code>raw</code>의 원천을 <code>wiki</code>의 지식으로 정리하고 <code>outputs</code>의 산출물로 조립하는 문서형 운영체계다.</p>
+          </div>
+          <p>이 시스템은 터미널에서 <code>career-ingest</code> 같은 명령어를 실행하는 CLI가 아니다. <code>career-*</code> 이름은 LLM 에이전트가 따라야 하는 <code>skills/</code> 아래의 작업 절차를 뜻한다.</p>
+        </section>
+
+        <section id="principles">
+          <h2>2. 설계 원칙</h2>
+          <ol>
+            <li><strong>레이어는 4개로 유지한다.</strong> 8개 이상으로 나누면 정확하긴 하지만 운영자가 매번 분류를 고민하게 된다.</li>
+            <li><strong>Source는 원천을 보존한다.</strong> 예쁜 문장보다 검증 가능성이 중요하다.</li>
+            <li><strong>Knowledge는 재사용 가능해야 한다.</strong> 이력서와 면접 답변에서 다시 쓸 수 있는 단위로 정리한다.</li>
+            <li><strong>Workflow는 데이터가 아니다.</strong> LLM의 작업 순서, 수정 권한, 품질 기준만 담당한다.</li>
+            <li><strong>Output은 Source를 대체하지 않는다.</strong> 최종 이력서가 원천 증거가 되면 안 된다.</li>
+            <li><strong>샘플은 별도 레포에서 관리한다.</strong> 본 레포에는 실제 운영 구조만 두고, 데모 데이터와 예제 output은 별도 sample repository로 분리한다.</li>
+          </ol>
+          <div class="decision">
+            <div class="label">Decision</div>
+            <p>물리 폴더명을 <code>01_raw</code>, <code>02_wiki</code>처럼 바꾸지 않는다. 기존의 <code>raw/</code>, <code>wiki/</code>, <code>outputs/</code>를 유지하고, 문서에서 개념 레이어를 명확히 정의한다.</p>
+          </div>
+        </section>
+
+        <section id="layers">
+          <h2>3. 4개 레이어</h2>
+          <table>
+            <thead>
+              <tr><th>Layer</th><th>담당</th><th>질문</th><th>대표 위치</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="layer-source">Source</span></td><td>원천과 증거 보관</td><td>이 주장의 원본 근거가 어디 있음?</td><td><code>raw/</code></td></tr>
+              <tr><td><span class="layer-knowledge">Knowledge</span></td><td>커리어 지식과 주장 관리</td><td>이 자료를 어떻게 재사용할 수 있음?</td><td><code>wiki/</code></td></tr>
+              <tr><td><span class="layer-workflow">Workflow</span></td><td>LLM 작업 규칙</td><td>어떤 순서로 뭘 읽고 어디까지 수정함?</td><td><code>AGENTS.md</code>, <code>skills/</code>, <code>index.md</code>, <code>log.md</code></td></tr>
+              <tr><td><span class="layer-output">Output</span></td><td>제출/공개 산출물</td><td>이 결과물을 누구에게 보여줄 수 있음?</td><td><code>outputs/</code>, <code>templates/</code>, <code>docs/</code></td></tr>
+            </tbody>
+          </table>
+
+          <h3>3.1 Source Layer</h3>
+          <p>Source는 아직 해석되지 않은 원천 자료다. 프로젝트 메모, 경력 사실, JD 원문, PR 분석, 피드백, 수치 근거 등이 들어간다.</p>
+          <div class="two-col">
+            <div class="card do"><h4>Do</h4><ul><li>원문과 맥락을 보존한다.</li><li>근거 강도를 표시한다.</li><li>애매하면 <code>raw/inbox/</code>에 둔다.</li></ul></div>
+            <div class="card dont"><h4>Do not</h4><ul><li>최종 이력서 문장을 저장하지 않는다.</li><li>근거 없는 수치를 만들지 않는다.</li><li>샘플 데이터를 넣지 않는다.</li></ul></div>
+          </div>
+
+          <h3>3.2 Knowledge Layer</h3>
+          <p>Knowledge는 Source를 기반으로 정리된 커리어 지식이다. 프로젝트 페이지, 경험 페이지, story bank, sentence bank, claims ledger, proof map이 여기에 들어간다.</p>
+          <div class="two-col">
+            <div class="card do"><h4>Do</h4><ul><li>Source와 연결된 claim을 만든다.</li><li>JD별로 재사용 가능한 bullet/story를 정리한다.</li><li>근거 부족은 Gaps로 남긴다.</li></ul></div>
+            <div class="card dont"><h4>Do not</h4><ul><li>raw 원문 덤프를 그대로 복사하지 않는다.</li><li>회사별 최종 산출물을 저장하지 않는다.</li><li>출처 없는 claim을 강한 주장으로 승격하지 않는다.</li></ul></div>
+          </div>
+
+          <h3>3.3 Workflow Layer</h3>
+          <p>Workflow는 LLM이 어떻게 일해야 하는지 정한다. 이 레이어는 데이터 저장소가 아니라 운영 규칙이다.</p>
+          <div class="two-col">
+            <div class="card do"><h4>Do</h4><ul><li>mandatory read order를 정의한다.</li><li>allowed edits / forbidden edits를 명시한다.</li><li>quality gates와 log format을 정한다.</li></ul></div>
+            <div class="card dont"><h4>Do not</h4><ul><li>실제 경력 자료를 넣지 않는다.</li><li>최종 이력서 본문을 넣지 않는다.</li><li>“알아서 적당히” 같은 절차를 만들지 않는다.</li></ul></div>
+          </div>
+
+          <h3>3.4 Output Layer</h3>
+          <p>Output은 제출하거나 공개할 수 있는 산출물이다. 범용 이력서, 회사별 맞춤 패키지, 최종 HTML/PDF, 공개 가이드가 들어간다. 샘플 데모는 별도 sample repository에서 관리한다.</p>
+          <div class="two-col">
+            <div class="card do"><h4>Do</h4><ul><li>Knowledge를 목적에 맞게 조립한다.</li><li>source와 final을 구분한다.</li><li>제출 전 traceability를 확인한다.</li></ul></div>
+            <div class="card dont"><h4>Do not</h4><ul><li>raw 자료의 유일한 보관 위치가 되지 않는다.</li><li>proof 없는 claim을 넣지 않는다.</li><li>샘플 output을 본 레포의 실제 output과 섞지 않는다.</li></ul></div>
+          </div>
+        </section>
+
+        <section id="movement">
+          <h2>4. 레이어 이동 모델</h2>
+          <p>Career OS의 기본 흐름은 아래와 같다.</p>
+          <pre class="path-tree"><code>External input
+  ↓
+Source Layer        raw/
+  ↓
+Knowledge Layer     wiki/
+  ↓
+Output Layer        outputs/
+
+Workflow Layer      AGENTS.md, skills/, index.md, log.md
+  └─ 위 이동의 규칙, 권한, 품질 기준을 관리</code></pre>
+          <p>중요한 점은 Workflow가 별도의 데이터 흐름 위에 있는 것이 아니라, <strong>레이어 간 이동을 통제하는 운영 레이어</strong>라는 점이다.</p>
+        </section>
+
+        <section id="source-structure">
+          <h2>5. Source Layer 구조</h2>
+          <p>Source는 “이 자료는 무엇을 증명하는가?”를 기준으로 나눈다.</p>
+          <pre class="path-tree"><code>raw/
+├── README.md
+├── profile/
+│   ├── profile.md
+│   ├── links.md
+│   └── preferences.md
+├── experiences/
+├── projects/
+├── activities/
+├── awards/
+├── applications/
+├── evidence/
+│   ├── github/
+│   ├── feedback/
+│   ├── metrics/
+│   ├── screenshots/
+│   └── certificates/
+├── assets/
+│   ├── profile/
+│   ├── projects/
+│   ├── awards/
+│   └── documents/
+└── inbox/</code></pre>
+          <table>
+            <thead><tr><th>경로</th><th>담당</th><th>예시</th></tr></thead>
+            <tbody>
+              <tr><td><code>raw/profile/</code></td><td>내 기본 정보</td><td>이름, 이메일, 링크, 목표 직무, 선호/회피 포지셔닝</td></tr>
+              <tr><td><code>raw/experiences/</code></td><td>회사/조직에서 한 일</td><td>Yamon DFAS AI Desktop, 인턴, 외주, 조직 소속 역할</td></tr>
+              <tr><td><code>raw/projects/</code></td><td>만든 것 자체</td><td>거부기린, Career OS Template, 개인 프로젝트</td></tr>
+              <tr><td><code>raw/activities/</code></td><td>활동/교육/커뮤니티</td><td>KUSITMS, 창업 프로그램 참가, 스터디, 멘토링</td></tr>
+              <tr><td><code>raw/awards/</code></td><td>수상/선정/자격/인증</td><td>U300 선정, CMK 수상/선정, 자격증</td></tr>
+              <tr><td><code>raw/applications/</code></td><td>지원 대상 원천</td><td>JD 원문, 회사 조사 raw, 리크루터 노트</td></tr>
+              <tr><td><code>raw/evidence/</code></td><td>증빙 설명</td><td>GitHub 분석, 피드백 원문, 수치 근거</td></tr>
+              <tr><td><code>raw/assets/</code></td><td>파일 원본</td><td>이미지, PDF, 스크린샷, 인증서</td></tr>
+              <tr><td><code>raw/inbox/</code></td><td>미분류 메모</td><td>Discord에서 던진 임시 메모, 아직 분류가 애매한 자료</td></tr>
+            </tbody>
+          </table>
+
+          <div class="note">
+            <strong>분류 기준</strong><br />
+            프로젝트 본체는 <code>raw/projects/</code>, 외부 인정은 <code>raw/awards/</code>, 활동 맥락은 <code>raw/activities/</code>, 실제 증빙 설명은 <code>raw/evidence/</code>에 둔다.
+          </div>
+        </section>
+
+        <section id="complex-project">
+          <h2>6. 복합 프로젝트 처리 방식</h2>
+          <p>거부기린처럼 하나의 프로젝트가 U300, CMK 창업경진대회, KUSITMS 활동 등 여러 맥락에 걸칠 수 있다. 이때 원칙은 다음과 같다.</p>
+          <div class="decision">
+            <div class="label">Rule</div>
+            <p><strong>Source에서는 이벤트/증빙 단위로 분리하고, Knowledge에서 프로젝트 중심으로 통합한다.</strong></p>
+          </div>
+
+          <h3>6.1 거부기린 예시</h3>
+          <pre class="path-tree"><code>project:posture-turtle
+├── raw/projects/posture-turtle.md
+├── raw/activities/2024-kusitms-32-posture-turtle.md
+├── raw/awards/2026-u300-selection.md
+├── raw/awards/2026-cmk-startup-competition.md
+├── raw/evidence/github/posture-turtle-github-analysis.md
+└── raw/assets/projects/posture-turtle/
+
+Knowledge hub:
+└── wiki/projects/posture-turtle.md</code></pre>
+
+          <h3>6.2 왜 나누는가?</h3>
+          <p>같은 거부기린이라도 출력 목적에 따라 강조점이 달라진다.</p>
+          <table>
+            <thead><tr><th>목적</th><th>강조할 내용</th><th>주로 참조할 source</th></tr></thead>
+            <tbody>
+              <tr><td>Frontend 지원</td><td>Tauri/React UI, 데스크톱 UX, 상태/설정 관리</td><td><code>raw/projects/posture-turtle.md</code>, GitHub evidence</td></tr>
+              <tr><td>FDE/AX 지원</td><td>AI 분석 흐름, 사용자 문제 정의, 데이터 흐름</td><td>project source, technical decision notes</td></tr>
+              <tr><td>스타트업/제품 직무</td><td>문제 검증, U300/CMK 외부 인정, 사업화 가능성</td><td><code>raw/awards/</code>, <code>raw/activities/</code></td></tr>
+              <tr><td>협업 경험</td><td>KUSITMS 팀 프로젝트, 역할 분담, MVP 개발</td><td><code>raw/activities/2024-kusitms-32-posture-turtle.md</code></td></tr>
+            </tbody>
+          </table>
+
+          <h3>6.3 Award냐 Activity냐</h3>
+          <table>
+            <thead><tr><th>상황</th><th>위치</th><th>예시</th></tr></thead>
+            <tbody>
+              <tr><td>수상/선정/합격/인증 결과가 있음</td><td><code>raw/awards/</code></td><td>U300 선정, CMK 수상, Hanyang startup club 선정</td></tr>
+              <tr><td>참가/발표/멘토링/프로그램 수행이 중심</td><td><code>raw/activities/</code></td><td>CMK 경진대회 참가, 창업 멘토링 참여</td></tr>
+              <tr><td>둘 다 중요함</td><td>둘 다 생성</td><td>참가 과정은 activities, 수상 결과는 awards</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="source-frontmatter">
+          <h2>7. Source 메타데이터</h2>
+          <p>모든 raw markdown 파일은 최소 frontmatter를 가진다. 이것은 나중에 Knowledge 승격과 lint의 기준이 된다.</p>
+          <pre><code>---
+type: project
+id: project:posture-turtle
+title: 거부기린 / Posture Turtle
+status: draft
+ evidence_strength: medium
+created_at: 2026-06-22
+updated_at: 2026-06-22
+related:
+  experiences: []
+  activities:
+    - activity:kusitms-32-posture-turtle
+  awards:
+    - award:u300-selection
+    - award:cmk-startup-competition
+  evidence:
+    - evidence:github-posture-turtle
+---</code></pre>
+          <h3>7.1 필드 정의</h3>
+          <table>
+            <thead><tr><th>필드</th><th>의미</th><th>값 예시</th></tr></thead>
+            <tbody>
+              <tr><td><code>type</code></td><td>source 종류</td><td><code>profile</code>, <code>experience</code>, <code>project</code>, <code>activity</code>, <code>award</code>, <code>application</code>, <code>evidence</code>, <code>inbox</code></td></tr>
+              <tr><td><code>id</code></td><td>다른 문서가 참조하는 안정 ID</td><td><code>project:posture-turtle</code></td></tr>
+              <tr><td><code>status</code></td><td>검증/정리 상태</td><td><code>draft</code>, <code>verified</code>, <code>needs-proof</code>, <code>deprecated</code></td></tr>
+              <tr><td><code>evidence_strength</code></td><td>근거 강도</td><td><code>high</code>, <code>medium</code>, <code>low</code>, <code>unknown</code></td></tr>
+              <tr><td><code>related</code></td><td>연결 source ID</td><td>activities, awards, evidence 등</td></tr>
+            </tbody>
+          </table>
+          <div class="warning"><strong>주의:</strong> Source의 <code>evidence_strength</code>는 “이 자료가 얼마나 강한 원천인가”를 뜻한다. 이력서에 바로 써도 된다는 뜻이 아니다. 최종 claim 승격은 Knowledge에서 한다.</div>
+        </section>
+
+        <section id="knowledge">
+          <h2>8. Knowledge Layer 구조</h2>
+          <p>Knowledge는 Source를 재사용 가능한 경력 지식으로 바꾼다.</p>
+          <pre class="path-tree"><code>wiki/
+├── README.md
+├── overview/
+│   └── career-overview.md
+├── themes/
+│   └── positioning.md
+├── projects/
+├── experiences/
+├── activities/
+├── awards/
+├── skills/
+├── stories/
+│   └── story-bank.md
+├── sentence-bank/
+│   └── resume-bullets.md
+├── claims-ledger.md
+├── proof-map.md
+└── output-briefs/
+    └── general-resume-brief.md</code></pre>
+
+          <h3>8.1 claims-ledger</h3>
+          <p><code>wiki/claims-ledger.md</code>는 이력서와 면접 답변에 사용할 수 있는 주장을 관리한다.</p>
+          <pre><code>## claim:posture-turtle-u300-validation
+
+- Claim: 거부기린은 U300 선정으로 초기 사업화 가능성을 외부 검증받았다.
+- Allowed use: resume | interview
+- Source pages:
+  - raw/awards/2026-u300-selection.md
+  - raw/projects/posture-turtle.md
+- Proof IDs:
+  - proof:u300-selection
+- Confidence: high
+- Caveat: 선정의 정확한 명칭과 연도는 증빙 기준으로 표기한다.</code></pre>
+
+          <h3>8.2 proof-map</h3>
+          <p><code>wiki/proof-map.md</code>는 어떤 증빙이 어떤 claim을 뒷받침하는지 연결한다.</p>
+          <pre><code>## proof:u300-selection
+
+- Type: selection
+- Source: raw/awards/2026-u300-selection.md
+- Related item: project:posture-turtle
+- Evidence strength: high
+- Notes: 선정 메일/공고/이미지 확인 필요.</code></pre>
+        </section>
+
+        <section id="workflow">
+          <h2>9. Workflow Layer 구조</h2>
+          <p>Workflow는 LLM이 반드시 따라야 하는 운영 규칙이다.</p>
+          <pre class="path-tree"><code>AGENTS.md
+index.md
+log.md
+skills/
+├── career-capture-source/
+├── career-ingest-github-repo/
+├── career-ingest/
+├── cos-build-resume/
+├── cos-apply-resume/
+└── career-lint/
+examples/
+└── request-prompts.md</code></pre>
+
+          <h3>9.1 Mandatory Read Order</h3>
+          <pre><code>1. AGENTS.md
+2. index.md
+3. log.md
+4. matching skills/&lt;workflow&gt;/SKILL.md
+5. relevant raw/wiki/output files</code></pre>
+
+          <h3>9.2 모든 skill의 표준 섹션</h3>
+          <pre><code>## Layer Movement
+## When to use
+## Inputs
+## Read first
+## Allowed edits
+## Forbidden edits
+## Workflow
+## Output files
+## Quality gates
+## Stop conditions
+## Log format</code></pre>
+        </section>
+
+        <section id="output">
+          <h2>10. Output Layer 구조</h2>
+          <p>Output은 실제 제출/공개를 위한 결과물이다.</p>
+          <pre class="path-tree"><code>outputs/
+├── README.md
+├── general/
+│   ├── source/
+│   │   └── resume.md
+│   └── final/
+└── custom/
+    └── YYYY-MM-DD-company-role/
+        ├── source/
+        │   ├── jd.md
+        │   ├── brief.md
+        │   └── resume.md
+        ├── research/
+        │   ├── company.md
+        │   └── signals.md
+        └── final/
+            ├── resume.html
+            └── resume.pdf
+
+templates/
+docs/
+
+Separate sample repository:
+career-os-template-samples/</code></pre>
+
+          <p><code>outputs/custom/.../source/jd.md</code>에 JD를 복사해둘 수 있지만, 원본 JD source는 가능하면 <code>raw/applications/...</code>에도 남긴다. Output의 JD는 패키지 재현성을 위한 사본이고, Source의 JD는 원천 보관용이다.</p>
+
+          <h3>10.1 Sample Repository Policy</h3>
+          <p>샘플은 본 운영 레포 안의 <code>samples/</code> 폴더로 두지 않고, 별도 레포로 분리한다.</p>
+          <pre class="path-tree"><code>career-os-template/              # 실제 운영 템플릿
+├── raw/
+├── wiki/
+├── outputs/
+├── skills/
+└── docs/
+
+career-os-template-samples/      # 데모/예제 전용 레포
+├── sample-raw/
+├── sample-wiki/
+├── sample-outputs/
+└── walkthroughs/</code></pre>
+          <div class="decision">
+            <div class="label">Decision</div>
+            <p>본 레포는 실제 사용자 자료가 들어갈 운영 구조만 제공한다. 샘플 데이터, 가짜 이력서, 예제 output, walkthrough는 별도 sample repository에서 관리한다.</p>
+          </div>
+        </section>
+
+        <section id="skills">
+          <h2>11. 스킬 구성</h2>
+          <p>스킬은 레이어 전환 단위로 둔다. 사용자-facing skill은 6개면 충분하다.</p>
+          <table>
+            <thead><tr><th>Skill</th><th>Layer Movement</th><th>담당</th><th>주요 산출물</th></tr></thead>
+            <tbody>
+              <tr><td><code>career-capture-source</code></td><td>External → Source</td><td>외부 자료를 raw에 안전하게 저장</td><td><code>raw/**</code>, <code>index.md</code>, <code>log.md</code></td></tr>
+              <tr><td><code>career-ingest-github-repo</code></td><td>GitHub → Source</td><td>repo/PR/commit에서 기여 근거 수집</td><td><code>raw/projects/*-github-analysis.md</code></td></tr>
+              <tr><td><code>career-ingest</code></td><td>Source → Knowledge</td><td>raw를 wiki, story, bullet, claim으로 승격</td><td><code>wiki/**</code></td></tr>
+              <tr><td><code>cos-build-resume</code></td><td>Knowledge → Output</td><td>범용 이력서 생성</td><td><code>outputs/general/source/resume.md</code></td></tr>
+              <tr><td><code>cos-apply-resume</code></td><td>JD + Knowledge → Output</td><td>회사별 JD 맞춤 이력서 생성</td><td><code>outputs/custom/YYYY-MM-DD-company-role/source/resume.md</code></td></tr>
+              <tr><td><code>career-lint</code></td><td>All → Diagnostic</td><td>레이어 경계, claim 근거, 샘플 오염 점검</td><td>기본 read-only report</td></tr>
+            </tbody>
+          </table>
+
+          <h3>11.1 합칠 기존 스킬</h3>
+          <table>
+            <thead><tr><th>기존 세부 스킬</th><th>처리</th><th>이유</th></tr></thead>
+            <tbody>
+              <tr><td><code>career-build-custom-package</code></td><td><code>cos-apply-resume</code> 안으로 흡수</td><td>회사별 패키지 생성 흐름의 일부</td></tr>
+              <tr><td><code>career-company-research</code></td><td><code>cos-apply-resume</code> optional research로 흡수</td><td>별도 skill로 두면 선택이 복잡해짐</td></tr>
+              <tr><td><code>career-output-polish</code></td><td>build/apply의 quality gate로 흡수</td><td>모든 output에서 공통으로 적용</td></tr>
+              <tr><td>기존 렌더링 관련 세부 스킬</td><td><code>cos-render-resume</code> 선택 스킬로 정리</td><td>현재 scope는 이력서만 다루며, markdown 이력서를 HTML/PDF로 렌더링할 때만 사용한다</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="quality-gates">
+          <h2>12. 품질 기준</h2>
+          <h3>12.1 Source 품질 기준</h3>
+          <ul>
+            <li>모든 raw 파일은 <code>type</code>, <code>id</code>, <code>status</code>, <code>evidence_strength</code>를 가진다.</li>
+            <li>근거가 약하면 <code>needs-proof</code> 또는 <code>low</code>로 표시한다.</li>
+            <li>분류가 애매하면 <code>raw/inbox/</code>에 임시 저장한다.</li>
+          </ul>
+
+          <h3>12.2 Knowledge 품질 기준</h3>
+          <ul>
+            <li>강한 claim은 source/proof로 역추적 가능해야 한다.</li>
+            <li>프로젝트 hub 페이지는 related source map을 가진다.</li>
+            <li>출처 없는 문장은 final output으로 가지 않는다.</li>
+          </ul>
+
+          <h3>12.3 Workflow 품질 기준</h3>
+          <ul>
+            <li>모든 skill은 allowed edits와 forbidden edits를 명시한다.</li>
+            <li>모든 workflow는 마지막에 <code>log.md</code>를 append한다.</li>
+            <li><code>career-lint</code>는 기본적으로 read-only다.</li>
+          </ul>
+
+          <h3>12.4 Output 품질 기준</h3>
+          <ul>
+            <li>제출용 output에는 샘플 데이터가 없어야 한다.</li>
+            <li>JD 맞춤 패키지는 <code>brief.md</code>에 강조점과 gaps를 남긴다.</li>
+            <li>final HTML/PDF는 source markdown을 대체하지 않는다.</li>
+          </ul>
+        </section>
+
+
+        <section id="use-cases">
+          <h2>13. 유스케이스 흐름</h2>
+          <p>아래 유스케이스는 사용자가 실제로 Career OS를 쓰는 대표 시나리오다. 각 흐름은 어떤 스킬을 쓰고, 어느 레이어를 건드리는지 기준으로 정리한다.</p>
+
+          <div class="usecase-list">
+            <div class="usecase">
+              <h3>UC-01. 새 raw 자료를 등록하고 지식으로 정리하기</h3>
+              <p>사용자가 프로젝트 메모, 수상 기록, 활동 기록, 피드백 같은 자료를 직접 입력했을 때의 기본 흐름이다.</p>
+              <div class="diagram">
+                <div class="step source"><span class="step-label">User</span><strong>자료 입력</strong><span>메모, 링크, 수상 내용, 피드백 원문</span></div>
+                <div class="step workflow"><span class="step-label">Skill</span><strong>cos-register-source</strong><span>raw 위치 결정, ID/frontmatter 부여</span></div>
+                <div class="step source"><span class="step-label">Source</span><strong>raw/** 등록</strong><span>원천 보존, evidence strength 표시</span></div>
+                <div class="step workflow"><span class="step-label">Skill</span><strong>cos-ingest</strong><span>source를 읽고 지식화</span></div>
+                <div class="step knowledge"><span class="step-label">Knowledge</span><strong>wiki/** 갱신</strong><span>프로젝트/경험/claim/proof 정리</span></div>
+              </div>
+              <div class="usecase-meta"><b>필수 여부</b><span>필수 core flow</span><b>최종 산출</b><span><code>raw/**</code>, <code>wiki/**</code>, <code>log.md</code></span></div>
+            </div>
+
+            <div class="usecase">
+              <h3>UC-02. GitHub 레포를 경력 증거로 보강하기</h3>
+              <p>개발 프로젝트의 실제 기여, PR, commit, 변경 파일, 기술 의사결정을 source evidence로 만들 때 사용한다.</p>
+              <div class="diagram">
+                <div class="step source"><span class="step-label">Input</span><strong>Repo / PR / commit URL</strong><span>GitHub 링크 또는 로컬 repo</span></div>
+                <div class="step workflow"><span class="step-label">Optional Skill</span><strong>cos-ingest-github-repo</strong><span>기여 증거와 변경 맥락 분석</span></div>
+                <div class="step source"><span class="step-label">Source</span><strong>github analysis</strong><span>raw/projects/*-github-analysis.md</span></div>
+                <div class="step workflow"><span class="step-label">Skill</span><strong>cos-ingest</strong><span>검증된 증거만 claim 후보화</span></div>
+                <div class="step knowledge"><span class="step-label">Knowledge</span><strong>project hub 갱신</strong><span>story, bullet, proof map 연결</span></div>
+              </div>
+              <div class="usecase-meta"><b>필수 여부</b><span>선택. 개발자 이력서에는 권장</span><b>주의</b><span>레포 전체 성과와 사용자 본인 기여를 분리한다.</span></div>
+            </div>
+
+            <div class="usecase">
+              <h3>UC-03. 복합 프로젝트를 프로젝트 hub로 통합하기</h3>
+              <p>거부기린처럼 프로젝트 본체, U300 선정, CMK 경진대회, KUSITMS 활동이 한 프로젝트에 연결되는 경우다.</p>
+              <div class="diagram compact">
+                <div class="step source"><span class="step-label">Sources</span><strong>분리 저장</strong><span>projects / awards / activities / evidence</span></div>
+                <div class="step workflow"><span class="step-label">Skill</span><strong>cos-ingest</strong><span>related ID와 source map 확인</span></div>
+                <div class="step knowledge"><span class="step-label">Knowledge</span><strong>wiki/projects hub</strong><span>프로젝트 중심으로 통합 정리</span></div>
+                <div class="step knowledge"><span class="step-label">Assets</span><strong>claims/proof</strong><span>외부 인정, 기술 기여, 활동 맥락 분리</span></div>
+              </div>
+              <div class="usecase-meta"><b>원칙</b><span>Source에서는 쪼개고, Knowledge에서 묶는다.</span><b>예시</b><span><code>wiki/projects/posture-turtle.md</code></span></div>
+            </div>
+
+            <div class="usecase">
+              <h3>UC-04. 범용 이력서 만들기</h3>
+              <p>특정 JD 없이 현재 포지셔닝 기준의 기본 이력서를 만드는 흐름이다.</p>
+              <div class="diagram compact">
+                <div class="step knowledge"><span class="step-label">Knowledge</span><strong>wiki 읽기</strong><span>overview, positioning, projects, claims</span></div>
+                <div class="step workflow"><span class="step-label">Skill</span><strong>cos-build-output</strong><span>범용 목적에 맞게 조립</span></div>
+                <div class="step output"><span class="step-label">Output</span><strong>general source</strong><span>outputs/general/source/resume.md</span></div>
+                <div class="step workflow"><span class="step-label">Check</span><strong>cos-lint</strong><span>샘플 오염, 근거 누락 점검</span></div>
+              </div>
+              <div class="usecase-meta"><b>필수 여부</b><span>필수 core output</span><b>주의</b><span>JD 맞춤 문구는 넣지 않는다.</span></div>
+            </div>
+
+            <div class="usecase">
+              <h3>UC-05. JD 맞춤 이력서 만들기</h3>
+              <p>특정 회사 공고를 기준으로 내 knowledge와 JD 요구사항을 매칭해 맞춤 이력서를 만드는 흐름이다.</p>
+              <div class="diagram">
+                <div class="step source"><span class="step-label">Input</span><strong>JD 원문</strong><span>raw/applications 또는 직접 입력</span></div>
+                <div class="step knowledge"><span class="step-label">Knowledge</span><strong>claims 매칭</strong><span>JD 요구사항 ↔ 내 evidence</span></div>
+                <div class="step workflow"><span class="step-label">Optional Skill</span><strong>cos-apply-resume</strong><span>brief/resume 생성</span></div>
+                <div class="step output"><span class="step-label">Output</span><strong>custom resume</strong><span>outputs/custom/YYYY-MM-DD-company</span></div>
+                <div class="step workflow"><span class="step-label">Check</span><strong>cos-lint</strong><span>없는 경험 생성 여부 점검</span></div>
+              </div>
+              <div class="usecase-meta"><b>필수 여부</b><span>선택. Job seeker profile에서는 권장</span><b>핵심 파일</b><span><code>source/brief.md</code>에 강조점과 Gaps를 남긴다.</span></div>
+            </div>
+
+            <div class="usecase">
+              <h3>UC-06. 제출용 HTML/PDF로 렌더링하기</h3>
+              <p>markdown source가 충분히 검수된 뒤, 제출·공유용 final 파일이 필요할 때만 수행한다.</p>
+              <div class="diagram compact">
+                <div class="step output"><span class="step-label">Output Source</span><strong>resume.md</strong><span>검수된 markdown source</span></div>
+                <div class="step workflow"><span class="step-label">Optional Skill</span><strong>cos-render-resume</strong><span>template 적용 또는 수동 HTML화</span></div>
+                <div class="step output"><span class="step-label">Final</span><strong>HTML / PDF</strong><span>outputs/**/final</span></div>
+                <div class="step workflow"><span class="step-label">Check</span><strong>cos-lint</strong><span>source와 final 불일치 확인</span></div>
+              </div>
+              <div class="usecase-meta"><b>필수 여부</b><span>선택. 초기에는 markdown만으로 충분</span><b>주의</b><span>final 파일은 source markdown을 대체하지 않는다.</span></div>
+            </div>
+
+            <div class="usecase">
+              <h3>UC-07. 전체 상태 점검하기</h3>
+              <p>자료를 많이 넣었거나 output을 만들기 전후에 전체 구조와 근거를 확인한다.</p>
+              <div class="diagram compact">
+                <div class="step source"><span class="step-label">Source</span><strong>raw 점검</strong><span>frontmatter, status, evidence strength</span></div>
+                <div class="step knowledge"><span class="step-label">Knowledge</span><strong>wiki 점검</strong><span>orphan, claim/proof, conflict</span></div>
+                <div class="step output"><span class="step-label">Output</span><strong>outputs 점검</strong><span>stale, sample leakage, unsupported claim</span></div>
+                <div class="step workflow"><span class="step-label">Skill</span><strong>cos-lint</strong><span>read-only diagnostic report</span></div>
+              </div>
+              <div class="usecase-meta"><b>필수 여부</b><span>필수 quality gate</span><b>기본 정책</b><span>read-only. 수정은 사용자가 명시 요청할 때만 한다.</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="implementation">
+          <h2>14. 적용 순서</h2>
+          <ol>
+            <li><code>README.md</code>에 “문서형 LLM workflow”임을 명시한다.</li>
+            <li><code>AGENTS.md</code>에 mandatory read order와 layer rules를 추가한다.</li>
+            <li><code>LAYER_CONTRACT.md</code> 또는 본 문서의 내용을 repo 문서로 추가한다.</li>
+            <li><code>raw/README.md</code>, <code>wiki/README.md</code>, <code>outputs/README.md</code>를 만든다.</li>
+            <li>실제 운영 파일에서 샘플 오염을 제거하고, 데모 데이터는 별도 sample repository로 이동한다.</li>
+            <li><code>wiki/claims-ledger.md</code>와 <code>wiki/proof-map.md</code>를 추가한다.</li>
+            <li><code>career-capture-source</code> 스킬을 추가한다.</li>
+            <li>기존 스킬 5개를 표준 섹션 구조로 정리한다.</li>
+            <li><code>index.md</code>를 운영 지도처럼 재작성한다.</li>
+            <li><code>log.md</code>에 새 log format 정책을 추가한다.</li>
+          </ol>
+        </section>
+
+        <section id="open-questions">
+          <h2>15. 남은 결정</h2>
+          <table>
+            <thead><tr><th>질문</th><th>추천</th><th>이유</th></tr></thead>
+            <tbody>
+              <tr><td>Source를 9개 하위 폴더로 시작할까?</td><td>예</td><td>Source는 원천 성격이 다양해서 초기에 나눠도 운영 비용이 크지 않음</td></tr>
+              <tr><td>Knowledge의 claims/proof를 별도 레이어로 뺄까?</td><td>아니오</td><td>레이어가 깊어지므로 Knowledge 하위 모듈로 둔다</td></tr>
+              <tr><td>samples는 어디에 둘까?</td><td>별도 sample repository</td><td>본 레포는 실제 운영 구조만 유지하고, 데모 데이터/예제 산출물은 별도 레포에서 관리한다</td></tr>
+              <tr><td>렌더링 skill을 별도로 둘까?</td><td>나중에</td><td>자동 렌더러가 생기기 전까지는 optional 단계로 충분</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <footer>
+          <p><strong>문서 버전:</strong> v0.2 · <strong>설계 방향:</strong> 문서형 LLM workflow · <strong>핵심 흐름:</strong> Source → Knowledge → Output, controlled by Workflow.</p>
+        </footer>
+
+        <section id="skill-rule-audit">
+          <h2>16. 현재 스킬 규칙 점검</h2>
+          <p>현재 <code>career-os-template</code> 레포의 <code>skills/*/SKILL.md</code>를 새 설계 기준으로 점검한 결과다. 결론은 “좋은 안전 규칙은 유지하되, portfolio/samples/career-* 중심의 오래된 규칙을 resume-only/cos-* 기준으로 정리해야 한다”이다.</p>
+
+          <div class="summary-box">
+            <strong>핵심 결론</strong>
+            <p>현재 스킬은 “커리어 위키 + 이력서/포트폴리오 패키지” 기준이고, 새 설계는 “resume-only Career OS + 별도 sample repo + claim/proof 중심” 기준이다. 따라서 output, portfolio, samples, naming, allowed edits 규칙을 대폭 정리해야 한다.</p>
+          </div>
+
+          <h3>16.1 유지할 좋은 규칙</h3>
+          <div class="audit-grid">
+            <div class="audit-card">
+              <span class="severity sev-good">Keep</span>
+              <h3>공통 read order</h3>
+              <ul class="rule-list">
+                <li><code>AGENTS.md</code>, <code>index.md</code>, <code>log.md</code>를 먼저 읽는 규칙은 유지한다.</li>
+                <li>작업 전 기존 <code>wiki/</code>, <code>outputs/</code>를 읽어 중복 생성을 막는다.</li>
+              </ul>
+            </div>
+            <div class="audit-card">
+              <span class="severity sev-good">Keep</span>
+              <h3>근거 없는 주장 금지</h3>
+              <ul class="rule-list">
+                <li>metric/date/impact를 invent하지 않는 규칙은 모든 스킬에 유지한다.</li>
+                <li>evidence missing은 추측하지 말고 <code>Gaps</code>로 남긴다.</li>
+              </ul>
+            </div>
+            <div class="audit-card">
+              <span class="severity sev-good">Keep</span>
+              <h3>GitHub ownership 분리</h3>
+              <ul class="rule-list">
+                <li>repo만 보고 본인 기여를 추정하지 않는다.</li>
+                <li>commit/PR/file evidence와 interpretation을 분리한다.</li>
+              </ul>
+            </div>
+            <div class="audit-card">
+              <span class="severity sev-good">Keep</span>
+              <h3>lint read-only 원칙</h3>
+              <ul class="rule-list">
+                <li><code>career-lint</code>의 기본 read-only 정책은 <code>cos-lint</code>에서도 유지한다.</li>
+                <li>수정은 사용자가 같은 턴에 명시적으로 요청한 경우에만 한다.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>16.2 새 설계와 충돌하는 규칙</h3>
+          <table>
+            <thead><tr><th>충돌 영역</th><th>현재 규칙</th><th>새 설계 기준</th><th>조치</th></tr></thead>
+            <tbody>
+              <tr><td><span class="severity sev-high">High</span> Portfolio</td><td><code>source/portfolio.md</code>, <code>final/portfolio.*</code>, <code>templates/portfolio/</code>를 사용</td><td>현재 scope는 resume only</td><td>portfolio 산출물/스킬/템플릿 제거</td></tr>
+              <tr><td><span class="severity sev-high">High</span> Samples</td><td><code>samples/</code>를 본 레포 내부 검사 대상으로 봄</td><td>샘플은 별도 sample repo</td><td>본 레포에서 <code>samples/</code> 제거, 참조는 sample repo 링크로 대체</td></tr>
+              <tr><td><span class="severity sev-med">Medium</span> Raw taxonomy</td><td><code>bios</code>, <code>links</code> 중심 source type</td><td><code>profile</code>, <code>activities</code>, <code>applications</code>, <code>evidence</code>, <code>inbox</code></td><td>register-source와 ingest를 분리하며 raw 구조 갱신</td></tr>
+              <tr><td><span class="severity sev-med">Medium</span> Claim/proof</td><td>강한 claim trace 규칙은 있으나 ledger 파일 없음</td><td><code>wiki/claims-ledger.md</code>, <code>wiki/proof-map.md</code> 필수</td><td><code>cos-ingest</code>, <code>cos-build-resume</code>, <code>cos-apply-resume</code>에 반영</td></tr>
+              <tr><td><span class="severity sev-med">Medium</span> Naming</td><td><code>career-*</code> 스킬명</td><td><code>cos-*</code> 스킬명</td><td>rename/merge/remove</td></tr>
+              <tr><td><span class="severity sev-med">Medium</span> Edit boundary</td><td>Allowed/Forbidden edits가 대부분 약함</td><td>각 스킬마다 수정 가능 범위 명시</td><td>모든 <code>SKILL.md</code>에 공통 섹션 추가</td></tr>
+            </tbody>
+          </table>
+
+          <h3>16.3 스킬별 정리 방향</h3>
+          <table class="mapping-table">
+            <thead><tr><th>현재 스킬</th><th>판정</th><th>새 스킬/처리</th><th>핵심 수정</th></tr></thead>
+            <tbody>
+              <tr><td><code>career-ingest</code></td><td>분리</td><td><code>cos-register-source</code> + <code>cos-ingest</code></td><td>raw 등록과 wiki 승격을 나눈다. raw taxonomy와 claim/proof 규칙 추가.</td></tr>
+              <tr><td><code>career-ingest-github-repo</code></td><td>유지/rename</td><td><code>cos-ingest-github-repo</code></td><td>GitHub 분석은 raw evidence까지만 만들고, wiki 반영은 <code>cos-ingest</code>로 넘긴다.</td></tr>
+              <tr><td><code>career-build-general</code></td><td>축소/rename</td><td><code>cos-build-resume</code></td><td>범용 이력서만 생성. portfolio target과 render 제거.</td></tr>
+              <tr><td><code>career-apply-pipeline</code></td><td>축소/rename</td><td><code>cos-apply-resume</code></td><td>JD 맞춤 이력서만 생성. required files는 <code>jd.md</code>, <code>brief.md</code>, <code>resume.md</code>.</td></tr>
+              <tr><td><code>career-build-custom-package</code></td><td>흡수</td><td><code>cos-apply-resume</code></td><td>회사별 패키지 생성 흐름의 일부로 통합.</td></tr>
+              <tr><td><code>career-company-research</code></td><td>흡수</td><td><code>cos-apply-resume</code> optional research</td><td>공식 출처 우선, research는 선택 단계로 둔다.</td></tr>
+              <tr><td><code>career-output-polish</code></td><td>흡수</td><td>build/apply quality gate</td><td>AI 문체 제거, meaning/evidence 보존 규칙만 가져온다.</td></tr>
+              <tr><td><code>career-build-rendered-resume</code></td><td>rename</td><td><code>cos-render-resume</code></td><td>resume markdown → HTML/PDF만 담당.</td></tr>
+              <tr><td><code>career-build-rendered-portfolio</code></td><td>제거</td><td>없음</td><td>현재 scope에서 portfolio 산출물 없음.</td></tr>
+              <tr><td><code>career-lint</code></td><td>유지/rename</td><td><code>cos-lint</code></td><td>portfolio/samples 검사 제거, resume-only와 sample repo 정책 검사 추가.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>16.4 새 스킬에 넣을 공통 섹션</h3>
+          <pre><code>## Layer Movement
+## When to use
+## Inputs
+## Read first
+## Allowed edits
+## Forbidden edits
+## Workflow
+## Output files
+## Quality gates
+## Stop conditions
+## Log format</code></pre>
+
+          <h3>16.5 스킬별 핵심 allowed edits</h3>
+          <table>
+            <thead><tr><th>Skill</th><th>Allowed edits</th><th>Forbidden edits</th></tr></thead>
+            <tbody>
+              <tr><td><code>cos-register-source</code></td><td><code>raw/**</code>, <code>index.md</code>, <code>log.md</code></td><td><code>wiki/**</code>, <code>outputs/**</code>, <code>templates/**</code>, <code>docs/**</code></td></tr>
+              <tr><td><code>cos-ingest</code></td><td><code>wiki/**</code>, <code>index.md</code>, <code>log.md</code>, raw frontmatter status/related</td><td><code>outputs/**</code>, <code>templates/**</code>, sample repo files</td></tr>
+              <tr><td><code>cos-ingest-github-repo</code></td><td><code>raw/projects/*-github-analysis.md</code>, <code>raw/evidence/github/**</code>, <code>index.md</code>, <code>log.md</code></td><td><code>wiki/**</code>, <code>outputs/**</code></td></tr>
+              <tr><td><code>cos-build-resume</code></td><td><code>outputs/general/source/resume.md</code>, render final only if requested, <code>log.md</code></td><td><code>raw/**</code>, <code>wiki/**</code> unless explicit backfill, portfolio files</td></tr>
+              <tr><td><code>cos-apply-resume</code></td><td><code>raw/applications/**</code> if JD source saving needed, <code>outputs/custom/**</code>, <code>log.md</code></td><td>portfolio files, sample repo files, external submit/send without confirmation</td></tr>
+              <tr><td><code>cos-render-resume</code></td><td><code>outputs/general/final/**</code>, <code>outputs/custom/*/final/**</code></td><td>source markdown unless explicit, <code>raw/**</code>, <code>wiki/**</code></td></tr>
+              <tr><td><code>cos-lint</code></td><td>기본 read-only. fix 요청 시 명시된 파일과 <code>log.md</code></td><td>사용자 요청 없는 수정</td></tr>
+            </tbody>
+          </table>
+
+          <h3>16.6 우선 수정 순서</h3>
+          <ol>
+            <li><strong>P0:</strong> portfolio 산출물/스킬/템플릿 제거.</li>
+            <li><strong>P0:</strong> <code>samples/</code>를 별도 sample repository로 분리하고 본 레포 참조 제거.</li>
+            <li><strong>P0:</strong> <code>career-*</code>를 <code>cos-*</code>로 rename/merge/remove.</li>
+            <li><strong>P1:</strong> <code>cos-register-source</code>를 새로 만들고 <code>cos-ingest</code>와 책임 분리.</li>
+            <li><strong>P1:</strong> <code>wiki/claims-ledger.md</code>, <code>wiki/proof-map.md</code> 규칙을 ingest/build/apply에 추가.</li>
+            <li><strong>P1:</strong> 모든 스킬에 <code>Allowed edits</code> / <code>Forbidden edits</code> 섹션 추가.</li>
+            <li><strong>P2:</strong> docs/examples/checklists에서 portfolio/samples/career-* 잔여 참조 제거.</li>
+          </ol>
+        </section>
+
+      </article>
+    </main>
+  </div>
+</body>
+</html>
