@@ -64,7 +64,8 @@ JD + `wiki/` Knowledge layer -> `outputs/custom/YYYY-MM-DD-company-role/` resume
 - Work Experience와 Projects는 같은 content shape을 사용한다.
 - 각 Work Experience item은 회사/역할명, 1문장 소개, 2개 이상의 contribution block을 가진다.
 - 각 Project item은 프로젝트명, 1문장 소개, 2개 이상의 contribution block을 가진다.
-- 각 contribution block은 제목, 태그 3-5개, 환경/문제/판단이 드러나는 1문장 요약, 큰 구현 bullet, 하위 구현 detail bullet, Result line으로 작성한다.
+- 각 contribution block은 제목, 태그 3-5개, 환경/문제/필요성이 드러나는 1-2줄 요약, 큰 구현 bullet, 하위 구현 detail bullet, Result line으로 작성한다.
+- 요약은 구현 방법을 반복하지 않고 어떤 업무/서비스 환경에서 어떤 문제가 실제로 있었고 왜 재발 방지나 개선이 필요했는지 설명한다. 필요하면 두 줄까지 허용한다.
 - Awards와 Activities는 기본적으로 `Awards & Activities` 단일 섹션에 합친다.
 - 단일 프로젝트를 bullet list 하나로만 끝내지 않는다.
 - JD 맞춤본에서는 contribution block 순서를 JD의 must-have와 evaluation themes에 맞춰 재배치한다.
