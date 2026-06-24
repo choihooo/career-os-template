@@ -22,6 +22,6 @@
 
 ## Reproducibility
 
-- [ ] `samples/custom-packages/2026-01-01-example-frontend/` 샘플 패키지가 있다.
-- [ ] 샘플 JD에서 analysis, strategy, resume, portfolio가 어떻게 생성되는지 확인할 수 있다.
-- [ ] `index.md`가 새 페이지와 샘플을 찾을 수 있게 연결한다.
+- [ ] 데모 데이터와 walkthrough는 별도 `career-os-template-samples` 레포 정책으로 설명되어 있다.
+- [ ] 예제 JD에서 `jd.md`, `brief.md`, `resume.md`가 어떻게 생성되는지 확인할 수 있다.
+- [ ] `index.md`가 새 페이지와 핵심 워크플로를 찾을 수 있게 연결한다.

@@ -201,7 +201,7 @@
               <div class="flow-arrow"></div>
               <div class="flow-item highlight">
                 <b>02</b>
-                <span>career-ingest</span>
+                <span>cos-ingest</span>
               </div>
               <div class="flow-arrow"></div>
               <div class="flow-item">
@@ -212,7 +212,7 @@
             <div class="flow">
               <div class="flow-item">
                 <b>04</b>
-                <span>career-apply-pipeline</span>
+                <span>cos-apply-resume</span>
               </div>
               <div class="flow-arrow"></div>
               <div class="flow-item">
@@ -243,13 +243,13 @@
               <div>회사 조사</div>
               <div>전략 수립</div>
               <div>resume</div>
-              <div>portfolio</div>
-              <div>polish</div>
+              <div>claim/proof</div>
+              <div>quality gate</div>
               <div>HTML/PDF</div>
               <div>품질 체크</div>
             </div>
             <p class="body">
-              `career-apply-pipeline`은 하위 스킬들을 순서대로 묶는 상위 런북이다.
+              `cos-apply-resume`은 JD 저장, brief, 이력서 조립, 검수까지 이어지는 워크플로다.
             </p>
             <div class="footer no-source">
               <span></span>
@@ -266,10 +266,10 @@
             <h2>가져가면 바로 있는 것들</h2>
             <div class="file-tree">
               <div class="file-row"><b>examples/</b><span>프로젝트, 경력, 수상, JD 입력 예시</span></div>
-              <div class="file-row"><b>wiki/</b><span>샘플 후보의 정규화 지식과 템플릿</span></div>
-              <div class="file-row"><b>skills/</b><span>ingest, general build, custom package, render, lint 워크플로</span></div>
+              <div class="file-row"><b>wiki/</b><span>claim/proof 중심의 정규화 지식과 템플릿</span></div>
+              <div class="file-row"><b>skills/</b><span>register, ingest, build, apply, render, lint 워크플로</span></div>
               <div class="file-row"><b>templates/resume/</b><span>개인정보 없는 HTML 이력서 스타터</span></div>
-              <div class="file-row"><b>templates/portfolio/</b><span>개인정보 없는 HTML 포트폴리오 스타터</span></div>
+              <div class="file-row"><b>outputs/</b><span>범용/회사별 이력서 source와 final 결과</span></div>
             </div>
             <div class="footer no-source">
               <span></span>
@@ -312,13 +312,13 @@
             <div class="eyebrow">다음 액션</div>
             <h2>복사한 뒤 자기 자료를 넣으면 된다</h2>
             <ul class="mini-list">
-              <li>샘플 후보명과 링크를 자기 정보로 교체</li>
+              <li>profile과 links를 자기 정보로 채우기</li>
               <li>프로젝트와 경력을 raw/에 저장</li>
-              <li>career-ingest로 wiki를 채우기</li>
+              <li>cos-ingest로 wiki를 채우기</li>
             </ul>
             <div class="cta-panel">
               <span>첫 사용 명령</span>
-              <b>“이 자료를 career-ingest 기준으로 반영해줘”</b>
+              <b>“이 자료를 cos-register-source 기준으로 저장해줘”</b>
             </div>
             <a class="cta-button" href="https://github.com/choihooo/carrer-wiki/tree/career-os-template">템플릿 브랜치 열기</a>
             <div class="footer no-source">

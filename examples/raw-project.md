@@ -1,6 +1,6 @@
 # Raw Project Input Example
 
-아래 형식으로 프로젝트 자료를 붙여 넣으면 `career-ingest`가 `raw/`와 `wiki/`에 반영하기 쉽다.
+아래 형식으로 프로젝트 자료를 붙여 넣으면 `cos-register-source`와 `cos-ingest`가 `raw/`와 `wiki/`에 반영하기 쉽다.
 
 ## Project
 
@@ -33,4 +33,4 @@
 ## Reusable Sentences
 
 - 이력서에 쓰고 싶은 문장:
-- 포트폴리오에서 길게 설명하고 싶은 이야기:
+- 면접 답변이나 이력서 bullet로 재사용하고 싶은 이야기:

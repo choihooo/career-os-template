@@ -20,7 +20,7 @@
 ## Output Usage
 
 - Resume wording:
-- Portfolio usage:
+- Resume evidence usage:
 - Interview usage:
 - Evidence level:
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Career Apply Pipeline"
-  short_description: "Run a JD-to-submission application workflow."
-  default_prompt: "Build a complete company-specific application package from this JD, then polish and optionally render the outputs."

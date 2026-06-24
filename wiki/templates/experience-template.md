@@ -30,7 +30,7 @@
 - Evidence:
 - Related projects:
 - Resume bullet candidate:
-- Portfolio relevance:
+- Interview relevance:
 
 ## Skills Used
 
@@ -42,6 +42,5 @@
 ## Output Notes
 
 - Best for resume:
-- Best for portfolio:
 - Best for interview:
 - Claims to avoid:

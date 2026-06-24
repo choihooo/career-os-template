@@ -27,22 +27,23 @@
         <h1>Career OS를 처음 쓰는 순서</h1>
         <p>
           이 템플릿은 채용 지원 자료를 `raw/`, `wiki/`, `outputs/`로 나누고, JD별 맞춤
-          이력서와 포트폴리오 패키지를 만드는 작업공간입니다.
+          이력서 패키지를 만드는 작업공간입니다.
         </p>
       </section>
 
       <section class="content-section">
         <h2>빠른 시작</h2>
         <ol class="step-list">
-          <li><b>구조 확인</b><span>Index 페이지에서 샘플 파일과 작업 흐름을 확인합니다.</span></li>
-          <li><b>프로필 작성</b><span>`raw/bios/profile.md`에 기본정보와 링크를 채웁니다.</span></li>
-          <li><b>에셋 정리</b><span>원본 이미지는 `raw/assets/`, 렌더링용 이미지는 `templates/resume/assets/`, `templates/portfolio/assets/`에 둡니다.</span></li>
+          <li><b>구조 확인</b><span>Index 페이지에서 작업 흐름을 확인합니다.</span></li>
+          <li><b>프로필 작성</b><span>`raw/profile/profile.md`, `links.md`, `preferences.md`에 기본정보와 링크를 채웁니다.</span></li>
+          <li><b>에셋 정리</b><span>원본 이미지는 `raw/assets/`, 렌더링용 이미지는 `templates/resume/assets/`에 둡니다.</span></li>
           <li><b>자료 준비</b><span>프로젝트, 경력, 수상, JD 자료를 examples 형식에 맞춰 준비합니다.</span></li>
-          <li><b>위키 반영</b><span>`career-ingest`로 raw와 wiki를 먼저 채웁니다.</span></li>
-          <li><b>범용본 생성</b><span>`career-build-general`로 `outputs/general/source/`의 resume과 portfolio를 만듭니다.</span></li>
-          <li><b>맞춤 지원</b><span>실제 JD가 생기면 `career-apply-pipeline`으로 `outputs/custom/YYYY-MM-DD-company/` 패키지를 만듭니다.</span></li>
+          <li><b>원천 저장</b><span>`cos-register-source`로 raw를 먼저 채웁니다.</span></li>
+          <li><b>위키 반영</b><span>`cos-ingest`로 claim/proof와 wiki를 정리합니다.</span></li>
+          <li><b>범용본 생성</b><span>`cos-build-resume`로 `outputs/general/source/resume.md`를 만듭니다.</span></li>
+          <li><b>맞춤 지원</b><span>실제 JD가 생기면 `cos-apply-resume`으로 `outputs/custom/YYYY-MM-DD-company-role/` 패키지를 만듭니다.</span></li>
           <li><b>렌더링</b><span>제출용 HTML/PDF가 필요할 때만 `final/`에 렌더링합니다.</span></li>
-          <li><b>검수</b><span>체크리스트와 `career-lint`로 누락, 과장, 중복을 확인합니다.</span></li>
+          <li><b>검수</b><span>체크리스트와 `cos-lint`로 누락, 과장, 중복을 확인합니다.</span></li>
         </ol>
       </section>
 
@@ -51,9 +52,9 @@
           <h2>레이어</h2>
           <ul class="plain-list">
             <li><b>raw/</b><span>사실 원형, 링크, 메모를 보존합니다.</span></li>
-            <li><b>wiki/</b><span>경험, 프로젝트, 수상, 기술, 스토리, 문장 뱅크를 정규화합니다.</span></li>
+            <li><b>wiki/</b><span>경험, 프로젝트, 활동, 수상, 기술, story, claim/proof를 정규화합니다.</span></li>
             <li><b>outputs/</b><span>`source/`와 `final/`로 나뉜 범용본과 회사별 맞춤본을 보관합니다.</span></li>
-            <li><b>templates/</b><span>Markdown 산출물을 HTML/PDF/카드뉴스로 렌더링하는 공용 템플릿입니다.</span></li>
+            <li><b>templates/</b><span>Markdown 이력서를 HTML/PDF로 렌더링하는 공용 템플릿입니다.</span></li>
           </ul>
         </article>
         <article>

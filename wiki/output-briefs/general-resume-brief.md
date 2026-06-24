@@ -18,17 +18,18 @@
 
 ### Section Order
 
-1. Summary
-2. Experience Highlights
-3. Selected Projects
-4. Awards or Activities
-5. Skills
+1. About Me
+2. Work Experience
+3. Projects
+4. Awards & Activities
 
 ### Selection Rules
 
 - 근거 수준이 높은 성과를 우선한다.
 - 너무 회사 특화된 표현은 줄인다.
 - 모든 bullet은 `wiki/sentence-bank/resume-bullets.md` 또는 개별 wiki 페이지를 근거로 한다.
+- `Skills`, `Education`, 또는 다른 새 섹션이 필요하면 shared template-design change로 분리한다.
+- Work Experience와 Projects는 같은 content shape을 사용한다.
 
 ## Resume v2
 
@@ -41,21 +42,73 @@
 
 - 이 후보자가 남들과 다르게 강한 지점
 - 반복적으로 증명된 문제 해결 패턴
-- 포트폴리오까지 읽고 싶게 만드는 대표 사례
+- 이력서 안에서 바로 이해되는 대표 사례
 
 ### Section Order
 
-1. Positioning Summary
-2. Core Impact
-3. Focused Experience
-4. Signature Projects
-5. Skills and Tools
+1. About Me
+2. Work Experience
+3. Projects
+4. Awards & Activities
 
 ### Selection Rules
 
 - `wiki/themes/positioning.md`의 Main Narrative와 맞는 항목만 남긴다.
 - 약한 경험을 많이 넣기보다 강한 경험을 압축한다.
 - 직무 전환이나 포지션 전환이 있다면 Summary에서 먼저 해석한다.
+- `Skills`, `Education`, 또는 다른 새 섹션이 필요하면 shared template-design change로 분리한다.
+- JD나 목표 역할과 직접 연결되는 경험/프로젝트 contribution block을 우선 배치한다.
+
+## Content Shape
+
+렌더링 템플릿은 Work Experience와 Projects가 같은 형식으로 작성된다고 가정한다.
+
+### Work Experience item
+
+- 기간과 optional link
+- 회사/역할명
+- 1문장 소개
+- 2개 이상의 contribution block
+
+각 contribution block은 아래 순서를 따른다.
+
+1. 기여 제목
+2. 기술/도메인 태그 3-5개
+3. 환경/문제/판단이 드러나는 1문장 기여 요약
+4. 큰 구현 bullet
+5. 큰 구현 bullet 아래의 하위 구현 detail bullet
+6. `Result:` 라인
+
+기여 요약은 “어떤 환경에서 어떤 문제가 있었고, 그래서 어떤 구현을 했다”가 드러나야 한다.
+
+```md
+#### 피크타임 동시 조회 문제를 3계층 캐싱으로 개선
+
+- Tags: Spring, Redis, Caffeine, Grafana
+- Summary: 피크타임에 다수 사용자가 동시에 조회하는 환경에서 DB 커넥션 풀이 고갈되던 문제를 캐싱 계층 분리로 개선했습니다.
+- Caffeine 로컬 캐시, Redis 분산 캐시, pre-warming 배치를 조합한 3계층 캐싱 구조를 설계했습니다.
+  - 캐시 키에 version 필드를 포함해 데이터 변경 시 즉시 무효화되도록 했습니다.
+  - TTL jitter로 cache stampede를 줄이고, 기간 단위 분할 캐싱으로 hot key 집중을 완화했습니다.
+  - hit rate, Redis RTT, eviction을 Grafana로 추적하고 pre-warm 실패 시 DB fallback을 보장했습니다.
+- Result: 캐시 히트율 N%, 응답 N초 -> Nms, 피크타임 커넥션 고갈 해소
+```
+
+### Project item
+
+- 기간과 optional link
+- 프로젝트명
+- 1문장 소개
+- 2개 이상의 contribution block
+
+프로젝트도 단일 bullet 묶음으로 끝내지 않는다. 경력처럼 기능, 문제 해결, 검증, 품질 개선 같은 기여 단위로 나눈다.
+
+### Awards & Activities item
+
+- 기간
+- 활동/수상/검증명
+- 2-4개 bullet
+
+수상과 활동은 기본적으로 하나의 `Awards & Activities` 섹션에 합친다. 단순 참가보다 수상, 선정, 발표, 외부 검증, 운영 기여, 멘토링, 기술 글쓰기처럼 claim으로 연결 가능한 항목을 우선한다.
 
 ## Quality Bar
 
@@ -63,3 +116,4 @@
 - Summary가 bullet의 반복 요약이 되면 줄인다.
 - 모든 강한 표현은 근거 페이지로 역추적 가능해야 한다.
 - placeholder가 남아 있으면 산출물로 보지 않는다.
+- Work Experience와 Projects가 서로 다른 형식으로 작성되면 산출물로 보지 않는다.

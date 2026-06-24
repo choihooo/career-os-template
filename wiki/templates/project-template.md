@@ -46,7 +46,7 @@
 
 -
 
-### Portfolio Case Study
+### Resume Case Study
 
 - Hook:
 - Problem:

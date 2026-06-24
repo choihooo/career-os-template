@@ -3,7 +3,9 @@
 이 파일은 append-only로 유지한다. 템플릿을 복사한 뒤 실제 작업부터 아래에 기록한다.
 대표 항목 타입은 `ingest`, `output`, `lint`이며 필요하면 `init`, `setup`, `skill`, `research` 같은 타입도 사용할 수 있다.
 이 파일은 과거 작업 이력을 보존하므로 이전 구조명이나 이전 운영 맥락이 남아 있을 수 있다. 현재 기준 구조와 규칙은 `README.md`, `AGENTS.md`, `index.md`를 우선 따른다.
-현재 output 구조는 `outputs/general/source|final`과 `outputs/custom/YYYY-MM-DD-company/source|research|final` 기준으로 해석한다.
+현재 구조는 resume-only다. output 구조는 `outputs/general/source|final`과 `outputs/custom/YYYY-MM-DD-company-role/source|research|final` 기준으로 해석한다.
+현재 스킬명은 `cos-*` 기준이며, 과거 `career-*` 항목은 historical log로만 해석한다.
+데모 데이터와 예제 산출물은 별도 `career-os-template-samples` 레포 정책으로 해석한다.
 
 ## [2026-01-01] init | template initialized
 
@@ -116,3 +118,21 @@
 - 회사별 맞춤 패키지를 `source/`, `research/`, `final/` 구조로 재정의
 - `analysis.md`, `strategy.md`를 `brief.md` 중심 구조로 통합
 - 샘플 custom package와 스킬 문서를 새 output 구조에 맞게 갱신
+
+## [2026-06-24] setup | resume-only cos workflow structure applied
+
+- Moved profile source from `raw/bios/profile.md` to `raw/profile/profile.md`
+- Added raw taxonomy folders for profile, activities, applications, evidence, assets, and inbox
+- Added `wiki/claims-ledger.md`, `wiki/proof-map.md`, and `wiki/activities/`
+- Removed in-repo sample package/data tree and portfolio output/template targets
+- Replaced legacy workflow skills with `cos-*` resume-only skills
+- Updated README, AGENTS, index, and layer README files to the v0.2 structure
+
+## [2026-06-24] skill | resume template contract tightened
+
+- Added read-only shared template rules to `cos-render-resume`
+- Added resume content contract gates to build, apply, render, and general resume brief
+- Aligned the general resume source example with About Me, Work Experience, Projects, and Awards & Activities
+- Removed remaining active portfolio usage wording from wiki templates
+- Removed resume template section-specific bullet indentation override
+- Standardized contribution blocks as environment/problem summary, main implementation bullet, nested detail bullets, and result line

@@ -20,7 +20,7 @@
 ## Output Usage
 
 - Resume:
-- Portfolio:
+- Resume evidence:
 - Interview:
 
 ## Claims to Avoid

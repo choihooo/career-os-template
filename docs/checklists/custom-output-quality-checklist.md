@@ -17,15 +17,15 @@
 - [ ] 같은 프로젝트 설명을 불필요하게 반복하지 않는다.
 - [ ] placeholder가 없다.
 
-## Portfolio
+## Proof
 
-- [ ] 케이스 스터디가 문제, 판단, 행동, 결과로 닫힌다.
-- [ ] 각 프로젝트가 JD 요구사항과 연결된다.
-- [ ] 수치와 proof가 분리되어 있다.
-- [ ] 이력서 문장을 그대로 복사하지 않는다.
+- [ ] 강한 claim이 source page와 proof로 역추적된다.
+- [ ] 수치와 해석이 분리되어 있다.
+- [ ] 근거가 부족한 내용은 `brief.md`의 gap에 남아 있다.
+- [ ] JD 표현을 그대로 쓰기 전에 실제 경험과 맞는지 확인했다.
 
 ## Final
 
-- [ ] `final/resume.html`, `final/resume.pdf`, `final/portfolio.html`, `final/portfolio.pdf`가 필요한 범위에서 생성되어 있다.
+- [ ] `final/resume.html`, `final/resume.pdf`가 필요한 범위에서 생성되어 있다.
 - [ ] HTML이 깨지지 않고 열리며, 필요한 자산은 `final/assets/`에 있다.
 - [ ] 렌더 결과가 `source/` 원본과 충돌하지 않는다.

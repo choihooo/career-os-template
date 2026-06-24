@@ -25,7 +25,7 @@
       <section class="page-hero">
         <p class="eyebrow">Index</p>
         <h1>작업공간 지도</h1>
-        <p>권장 사용 순서: index 확인 → career-ingest → career-build-general → career-apply-pipeline → final render → quality check.</p>
+        <p>권장 사용 순서: index 확인 → cos-register-source → cos-ingest → cos-build-resume → cos-apply-resume → final render → cos-lint.</p>
       </section>
 
       <section class="content-section directory-grid">
@@ -50,31 +50,27 @@
         <article>
           <h2>Skills</h2>
           <ul class="plain-list">
-            <li><b>career-apply-pipeline</b><span>JD 분석부터 맞춤 패키지와 품질 체크까지 이어지는 상위 워크플로</span></li>
-            <li><b>career-ingest</b><span>새 커리어 원천 자료 반영</span></li>
-            <li><b>career-build-general</b><span>범용 이력서와 포트폴리오 생성</span></li>
-            <li><b>career-lint</b><span>위키 구조와 산출물 상태 점검</span></li>
+            <li><b>cos-register-source</b><span>새 커리어 원천 자료 저장</span></li>
+            <li><b>cos-ingest</b><span>raw를 wiki와 claim/proof로 승격</span></li>
+            <li><b>cos-build-resume</b><span>범용 이력서 생성</span></li>
+            <li><b>cos-lint</b><span>레이어 구조와 산출물 상태 점검</span></li>
           </ul>
         </article>
         <article>
           <h2>Outputs</h2>
           <ul class="plain-list">
-            <li><b>outputs/general/source</b><span>범용 resume과 portfolio markdown 원본</span></li>
+            <li><b>outputs/general/source</b><span>범용 resume markdown 원본</span></li>
             <li><b>outputs/general/final</b><span>범용 HTML/PDF 렌더 결과</span></li>
             <li><b>outputs/custom</b><span>회사별 source, research, final 패키지 저장 위치</span></li>
-            <li><b>samples/custom-packages</b><span>JD 맞춤 패키지 데모</span></li>
             <li><b>templates/resume</b><span>공용 이력서 HTML 템플릿</span></li>
-            <li><b>templates/portfolio</b><span>공용 포트폴리오 HTML 템플릿</span></li>
           </ul>
         </article>
         <article>
           <h2>Raw Sources</h2>
           <ul class="plain-list">
-            <li><b>raw/bios/profile</b><span>실제 기본 프로필 입력 위치</span></li>
+            <li><b>raw/profile/profile</b><span>실제 기본 프로필 입력 위치</span></li>
             <li><b>raw/assets</b><span>실제 원본 이미지와 증빙 파일 위치</span></li>
-            <li><b>samples/raw</b><span>샘플 후보 프로필과 샘플 JD 원천</span></li>
-            <li><b>sample-dashboard</b><span>대시보드 프로젝트 원천 메모</span></li>
-            <li><b>sample-company-intern</b><span>폼 검증과 타입 안정성 개선 경력 메모</span></li>
+            <li><b>raw/evidence</b><span>GitHub, feedback, metrics 등 증빙 설명 위치</span></li>
           </ul>
         </article>
       </section>

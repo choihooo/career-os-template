@@ -38,7 +38,7 @@
     <text x="448" y="68" fill="#dbeafe" font-family="Arial, sans-serif" font-size="34" font-weight="700">wiki/</text>
     <text x="448" y="112" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">career knowledge</text>
     <text x="250" y="372" fill="#dbeafe" font-family="Arial, sans-serif" font-size="34" font-weight="700">outputs/</text>
-    <text x="250" y="416" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">resume + portfolio</text>
+    <text x="250" y="416" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">resume outputs</text>
     <text x="584" y="372" fill="#dbeafe" font-family="Arial, sans-serif" font-size="34" font-weight="700">template</text>
     <text x="584" y="416" fill="#8fb8e8" font-family="Arial, sans-serif" font-size="24">branch to repo</text>
   </g>

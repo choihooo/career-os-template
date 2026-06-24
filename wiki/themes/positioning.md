@@ -24,13 +24,13 @@
 
 - Strength: 운영 안정성 개선
   - Definition: 오류가 사용자나 운영 단계에 도달하기 전에 타입과 검증으로 차단한다.
-  - Evidence pages: `samples/wiki/experiences/sample-company.md`
+  - Evidence pages: 실제 `wiki/experiences/` 또는 `raw/experiences/` 근거로 교체
 - Strength: 상태관리와 데이터 흐름 설계
   - Definition: UI 상태와 서버 상태를 분리하고 재현 가능한 흐름을 만든다.
-  - Evidence pages: `samples/wiki/projects/sample-dashboard.md`
+  - Evidence pages: 실제 `wiki/projects/` 또는 `raw/projects/` 근거로 교체
 - Strength: 사용자 흐름 중심 UX 개선
   - Definition: 입력, 필터, 탐색, 알림처럼 사용자가 막히는 지점을 줄인다.
-  - Evidence pages: `samples/wiki/projects/sample-dashboard.md`
+  - Evidence pages: 실제 `wiki/projects/` 또는 `raw/projects/` 근거로 교체
 
 ## Claims to Avoid
 

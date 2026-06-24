@@ -1,12 +1,12 @@
 # Story Bank
 
-면접 답변과 포트폴리오 케이스 스터디에 재사용할 이야기 단위를 모은다.
+면접 답변과 이력서 bullet 조립에 재사용할 이야기 단위를 모은다.
 
 ## STAR Stories
 
 ### Sample Dashboard Filter Flow
 
-- Related page: `samples/wiki/projects/sample-dashboard.md`
+- Related page: 실제 `wiki/projects/` 또는 `raw/projects/` 근거로 교체
 - Situation: 운영자가 여러 파일을 오가며 주간 리포트를 만들고 있었다.
 - Task: 같은 조건을 다시 재현하고 공유할 수 있는 대시보드 흐름이 필요했다.
 - Action: TanStack Query로 서버 상태를 분리하고 URL query로 필터 상태를 동기화했다.
@@ -27,4 +27,4 @@
 - 내가 맡은 역할이 분명한가
 - 행동이 구체적인가
 - 결과가 사실 또는 수치로 닫히는가
-- 이력서 bullet, 포트폴리오 본문, 면접 답변으로 변환 가능한가
+- 이력서 bullet과 면접 답변으로 변환 가능한가

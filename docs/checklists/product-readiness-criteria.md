@@ -11,19 +11,20 @@
 필수 조건:
 
 - 주요 경험이 `raw/`에 원천 자료로 저장되어 있다.
-- 주요 경험이 `wiki/experiences/`, `wiki/projects/`, `wiki/awards/`, `wiki/skills/`에 정규화되어 있다.
+- 주요 경험이 `wiki/experiences/`, `wiki/projects/`, `wiki/activities/`, `wiki/awards/`, `wiki/skills/`에 정규화되어 있다.
+- 강한 claim이 `wiki/claims-ledger.md`와 `wiki/proof-map.md`에 연결되어 있다.
 - `wiki/overview/career-overview.md`와 `wiki/themes/positioning.md`에 목표 역할, 강점, 피해야 할 주장이 정리되어 있다.
 - `wiki/sentence-bank/resume-bullets.md`에 실전 bullet이 20개 이상 있다.
 - `wiki/stories/story-bank.md`에 STAR 스토리가 5개 이상 있다.
-- `outputs/general/source/resume.md`와 `outputs/general/source/portfolio.md`가 샘플이 아니라 자기 자료 기반으로 완성되어 있다.
-- 필요하면 `outputs/general/final/resume.html`, `resume.pdf`, `portfolio.html`, `portfolio.pdf`를 생성할 수 있다.
+- `outputs/general/source/resume.md`가 자기 자료 기반으로 완성되어 있다.
+- 필요하면 `outputs/general/final/resume.html`, `resume.pdf`를 생성할 수 있다.
 - 실제 회사 JD 2개 이상으로 custom package를 생성해봤고, 결과가 서로 다르게 맞춤화된다.
-- 생성된 custom package가 `source/jd.md`, `source/brief.md`, `source/resume.md`, `source/portfolio.md`를 모두 포함한다.
+- 생성된 custom package가 `source/jd.md`, `source/brief.md`, `source/resume.md`를 모두 포함한다.
 - 근거가 부족한 수치나 역할은 생성하지 않고 `Gaps` 또는 `brief.md`에 남긴다.
 
 100%가 아닌 경우:
 
-- 샘플 후보/샘플 회사 내용이 남아 있다.
+- 데모 후보/회사 내용이 운영 레포에 남아 있다.
 - 범용 산출물이 비어 있거나 placeholder가 남아 있다.
 - JD를 넣어도 모든 회사에 비슷한 문서가 나온다.
 - 강한 주장이 source page로 역추적되지 않는다.
@@ -37,7 +38,7 @@
 - `README.md` 첫 화면에서 제품 목적과 사용 흐름을 이해할 수 있다.
 - `examples/`에 프로젝트, 경력, 수상, JD, 요청 프롬프트 예시가 있다.
 - `docs/checklists/`에 개인 준비도, 베타 준비도, custom output 품질 기준이 있다.
-- `samples/custom-packages/` 아래에 `source/`, `research/`, `final/` 구조를 따르는 샘플 custom package가 있다.
+- 데모 데이터와 walkthrough는 별도 `career-os-template-samples` 레포에서 관리한다.
 - markdown 산출물, HTML 템플릿, PDF export의 역할 차이가 설명되어 있다.
 - 실패 조건이 설명되어 있다.
   - JD가 너무 짧은 경우
@@ -73,4 +74,4 @@
 
 ## Template Gate
 
-이 템플릿을 복사한 직후에는 100% 상태가 아니다. 샘플 자료를 자기 자료로 교체하고, 최소 1개의 실제 JD로 `career-apply-pipeline`을 실행한 뒤부터 개인 사용 준비도를 평가한다.
+이 템플릿을 복사한 직후에는 100% 상태가 아니다. 실제 자료를 `raw/`와 `wiki/`에 등록하고, 최소 1개의 실제 JD로 `cos-apply-resume`을 실행한 뒤부터 개인 사용 준비도를 평가한다.
