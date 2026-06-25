@@ -54,6 +54,9 @@ Render only source resumes that match the shared template shape.
 - 각 Project item은 프로젝트명, 1문장 소개, 2개 이상의 contribution block을 가진다.
 - 각 contribution block은 제목, 태그 3-5개, 환경/문제/필요성이 드러나는 1-2줄 요약, 큰 구현 bullet, 하위 구현 detail bullet, Result line으로 작성되어야 한다.
 - 요약은 구현 방법을 반복하지 않고 어떤 업무/서비스 환경에서 어떤 문제가 실제로 있었고 왜 재발 방지나 개선이 필요했는지 설명해야 한다. 필요하면 두 줄까지 허용한다.
+- 기본 기능 구현처럼 강한 문제 해결 claim이 없는 경우, 요약은 "구현해야 했던 상황"만 설명해야 한다.
+- 기술적 선택이 있으면 큰 구현 bullet에서 `A vs B` 선택과 이유를 써야 한다.
+- 기술적 선택이 없으면 큰 구현 bullet은 기본 구현 내용을 한 줄로 써야 한다.
 - Awards와 Activities는 기본적으로 `Awards & Activities` 단일 섹션에 합친다.
 - 단일 프로젝트를 bullet list 하나로만 끝내지 않는다.
 - `Skills`, `Education`, 또는 다른 새 섹션이 필요하면 shared template-design change로 분리한다.

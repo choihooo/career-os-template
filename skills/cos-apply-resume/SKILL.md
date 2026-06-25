@@ -66,6 +66,9 @@ JD + `wiki/` Knowledge layer -> `outputs/custom/YYYY-MM-DD-company-role/` resume
 - 각 Project item은 프로젝트명, 1문장 소개, 2개 이상의 contribution block을 가진다.
 - 각 contribution block은 제목, 태그 3-5개, 환경/문제/필요성이 드러나는 1-2줄 요약, 큰 구현 bullet, 하위 구현 detail bullet, Result line으로 작성한다.
 - 요약은 구현 방법을 반복하지 않고 어떤 업무/서비스 환경에서 어떤 문제가 실제로 있었고 왜 재발 방지나 개선이 필요했는지 설명한다. 필요하면 두 줄까지 허용한다.
+- 기본 기능 구현처럼 강한 문제 해결 claim이 없는 경우, 요약은 "구현해야 했던 상황"만 설명한다.
+- 기술적 선택이 있으면 큰 구현 bullet에서 `A vs B` 선택과 이유를 쓴다.
+- 기술적 선택이 없으면 큰 구현 bullet은 기본 구현 내용을 한 줄로 쓴다.
 - Awards와 Activities는 기본적으로 `Awards & Activities` 단일 섹션에 합친다.
 - 단일 프로젝트를 bullet list 하나로만 끝내지 않는다.
 - JD 맞춤본에서는 contribution block 순서를 JD의 must-have와 evaluation themes에 맞춰 재배치한다.
@@ -100,6 +103,7 @@ JD + `wiki/` Knowledge layer -> `outputs/custom/YYYY-MM-DD-company-role/` resume
 - Work Experience와 Projects가 같은 content shape을 사용한다.
 - 각 경력/프로젝트 항목에 2개 이상의 contribution block이 있다.
 - 큰 구현 bullet 아래에 하위 detail bullet을 두고, 마지막에 `Result:` 라인으로 개선 결과를 분리한다.
+- 기본 기능 구현은 과장된 문제 해결처럼 쓰지 않고 구현 상황, 구현 범위, 완성된 사용 흐름을 기준으로 쓴다.
 - unsupported claim은 삭제하거나 gap으로 이동한다.
 - final markdown에 placeholder가 없다.
 - 공식 출처가 필요한 최신 회사 정보는 날짜와 링크를 남긴다.
